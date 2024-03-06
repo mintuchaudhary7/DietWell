@@ -8,7 +8,7 @@ import Contact from "./Contact";
 import Signup from "./Signup";
 import { useContext } from "react";
 import { UserContext } from "../App";
-import logo from '../assets/lo'
+import logo from "../assets/logo.png"
 //importing all the components which are required;
 const Navbar = () => {
   // const islog = useContext(UserContext);
