@@ -1,6 +1,6 @@
-import logo from "./logo.svg";
-import "./App.css";
-import Navbar from "./components/Navbar";
+import logo from './logo.svg';
+import './App.css';
+import Navbar from './components/Navbar';
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Homepage";
 import Login from "./components/Login";
@@ -8,9 +8,16 @@ import Services from "./components/Services";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Signup from "./components/Signup";
+import { createContext } from 'react';
+import { useState } from 'react';
+
+
+// const islogin = createContext();
+const UserContext = createContext();
 function App() {
+  const [islogin, setIslogin] = useState(false);
   return (
-    <div className="h-full ">
+    <div className = "h-full " >
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>} />
@@ -25,3 +32,4 @@ function App() {
 }
 
 export default App;
+export {UserContext}

@@ -2,18 +2,18 @@ const express = require('express');
 
 const app = express();
 
-const PORT = process.env.PORT || 2000;
+const PORT = process.env.PORT || 2000;//dynamically choosing the port if our .env port is busy then by default aur backend choose 2000 port by default
 
-app.use(express.json());
-const cors = require('cors');
-app.use(cors());
-const dbConnect = require("./config/database");
+app.use(express.json()); // for parsing and converting data to json format
+const cors = require('cors');// cors is user to communicating between frontend and backend bassically used for cross origin communication like our frontend is running on port no 3000 and backend is running on 3000 port no then cors is used to communicate
+app.use(cors());//same as above
+const dbConnect = require("./config/database");//importing function which we created to connect database
 
-dbConnect();
+dbConnect();//calling the function to connect database
 
-const route = require('./routes/routes')
-app.use(route);
+const route = require('./routes/routes')// importing the route
+app.use(route);//mounting our route to our app
 
 app.listen(PORT, () => {
     console.log(`server started at ${PORT}`);
-});
+});// starting our development server of backend
