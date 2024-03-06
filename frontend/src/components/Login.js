@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useContext,createContext } from "react";
+import { useContext, createContext } from "react";
 import { UserContext } from "../App";
 const Login = () => {
   const user = useContext(UserContext);
   const islogin = user;
   const setIslogin = user;
   const [Email, setEmail] = useState("");
+  const [error, setError] = useState(false);
+
   const [Passward, setPassward] = useState("");
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
@@ -26,10 +28,10 @@ const Login = () => {
 
     if (!response.ok) {
       console.log(result.error);
+      setError(!error);
       // setError(result.error);
     }
     if (response.ok) {
-
       console.log(result);
 
       setEmail("");
@@ -37,9 +39,9 @@ const Login = () => {
 
       setPassward("");
       //   setIsSignup(true);
-      
+
       navigate("/");
-      setIslogin(!islogin);
+      // setIslogin(!islogin);
     }
   };
   return (
@@ -62,6 +64,8 @@ const Login = () => {
           onChange={(e) => setPassward(e.target.value)}
         />
         <button type="submit">submit</button>
+
+        {error ? <div>incorrect passward</div> : <></>}
       </form>
     </div>
   );
