@@ -6,13 +6,15 @@ import Services from "./Services";
 import About from "./About";
 import Contact from "./Contact";
 import Signup from "./Signup";
-import { useContext} from "react";
+import { useContext } from "react";
 import { UserContext } from "../App";
 
 const Navbar = () => {
   // const islog = useContext(UserContext);
   const user = useContext(UserContext);
-  const {islogin,setIslogin} = user;
+  const  islogin = user.islogin
+    const setIslogin  = user.setIslogin;
+  console.log(islogin);
   return (
     <div className="flex justify-between text-l bg-slate-600 p-2 flex-shrink-0">
       <div className="ml-10">Logo</div>
@@ -22,12 +24,15 @@ const Navbar = () => {
         <NavLink to="/services">Services</NavLink>
         <NavLink to="/about">About us</NavLink>
         <NavLink to="/contact">Contact</NavLink>
-       
-        {islogin ? <div>profile</div> : 
-         <><NavLink to="/login">Login </NavLink>
-        <NavLink to="/signup">signup</NavLink></>}
-        
-        
+
+        {islogin ? (
+          <div>profile</div>
+        ) : (
+          <>
+            <NavLink to="/login">Login </NavLink>
+            <NavLink to="/signup">signup</NavLink>
+          </>
+        )}
       </div>
     </div>
   );

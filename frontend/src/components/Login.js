@@ -4,8 +4,9 @@ import { useContext, createContext } from "react";
 import { UserContext } from "../App";
 const Login = () => {
   const user = useContext(UserContext);
-  const islogin = user;
-  const setIslogin = user;
+  const islogin = user.islogin;
+  const setIslogin = user.setIslogin;
+  console.log(islogin)
   const [Email, setEmail] = useState("");
   const [error, setError] = useState(false);
 
@@ -39,9 +40,9 @@ const Login = () => {
 
       setPassward("");
       //   setIsSignup(true);
-
+      setIslogin(true);
       navigate("/");
-      // setIslogin(!islogin);
+    
     }
   };
   return (
