@@ -8,6 +8,7 @@ import Contact from "./Contact";
 import Signup from "./Signup";
 import { useContext } from "react";
 import { UserContext } from "../App";
+import logo from '../assets/lo'
 //importing all the components which are required;
 const Navbar = () => {
   // const islog = useContext(UserContext);
@@ -18,11 +19,15 @@ const Navbar = () => {
   const setIslogin  = user.setIslogin;
   console.log(islogin);
   return (
-    <div className="flex justify-between text-xxl font-bold bg-green-300 p-4 flex-shrink-0">
-      <div className="ml-10">Logo</div>
-
+    <div className="flex justify-between text-xxl font-bold bg-green-300 p-2 items-center flex-shrink-0">
+      {/* <div className="ml-10"> */}
+      <NavLink to="/"><img className="ml-10 rounded-full"  height={80} width={80} src = {logo} alt=""></img></NavLink>
+         
+        {/* </div> */}
+      
       <div className="flex justify-evenly gap-6 mr-10 text-xl ">
         {/* navlink for maping the routes */}
+        
         <NavLink to="/">Home</NavLink>
         <NavLink to="/services">Services</NavLink>
         <NavLink to="/about">About us</NavLink>
