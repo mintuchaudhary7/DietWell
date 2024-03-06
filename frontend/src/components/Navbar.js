@@ -8,7 +8,8 @@ import Contact from "./Contact";
 import Signup from "./Signup";
 import { useContext } from "react";
 import { UserContext } from "../App";
-import logo from "../assets/logo.png"
+import logo from '../assets/logo.png'
+import { useState } from "react";
 //importing all the components which are required;
 const Navbar = () => {
   // const islog = useContext(UserContext);
@@ -18,8 +19,10 @@ const Navbar = () => {
   const  islogin = user.islogin
   const setIslogin  = user.setIslogin;
   console.log(islogin);
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="flex justify-between text-xxl font-bold bg-green-300 p-2 items-center flex-shrink-0">
+    
+    <div className="flex justify-between text-xxl font-bold bg-green-300 p-2 items-center fixed w-full flex-shrink-0">
       {/* <div className="ml-10"> */}
       <NavLink to="/"><img className="ml-10 rounded-full"  height={80} width={80} src = {logo} alt=""></img></NavLink>
          
