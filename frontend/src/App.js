@@ -11,14 +11,9 @@ import Contact from "./components/Contact";
 import Signup from "./components/Signup";
 
 // const islogin = createContext();
-// ye short-hand notation hai context api ke liye working same hai contextapi ke jaise
-//context api is used to pass data from one component to its child component whitout nesting
-
 const UserContext = createContext();
-// (() => {});
 function App() {
-  const [islogin, setIslogin] = useState(false); //  this is used to check user is logged in or not if logged in then we show profile button and logout button else we dont show innitiall it is false because when user first visit our page he is not loged in;
-
+  const [islogin, setIslogin] = useState(false);
   return (
     <div className="h-full ">
       <UserContext.Provider value={{ islogin, setIslogin }}>

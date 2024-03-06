@@ -14,9 +14,11 @@ const Navbar = () => {
   // destructuring the data which we passed in context api 
   // like ham kisi box se kuch bhahar nikal rhe hai consume krne ke liye
   const user = useContext(UserContext);
-  const {islogin,setIslogin} = user;
+  const  islogin = user.islogin
+  const setIslogin  = user.setIslogin;
+  console.log(islogin);
   return (
-    <div className="flex justify-between text-l bg-slate-600 p-2 flex-shrink-0">
+    <div className="flex justify-between text-xxl font-bold bg-green-300 p-4 flex-shrink-0">
       <div className="ml-10">Logo</div>
 
       <div className="flex justify-evenly gap-6 mr-10 text-xl ">
@@ -31,7 +33,7 @@ const Navbar = () => {
         ) : (
           <>
             <NavLink to="/login">Login </NavLink>
-            <NavLink to="/signup">signup</NavLink>
+            <NavLink to="/signup">Signup</NavLink>
           </>
         )}
       </div>
