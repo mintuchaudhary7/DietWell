@@ -6,6 +6,7 @@ const Signup = ()=>{
   const [ContactNo, setContactno] = useState(0);
   const [Passward,setPassward] = useState("");
   const [error, setError] = useState("");
+ 
 
   const navigate = useNavigate();
     const handleSubmit = async(e)=>{
@@ -35,6 +36,7 @@ const Signup = ()=>{
       setError("");
       setContactno("");
       setPassward("");
+    //   setIsSignup(true);
       navigate("/login");
     }
     }

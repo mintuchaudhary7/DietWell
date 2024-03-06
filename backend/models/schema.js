@@ -20,3 +20,4 @@ const userSchema = new mongoose.Schema({
 
 })
 module.exports = mongoose.model('user',userSchema);
+// this function is used to create schema of user details for login and signup
