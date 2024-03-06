@@ -39,7 +39,7 @@ const Login = () => {
       //   setIsSignup(true);
       
       navigate("/");
-      setIslogin(!islogin);
+      //setIslogin(!islogin);
     }
   };
   return (
