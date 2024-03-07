@@ -1,6 +1,127 @@
-const Contact = ()=>{
-    return (
-        <div>Welcome to contact page</div>
-    )
-}
+import { useState } from "react";
+import { useNavigate } from "react-router";
+const Contact = () => {
+  const [Email, setEmail] = useState("");
+  const [ContactNo, setContactno] = useState("");
+  const [Name, setName] = useState("");
+  const [Query, setQuery] = useState("");
+  const [Response, setResponse] = useState("");
+  const [boolresponse, setboolresponse] = useState(false);
+  const navigate = useNavigate(); 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // same sa login
+    // creatingan object which we have to send to backend
+    var addUser = { Name, Email, ContactNo, Query };
+    console.log(addUser);
+
+    // api call same as login
+    const response = await fetch("http://localhost:2000/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(addUser),
+    });
+    // converting our response to json object
+    const result = await response.json();
+
+    if (!response.ok) {
+      console.log(result.message);
+    
+    }
+    if (response.ok) {
+      console.log(result);
+      setResponse(result.message);
+      setboolresponse(true);
+      setName("");
+      setEmail("");
+
+      setContactno("");
+      setQuery("");
+      // navigate('/contact')
+      return;
+    }
+  };
+  return (
+    <div className="py-20">
+      <div className="max-w-lg mx-auto">
+        <h2 className="text-3xl font-semibold mb-8">Contact Us</h2>
+        {boolresponse ? <h1 className="text-green-700">{Response}</h1> : <></>}
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label htmlFor="fullname" className="block mb-1">
+              Name
+            </label>
+            <input
+              type="text"
+              className="w-full border rounded-md px-4 py-2"
+              placeholder="Sahil Singh"
+              name="fullName"
+              id="fullname"
+              value={Name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="block mb-1">
+              Email
+            </label>
+            <input
+              type="email"
+              className="w-full border rounded-md px-4 py-2"
+              placeholder="mintuchd@gmail.com"
+              name="email"
+              id="email"
+              value={Email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="contact" className="block mb-1">
+              Contact No
+            </label>
+            <input
+              type="Number"
+              className="w-full border rounded-md px-4 py-2"
+              placeholder="7318573930"
+              name="contact"
+              id="contact"
+              value={ContactNo}
+              onChange={(e) => setContactno(e.target.value)}
+              required
+            />
+          </div>
+
+          <div>
+            <label htmlFor="query" className="block mb-1">
+              Message
+            </label>
+            <textarea
+              className="w-full border rounded-md px-4 py-2"
+              rows="5"
+              placeholder="Your Question"
+              name="query"
+              id="query"
+              value={Query}
+              onChange={(e) => setQuery(e.target.value)}
+              required
+            ></textarea>
+          </div>
+          <div>
+            <button
+              type="submit"
+              className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+};
 export default Contact;

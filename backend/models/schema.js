@@ -19,5 +19,8 @@ const userSchema = new mongoose.Schema({
     }
 
 })
+// const mongoose = require('mongoose');
+
+// this function is used to create schema of user details for login and signup
 module.exports = mongoose.model('user',userSchema);
 // this function is used to create schema of user details for login and signup
