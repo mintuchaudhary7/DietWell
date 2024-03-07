@@ -8,6 +8,7 @@ exports.login = async (req,res)=>{
               message: "please enter email or passeard",
             });
         }
+        
         let User = await user.findOne({ Email }); // searching in database that does user exist in our data base or registerd to our platform
         if (!User) {// if user not exist the we send a error response from bellow code
             res.status(404).json({
@@ -15,6 +16,7 @@ exports.login = async (req,res)=>{
               message: "user does not exist please signup",
             });
         }
+        
         if(Passward === User.Passward){// this block executed is user exist we checked above user exist or not and here we match passward --> user entered passward from frontend   and   User.passward ->>> passward stored in backend or database
             console.log("login successfull");//passward matched sending a successfull response
             return res.status(200).json({
@@ -24,12 +26,14 @@ exports.login = async (req,res)=>{
 
         }
         
+        
         else {// passward not matched sending an error response
             return res.status(400).json({
               success: false,
               message: "incorrect passward",
             });
           }
+          
     }
     catch (error) {//error occured
         console.log(error);

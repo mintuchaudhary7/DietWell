@@ -31,6 +31,7 @@ const Login = () => {
     if (!response.ok) {
       console.log(result.error);
       setError(true);
+      
       //setting  error because we have to display error that user entered wrong passward
       // setError(result.error);
     }
