@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SignupImage from "../assets/signup.jpeg";
+import { NavLink } from "react-router-dom";
 const Signup = () => {
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
@@ -8,6 +9,7 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassward] = useState("");
   const [Passward, setPassward] = useState("");
   const [error, setError] = useState(false);
+  const [errorMessage,setErrorMessage] = useState(false);
   // declaring usestate variable
 
   //navigate
@@ -18,6 +20,7 @@ const Signup = () => {
     if (Passward !== confirmPassword) {
 
       setError(true);
+      setErrorMessage("Passward and confirm passward not matched");
       setPassward("");
       setConfirmPassward("");
       return
@@ -41,9 +44,10 @@ const Signup = () => {
     
    
     if (!response.ok) {
-      console.log(result.error);
+      // console.log(result.error);
       setError(true);
-      console.log(error);
+      setErrorMessage(result.message);
+      console.log(result.message);
     }
     if (response.ok) {
       console.log(result);
@@ -70,7 +74,7 @@ const Signup = () => {
         onSubmit={handleSubmit}
       >
         <h2 className="text-2xl font-bold mb-6">Sign Up</h2>
-        {error ? <div>User already exist or Passward does not match</div> : <></>}
+        {error ? <div className="text-red-400">{errorMessage}</div> : <></>}
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
@@ -168,6 +172,13 @@ const Signup = () => {
           >
             Sign Up
           </button>
+          <div>
+          <div>Already registered ?
+          </div>
+
+          <NavLink to="/login" className="text-blue-700">Log in</NavLink>
+          </div>
+         
         </div>
       </form>
     </div>

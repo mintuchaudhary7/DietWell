@@ -1,5 +1,6 @@
 import homeImage from "../assets/homeImage.png";
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { ReactTyped } from "react-typed";
 const Home = () => {
   const [quotes, setQuotes] = useState("");
@@ -37,8 +38,8 @@ const Home = () => {
             <ReactTyped strings={["Better Life !!!"]} typeSpeed={220} loop />
           </h1>
           <div className="mb-7">"{quotes}"</div>
-        
-            <button className="absolute top-30 flex justify-center items-center align-center bg-yellow-300 w-28 h-10 text-center rounded-xl font-bold">Get Started</button>
+          <NavLink to="/services"><button className="absolute top-30 flex justify-center items-center align-center bg-yellow-300 w-28 h-10 text-center rounded-xl font-bold">Get Started</button></NavLink>
+            
         </div>
         <img src={homeImage} alt="" />
       </div>
