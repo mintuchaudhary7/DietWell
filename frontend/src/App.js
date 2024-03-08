@@ -19,7 +19,7 @@ function App() {
       <UserContext.Provider value={{ islogin, setIslogin }}>
         <Navbar className = ""></Navbar>
         
-        
+       
         <Routes>
           <Route path="/" element={<Home></Home>} />
           
@@ -30,6 +30,7 @@ function App() {
           <Route path="/signup" element={<Signup></Signup>} />
         </Routes>
       </UserContext.Provider>
+     
     </div>
   );
 }
