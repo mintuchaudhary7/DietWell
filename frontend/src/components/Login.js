@@ -15,7 +15,7 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState(false);
   const [Passward, setPassward] = useState("");
   // creating a usestate variable read usestate and useeffect form we3schools
-  const navigate = useNavigate(); //navigete for moving form one rout to another
+  const navigate = useNavigate(); //navigete for moving form one route to another
   const handleSubmit = async (e) => {
     e.preventDefault();
     //default behevior is to reload the page and we are prventing fro reloding the page

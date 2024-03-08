@@ -17,9 +17,12 @@ function App() {
   return (
     <div className="h-full ">
       <UserContext.Provider value={{ islogin, setIslogin }}>
-        <Navbar></Navbar>
+        <Navbar className = ""></Navbar>
+        
+        
         <Routes>
           <Route path="/" element={<Home></Home>} />
+          
           <Route path="/services" element={<Services></Services>} />
           <Route path="about" element={<About></About>} />
           <Route path="/contact" element={<Contact></Contact>} />

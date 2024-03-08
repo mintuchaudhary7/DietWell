@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+// impoorting all the required library
 const Contact = () => {
   const [Email, setEmail] = useState("");
   const [ContactNo, setContactno] = useState("");
@@ -8,15 +9,15 @@ const Contact = () => {
   const [Response, setResponse] = useState("");
   const [boolresponse, setboolresponse] = useState(false);
   const navigate = useNavigate(); 
+  // creating the variables
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // same sa login
-    // creatingan object which we have to send to backend
+// prevent default help to prevent default function of reload
+    // creatinga n object which we have to send to backend
     var addUser = { Name, Email, ContactNo, Query };
     console.log(addUser);
 
-    // api call same as login
+    // api call where we have to send data
     const response = await fetch("http://localhost:2000/contact", {
       method: "POST",
       headers: {
@@ -29,7 +30,7 @@ const Contact = () => {
 
     if (!response.ok) {
       console.log(result.message);
-    
+    // if any error reciveed from backend
     }
     if (response.ok) {
       console.log(result);
@@ -40,8 +41,10 @@ const Contact = () => {
 
       setContactno("");
       setQuery("");
+      // if ervery thing is fine we set all values to empty
       // navigate('/contact')
       return;
+      // and return
     }
   };
   return (
