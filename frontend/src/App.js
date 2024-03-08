@@ -9,6 +9,7 @@ import Services from "./components/Services";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Signup from "./components/Signup";
+import Footer from "./components/Footer";
 
 // const islogin = createContext();
 const UserContext = createContext();
@@ -30,6 +31,7 @@ function App() {
           <Route path="/signup" element={<Signup></Signup>} />
         </Routes>
       </UserContext.Provider>
+      <Footer></Footer>
     </div>
   );
 }
