@@ -4,6 +4,7 @@ import { useContext, createContext } from "react";
 import { UserContext } from "../App";
 import loginImage from "../assets/4957136.jpg";
 import { NavLink } from "react-router-dom";
+
 // importing the components which are required
 const Login = () => {
   const user = useContext(UserContext);
@@ -57,11 +58,7 @@ const Login = () => {
             Sign in to your account
           </h2>
           {/* again here we are doing conditional rendering */}
-          {error ? (
-            <h1 className="text-red-500">{errorMessage}</h1>
-          ) : (
-            <></>
-          )}
+          {error ? <h1 className="text-red-500">{errorMessage}</h1> : <></>}
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="rounded-md shadow-sm -space-y-px">
@@ -117,22 +114,19 @@ const Login = () => {
             </div>
 
             <div className="text-sm">
-              <a
-                href="#"
-                className="font-medium text-indigo-600 hover:text-indigo-500"
-              >
-                Forgot your password?
-              </a>
+              <NavLink to="/forgottenpassward" className="text-blue-700">
+                forgot passward ?
+              </NavLink>
             </div>
           </div>
           <div>
-          <div>Not Registerd yet 
+            <div>Not Registerd yet</div>
+
+            <NavLink to="/signup" className="text-blue-700">
+              Signup
+            </NavLink>
           </div>
 
-          <NavLink to="/signup" className="text-blue-700">Signup</NavLink>
-          </div>
-         
-          
           <div>
             <button
               type="submit"
