@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SignupImage from "../assets/signup.jpeg";
 import { NavLink } from "react-router-dom";
+import validator from 'validator' 
 const Signup = () => {
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
@@ -14,8 +15,11 @@ const Signup = () => {
 
   //navigate
   const navigate = useNavigate();
+ 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     // here we check passward and confirm passward is equal or not  if not equal then set them empty and return
     if (Passward !== confirmPassword) {
 
@@ -167,6 +171,7 @@ const Signup = () => {
         placeholder="Phone Number"
         name="phoneNumber"
         value={ContactNo}
+        
         onChange={(e) => setContactno(e.target.value)}
         required
       />

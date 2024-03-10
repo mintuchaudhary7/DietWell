@@ -22,7 +22,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     
-    <div className="flex justify-between text-xxl font-bold bg-green-300 p-2 items-center fixed w-full flex-shrink-0">
+    <div className="flex justify-between text-xxl font-bold bg-green-300 p-2 items-center  w-full flex-shrink-0">
       {/* <div className="ml-10"> */}
       <NavLink to="/"><img className="ml-10 rounded-full"  height={80} width={80} src = {logo} alt=""></img></NavLink>
          
@@ -32,7 +32,8 @@ const Navbar = () => {
         {/* navlink for maping the routes */}
         
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/services">Services</NavLink>
+        <NavLink to="/services">Services</NavLink> 
+        
         <NavLink to="/about">About us</NavLink>
         <NavLink to="/contact">Contact</NavLink>
         {/* here we are doing confitional rendering if islogin is true it means user is logged in then we show profile page else loged is false then it render login and signup */}

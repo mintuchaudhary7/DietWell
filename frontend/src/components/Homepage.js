@@ -49,7 +49,7 @@ const Home = () => {
             {/* this is library for animation */}
           </h1>
           <div className="mb-7">"{quotes}"</div>
-          {islogin ? <NavLink to="/services"><button className="absolute top-30 flex justify-center items-center align-center bg-yellow-300 w-28 h-10 text-center rounded-xl font-bold">Get Started</button></NavLink>:<NavLink to="/login"><button className="absolute top-30 flex justify-center items-center align-center bg-yellow-300 w-28 h-10 text-center rounded-xl font-bold">Get Started</button></NavLink>}
+           <NavLink to="/services"><button className="absolute top-30 flex justify-center items-center align-center bg-yellow-300 w-28 h-10 text-center rounded-xl font-bold">Get Started</button></NavLink>
           {/* conditional rendoring if user is loged in then he will access the services page else we ask him to log in */}
             
         </div>
