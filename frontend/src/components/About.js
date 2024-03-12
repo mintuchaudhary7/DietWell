@@ -5,7 +5,14 @@ const About = () => {
             <div className="max-w-4xl mx-auto">
                 <h1 className="text-4xl font-bold text-center mb-4">About Us</h1>
                 <p className="text-lg text-gray-700 mb-10">
-                    We are a team of passionate individuals committed to delivering excellence in our field. Our mission is to create impactful solutions that drive progress and innovation. With a focus on continuous learning and improvement, we strive to exceed expectations and contribute positively to our community and beyond.
+
+                Welcome to DietWell, where we are dedicated to
+          empowering individuals to achieve optimal health and wellness through
+          personalized nutrition guidance. Our team of passionate dietitians is
+          committed to helping you navigate your journey towards a healthier
+          lifestyle.
+
+                   
                 </p>
 
                 {/* Vision, Mission, Values */}
