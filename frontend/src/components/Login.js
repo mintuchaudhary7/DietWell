@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContext, createContext } from "react";
 import { UserContext } from "../App";
@@ -8,6 +8,7 @@ import { NavLink } from "react-router-dom";
 // importing the components which are required
 const Login = () => {
   const user = useContext(UserContext);
+  
   //  same again ham destructure krr rhe hai jaise navbar me kiya the
   const islogin = user.islogin;
   const setIslogin = user.setIslogin;
@@ -27,6 +28,7 @@ const Login = () => {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify(addUser), //we can say this is type or body parser use to json -> string
     });
     const result = await response.json(); //await is used because function is async and it takes some time
@@ -48,6 +50,7 @@ const Login = () => {
       //  and finally out log in success then user ko home route pe chala jayega using nevigate
       navigate("/");
     }
+   
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">

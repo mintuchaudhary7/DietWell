@@ -8,11 +8,11 @@ const Contact = () => {
   const [Query, setQuery] = useState("");
   const [Response, setResponse] = useState("");
   const [boolresponse, setboolresponse] = useState(false);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   // creating the variables
   const handleSubmit = async (e) => {
     e.preventDefault();
-// prevent default help to prevent default function of reload
+    // prevent default help to prevent default function of reload
     // creatinga n object which we have to send to backend
     var addUser = { Name, Email, ContactNo, Query };
     console.log(addUser);
@@ -23,14 +23,21 @@ const Contact = () => {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify(addUser),
     });
+
     // converting our response to json object
     const result = await response.json();
 
     if (!response.ok) {
+      let message;
+      setboolresponse(true)
+      setResponse(result.message);
       console.log(result.message);
-    // if any error reciveed from backend
+      return;
+      // setResponse("sahil")
+      // if any error reciveed from backend
     }
     if (response.ok) {
       console.log(result);

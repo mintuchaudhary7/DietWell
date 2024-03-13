@@ -12,15 +12,51 @@ import Signup from "./components/Signup";
 import Footer from "./components/Footer";
 import Changepassward from "./components/Changepassward";
 import ForrgottenPassward from "./components/Forrgottenpassward";
+import { useEffect } from "react";
 
 // const islogin = createContext();
 const UserContext = createContext();
 function App() {
+  const [changePasswardOtpVerified, setchangePasswardOtpVerified] =
+    useState(false);
   const [islogin, setIslogin] = useState(false);
-  const [changePasswardOtpVerified,setchangePasswardOtpVerified] = useState(false);
+  const logauth = async (e) => {
+    // const data = { islogin };
+    const response = await fetch("http://localhost:2000", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      // body: JSON.stringify(),
+    });
+    // const result = await response.json();
+    // console.log(result);
+    if (!response.ok) {
+      setIslogin(false);
+      console.log(response);
+      return;
+    }
+    if (response.ok) {
+      setIslogin(true);
+      console.log("sahil");
+      return;
+    }
+  };
+
+  useEffect(() => {
+    logauth();
+  }, []);
   return (
     <div className="h-full ">
-      <UserContext.Provider value={{ islogin, setIslogin,changePasswardOtpVerified,setchangePasswardOtpVerified }}>
+      <UserContext.Provider
+        value={{
+          islogin,
+          setIslogin,
+          changePasswardOtpVerified,
+          setchangePasswardOtpVerified,
+        }}
+      >
         <Navbar className=""></Navbar>
 
         <Routes>
@@ -31,12 +67,18 @@ function App() {
           <Route path="/contact" element={<Contact></Contact>} />
           <Route path="/login" element={<Login></Login>} />
           <Route path="/signup" element={<Signup></Signup>} />
-          
-          <Route path="/forgottenpassward" element={<ForrgottenPassward></ForrgottenPassward>} />
-          <Route path="/changepassward" element={<Changepassward></Changepassward>} />
+
+          <Route
+            path="/forgottenpassward"
+            element={<ForrgottenPassward></ForrgottenPassward>}
+          />
+          <Route
+            path="/changepassward"
+            element={<Changepassward></Changepassward>}
+          />
         </Routes>
       </UserContext.Provider>
-      
+
       <Footer></Footer>
     </div>
   );
