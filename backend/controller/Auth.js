@@ -1,4 +1,5 @@
 const user = require("../models/schema"); // imorting our schema of database which we use to create user
+const bcrypt = require("bcrypt");
 exports.login = async (req, res) => {
   try {
     // try block is compulsry to use for catching the error
@@ -10,7 +11,6 @@ exports.login = async (req, res) => {
         success: false,
         message: "Please Enter Email",
       });
-      return;
     }
     if (!Passward) {
       //this block is responsible for checking that user entered any data or not
@@ -19,32 +19,60 @@ exports.login = async (req, res) => {
         success: false,
         message: "Please Enter Passward",
       });
-      return;
     }
     let User = await user.findOne({ Email }); // searching in database that does user exist in our data base or registerd to our platform
     if (!User) {
       // if user not exist the we send a error response from bellow code
-      res.status(404).json({
+      return res.status(404).json({
         success: false,
         message: "User Does Not Exist Please Signup",
       });
-      return;
     }
-    if (Passward === User.Passward) {
-      // this block executed is user exist we checked above user exist or not and here we match passward --> user entered passward from frontend   and   User.passward ->>> passward stored in backend or database
-      console.log("Login Successfull"); //passward matched sending a successfull response
-      return res.status(200).json({
-        success: true,
-        massage: "Log in Successfull",
+    const payload = {
+      email: User.Email,
+      id: User._id,
+      Passward:User.Passward
+      
+      
+    };
+    if (await bcrypt.compare(Passward, User.Passward)) {
+      //creating an jwt token;
+      // instance of jwt token;
+      console.log(User.Passward);
+      const jwt = require('jsonwebtoken');
+      //creating a token
+      let token = jwt.sign(payload, process.env.JWT_SECRET, {
+        expiresIn: "3h",
       });
-      return;
-    } else {
-      // passward not matched sending an error response
+      
+      //creating a user token
+      User = User.toObject();
+      User.token = token;
+      console.log(User);
+      // removing passward to prevent haking or other security issues
+
+      User.Passward = undefined;
+
+      //creating a option to send in cookies
+      const options = {
+        expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
+        httpOnly: true,
+      };
+      
+      //creating a cookie and sending in response;
+       return res.cookie("token", token, options).status(200).json({
+        success: true,
+        token,
+        User,
+        message: "user logged in successfully",
+      });
+    }
+    // if passward does not match send error message to client;
+    else {
       return res.status(400).json({
         success: false,
-        message: "Incorrect Passward",
+        message: "incorrect passward",
       });
-      return
     }
   } catch (error) {
     //error occured
@@ -70,13 +98,24 @@ exports.signup = async (req, res) => {
       });
       return
     }
+    let hasedpassward;
+    try {
+      //hashing script bycript is a hashing techqnique
+      hasedpassward = await bcrypt.hash(Passward, 10);
+    } catch (error) {
+      return res.status(500).json({
+        success: false,
+        massage: "error occured in hashing passward",
+      });
+    }
+    
 
     // if we reached here then it means that user does no exist
     //creating an database entry for user
     const User = await user.create({
       Name,
       Email,
-      Passward,
+      Passward:hasedpassward,
       ContactNo,
     });
     // sending an success message to client
