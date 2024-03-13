@@ -38,7 +38,7 @@ const Navbar = () => {
         <NavLink to="/contact">Contact</NavLink>
         {/* here we are doing confitional rendering if islogin is true it means user is logged in then we show profile page else loged is false then it render login and signup */}
         {islogin ? (
-          <div>profile</div>
+          <div> <NavLink to="/profile">Profile</NavLink></div>
         ) : (
           <>
             <NavLink to="/login">Login </NavLink>

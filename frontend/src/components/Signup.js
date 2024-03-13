@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SignupImage from "../assets/signup.jpeg";
 import { NavLink } from "react-router-dom";
+// <<<<<<< HEAD
 // import validator from 'validator' 
+// =======
+
+// >>>>>>> 90e74eb48ca75b83a0e282d7eda99713422c7d11
 const Signup = () => {
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");

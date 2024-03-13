@@ -1,5 +1,6 @@
 const user = require("../models/schema");
 require('dotenv');
+const bcrypt = require("bcrypt");
 const Changepassward = async(req,res)=>{
     try{
         const {Email,Passward} = req.body;
@@ -23,11 +24,21 @@ const Changepassward = async(req,res)=>{
               });
               return;
         }
+        let hasedpassward;
+      try {
+      //hashing script bycript is a hashing techqnique
+      hasedpassward = await bcrypt.hash(Passward, 10);
+      } catch (error) {
+      return res.status(500).json({
+        success: false,
+        massage: "error occured in hashing passward",
+      });
+    }
         try {
             const id = User._id;
 
             console.log(Passward)
-            const updatedUser = await user.findByIdAndUpdate({_id:id},{Passward:Passward}
+            const updatedUser = await user.findByIdAndUpdate({_id:id},{Passward:hasedpassward}
             );
             console.log(updatedUser)
             res.status(200).json({
