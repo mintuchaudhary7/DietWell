@@ -14,6 +14,7 @@ import Changepassward from "./components/Changepassward";
 import ForrgottenPassward from "./components/Forrgottenpassward";
 import { useEffect } from "react";
 import Profile from "./components/Profile";
+import UpdateProfile from "./components/UpdateProfile";
 // const islogin = createContext();
 const UserContext = createContext();
 function App() {
@@ -76,6 +77,8 @@ function App() {
             element={<Changepassward></Changepassward>}
           />
           <Route path="/profile" element={<Profile></Profile>} />
+          <Route path="/profile/updateprofile" element={<UpdateProfile></UpdateProfile>} />
+          <Route path="/*" element={<div>Page not exist</div>} />
         </Routes>
       </UserContext.Provider>
 
