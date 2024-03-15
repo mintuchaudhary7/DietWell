@@ -13,8 +13,7 @@ import Footer from "./components/Footer";
 import Changepassward from "./components/Changepassward";
 import ForrgottenPassward from "./components/Forrgottenpassward";
 import { useEffect } from "react";
-import ProfilePage from "./components/ProfilePage";
-
+import Profile from "./components/Profile";
 // const islogin = createContext();
 const UserContext = createContext();
 function App() {
@@ -68,8 +67,6 @@ function App() {
           <Route path="/contact" element={<Contact></Contact>} />
           <Route path="/login" element={<Login></Login>} />
           <Route path="/signup" element={<Signup></Signup>} />
-          <Route path="/profile" element={<ProfilePage></ProfilePage>}></Route>
-
           <Route
             path="/forgottenpassward"
             element={<ForrgottenPassward></ForrgottenPassward>}
@@ -78,6 +75,7 @@ function App() {
             path="/changepassward"
             element={<Changepassward></Changepassward>}
           />
+          <Route path="/profile" element={<Profile></Profile>} />
         </Routes>
       </UserContext.Provider>
 
