@@ -42,6 +42,7 @@ const Navbar = () => {
       setIsvisible(false)
       return;
     }
+   
   }
   // const islog = useContext(UserContext);
   // destructuring the data which we passed in context api
@@ -50,7 +51,7 @@ const Navbar = () => {
   const islogin = user.islogin;
   const [isvisible, setIsvisible] = useState(false);
   const setIslogin = user.setIslogin;
-  console.log(islogin);
+  // console.log(islogin);
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="flex justify-between text-xxl font-bold bg-green-300 p-2 items-center  w-full flex-shrink-0">

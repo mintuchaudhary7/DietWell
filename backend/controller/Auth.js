@@ -29,8 +29,9 @@ exports.login = async (req, res) => {
       });
     }
     const payload = {
-      email: User.Email,
+      Email: User.Email,
       id: User._id,
+      Name:User.Name,
       Passward:User.Passward
       
       
