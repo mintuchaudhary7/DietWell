@@ -2,15 +2,20 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SignupImage from "../assets/signup.jpeg";
 import { NavLink } from "react-router-dom";
+// <<<<<<< version-s
+import validator from 'validator' 
+import { toast } from "react-toastify";
+// =======
 
+// >>>>>>> main
 const Signup = () => {
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
   const [ContactNo, setContactno] = useState(0);
   const [confirmPassword, setConfirmPassward] = useState("");
   const [Passward, setPassward] = useState("");
-  const [error, setError] = useState(false);
-  const [errorMessage,setErrorMessage] = useState(false);
+  // const [error, setError] = useState(false);
+  // const [errorMessage,setErrorMessage] = useState(false);
   // declaring usestate variable
 
   //navigate
@@ -23,10 +28,13 @@ const Signup = () => {
     // here we check passward and confirm passward is equal or not  if not equal then set them empty and return
     if (Passward !== confirmPassword) {
 
-      setError(true);
-      setErrorMessage("Passward and confirm passward not matched");
+      // setError(true);
+      // setErrorMessage("Passward and confirm passward not matched");
       setPassward("");
       setConfirmPassward("");
+      toast.error("Passward and confirm passward not matched",{
+        position:"top-center"
+      });
       return
       
     }
@@ -49,8 +57,11 @@ const Signup = () => {
    
     if (!response.ok) {
       // console.log(result.error);
-      setError(true);
-      setErrorMessage(result.message);
+      // setError(true);
+      // setErrorMessage(result.message);
+      toast.error(result.message,{
+        position:"top-center"
+      });
       console.log(result.message);
     }
     if (response.ok) {
@@ -58,7 +69,10 @@ const Signup = () => {
       setName("");
       setEmail("");
       //   setAge(0);
-      setError("");
+      // setError("");
+      toast.success(result.message,{
+        position:"top-center"
+      });
       setContactno("");
       setConfirmPassward("");
       setPassward("");
@@ -84,7 +98,7 @@ const Signup = () => {
     onSubmit={handleSubmit}
   >
     <h2 className="text-2xl font-bold mb-6">Sign Up</h2>
-    {error ? <div className="text-red-400">{errorMessage}</div> : <></>}
+    {/* {error ? <div className="text-red-400">{errorMessage}</div> : <></>} */}
     <div className="mb-4">
       <label
         className="block text-gray-700 text-sm font-bold mb-2"

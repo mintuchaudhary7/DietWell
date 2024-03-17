@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { UserContext } from '../App';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router';
-
+import { toast } from "react-toastify";
 const PasswordChangePage = () => {
   const navigate = useNavigate()
   const user = useContext(UserContext);
@@ -11,9 +11,9 @@ const PasswordChangePage = () => {
   const [Email, setEmail] = useState('');
   const [Passward, setPassward] = useState('');
   const [confirmPassward, setConfirmPassward] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
-  const[error,setError] = useState(false);
-
+  // const [errorMessage, setErrorMessage] = useState('');
+  // const[error,setError] = useState(false);
+  // for onchange handling any changes in input feild will reflected immediatly and this is helpful because on time of submission our app shaoud not care about gathering data it directly send the data and data is latest
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
@@ -25,19 +25,24 @@ const PasswordChangePage = () => {
   const  handleConfirmPasswordChange = (e) => {
     setConfirmPassward(e.target.value);
   };
-
+// submit handler for sending response to backend
   const handleSubmit = async(e) => {
-    e.preventDefault();
+    e.preventDefault();// preventing default reload beheviour of button
+    // checking passward and confirm passward is same ot not
     if (Passward !== confirmPassward) {
-      setErrorMessage("Passwords don't match");
-      setError(true);
+      toast.error("Passward and Confirm passward not matched")
+      return
+      // setErrorMessage("Passwords don't match");
+      // setError(true);
     } else {
       // Reset error message and handle password change logic
-      setErrorMessage('');
+      // setErrorMessage('');
       // Handle password change logic here...
     }
+    // data which we send to backend
     var data = {Email,Passward}
     console.log(data);
+    //  api call and request is put because we are prforming update operation
     const response = await fetch("http://localhost:2000/changepassward", {
       method: "PATCH",
       headers: {
@@ -45,18 +50,24 @@ const PasswordChangePage = () => {
       },
       body: JSON.stringify(data),
     });
+    // below we are handling the response and error and toast 
     const result = await response.json();
     if (!response.ok) {
-     
+     toast.error(result.message,{
+      position:'top-center'
+     })
       // setEmailSend(false);
-      setErrorMessage(result.message)
-      setError(true);
-      console.log(result.message)
+      // setErrorMessage(result.message)
+      // setError(true);
+      // console.log(result.message)
 
     }
     if (response.ok) {
-      console.log(result);
+      // console.log(result);
       // setError(true)
+      toast.success(result.message,{
+        position:'top-center'
+      })
       navigate('/login')
     }
   };
@@ -64,13 +75,14 @@ const PasswordChangePage = () => {
   return (
    <div>
     {
+      // conditional rendering if our user is not verifieed with otp we render the page which say user to verify via otp help in url parshing from attackers
       changePasswardOtpVerified ?  <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Change Password
           </h2>
-          {error ? <h1 className='text-red-600'>{errorMessage}</h1>:<h1></h1>}
+          {/* {error ? <h1 className='text-red-600'>{errorMessage}</h1>:<h1></h1>} */}
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <input type="hidden" name="remember" value="true" />

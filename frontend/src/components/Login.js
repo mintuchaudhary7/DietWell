@@ -4,6 +4,7 @@ import { useContext, createContext } from "react";
 import { UserContext } from "../App";
 import loginImage from "../assets/4957136.jpg";
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
 
 // importing the components which are required
 const Login = () => {
@@ -37,6 +38,9 @@ const Login = () => {
       console.log(result.message);
       setError(true);
       setErrorMessage(result.message);
+      toast.error(result.message,{
+        position:"top-center"
+      });
       //setting  error because we have to display error that user entered wrong passward
       // setError(result.error);
     }
@@ -49,6 +53,9 @@ const Login = () => {
       setIslogin(true);
       //  and finally out log in success then user ko home route pe chala jayega using nevigate
       navigate("/");
+      toast.success(result.message,{
+        position:"top-center"
+      });
     }
    
   };
@@ -61,7 +68,7 @@ const Login = () => {
             Sign in to your account
           </h2>
           {/* again here we are doing conditional rendering */}
-          {error ? <h1 className="text-red-500">{errorMessage}</h1> : <></>}
+          {/* {error ? <h1 className="text-red-500">{errorMessage}</h1> : <></>} */}
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="rounded-md shadow-sm -space-y-px">

@@ -28,6 +28,7 @@ exports.login = async (req, res) => {
         message: "User Does Not Exist Please Signup",
       });
     }
+    //creating a payload for sesson handling to send in cookies 
     const payload = {
       Email: User.Email,
       id: User._id,
@@ -72,7 +73,7 @@ exports.login = async (req, res) => {
     else {
       return res.status(400).json({
         success: false,
-        message: "incorrect passward",
+        message: "Incorrect Passward",
       });
     }
   } catch (error) {
@@ -106,7 +107,7 @@ exports.signup = async (req, res) => {
     } catch (error) {
       return res.status(500).json({
         success: false,
-        massage: "error occured in hashing passward",
+        massage: "Error occured in hashing passward",
       });
     }
     

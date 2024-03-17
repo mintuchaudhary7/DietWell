@@ -3,6 +3,7 @@ require('dotenv');
 const bcrypt = require("bcrypt");
 const Changepassward = async(req,res)=>{
     try{
+      //fetching data from resquest
         const {Email,Passward} = req.body;
         
         if(!Email){
@@ -27,6 +28,7 @@ const Changepassward = async(req,res)=>{
         let hasedpassward;
       try {
       //hashing script bycript is a hashing techqnique
+      // if user change passward then new passward also be stored in hashed so anyone cannot access
       hasedpassward = await bcrypt.hash(Passward, 10);
       } catch (error) {
       return res.status(500).json({
@@ -38,6 +40,7 @@ const Changepassward = async(req,res)=>{
             const id = User._id;
 
             console.log(Passward)
+            //here we are finding the user and updating his/her passward
             const updatedUser = await user.findByIdAndUpdate({_id:id},{Passward:hasedpassward}
             );
             console.log(updatedUser)
