@@ -6,3 +6,4 @@ const teamMembers = [
     { name: 'Ayan Firdosh', role: 'Project Manager', imageUrl: sahil },
 ];
 export default teamMembers;
+// this is for our team detail and is we have to add a member to our team we can add data here and team is automatically added to our about page page no need to hardcode there

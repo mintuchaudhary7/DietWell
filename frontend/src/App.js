@@ -15,6 +15,12 @@ import ForrgottenPassward from "./components/Forrgottenpassward";
 import { useEffect } from "react";
 import Profile from "./components/Profile";
 import UpdateProfile from "./components/UpdateProfile";
+import HairAndSkinCare from "./components/HairAndSkinCare";
+import WeightGain from "./components/WeightGain";
+import WeightLoss from "./components/WightLoss";
+import Stress from "./components/Stress";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // const islogin = createContext();
 const UserContext = createContext();
 function App() {
@@ -44,7 +50,7 @@ function App() {
       return;
     }
   };
-
+// we are using use effect because we need to check on first render
   useEffect(() => {
     logauth();
   }, []);
@@ -78,8 +84,27 @@ function App() {
           />
           <Route path="/profile" element={<Profile></Profile>} />
           <Route path="/profile/updateprofile" element={<UpdateProfile></UpdateProfile>} />
+          <Route
+            path="/services/hairandskin"
+            element={<HairAndSkinCare></HairAndSkinCare>}
+          />
+          <Route
+            path="/services/weightgain"
+            element={<WeightGain></WeightGain>}
+          />
+          <Route
+            path="/services/weightloss"
+            element={<WeightLoss></WeightLoss>}
+          />
+          <Route
+            path="/services/stress"
+            element={<Stress></Stress>}
+          />
+
           <Route path="/*" element={<div>Page not exist</div>} />
+
         </Routes>
+        <ToastContainer className="Toast" />
       </UserContext.Provider>
 
       <Footer></Footer>

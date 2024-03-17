@@ -1,5 +1,6 @@
 import { useState,useEffect } from "react";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 const UpdateProfile = () => {
   const [profile, setProfile] = useState({
     name:"",
@@ -32,12 +33,19 @@ const UpdateProfile = () => {
     });
     const result = await response.json();
     if (!response.ok) {
-      console.log(result);
+      toast.error(result.message,{
+        position:"top-center"
+      })
+      // console.log(result);
       return;
     }
+    // for intant updating the data
     if (response.ok) {
         setProfile({name:result.data.Name, email:result.data.Email,phoneno:result.data.ContactNo,dietpreference:result.data.Dietpreference,age:result.data.Age,height:result.data.Height,weight:result.data.Weight,gender:result.data.Gender,activity:result.data.Activity})
     //   console.log(result.data.Name);
+    // toast.success(result.message,{
+    //   position:"top-center"
+    // })
       return;
     }
   }
@@ -59,15 +67,21 @@ const UpdateProfile = () => {
     const result = await response.json();
     if (!response.ok) {
       // setIslogin();
-      console.log(result);
-      console.log("singh");
+      // console.log(result);
+      toast.error(result.message,{
+        position:"top-center"
+      });
+      // console.log("singh");
       return;
     }
     if (response.ok) {
       // setIslogin(false);
-      console.log(result);
-      console.log("sahil");
+      // console.log(result);
+      // console.log("sahil");
       nevigate("/profile");
+      toast.success(result.message,{
+        position:"top-center"
+      })
       return;
     }
   };
