@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 // impoorting all the required library
 const Contact = () => {
   const [Email, setEmail] = useState("");
@@ -9,6 +10,7 @@ const Contact = () => {
   const [Response, setResponse] = useState("");
   const [boolresponse, setboolresponse] = useState(false);
   const navigate = useNavigate();
+
   // creating the variables
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,20 +31,26 @@ const Contact = () => {
 
     // converting our response to json object
     const result = await response.json();
-
+// response handling
     if (!response.ok) {
-      let message;
-      setboolresponse(true)
-      setResponse(result.message);
-      console.log(result.message);
+      // let message;
+      toast.error(result.message,{
+        position:"top-center"
+      })
+      // setboolresponse(true)
+      // setResponse(result.message);
+      // console.log(result.message);
       return;
       // setResponse("sahil")
       // if any error reciveed from backend
     }
     if (response.ok) {
-      console.log(result);
-      setResponse(result.message);
-      setboolresponse(true);
+      // console.log(result);
+      // setResponse(result.message);
+      // setboolresponse(true);
+      toast.success(result.message,{
+        position:"top-center"
+      })
       setName("");
       setEmail("");
 
@@ -58,7 +66,7 @@ const Contact = () => {
     <div className="py-20">
       <div className="max-w-lg mx-auto">
         <h2 className="text-3xl font-semibold mb-8">Contact Us</h2>
-        {boolresponse ? <h1 className="text-green-700">{Response}</h1> : <></>}
+        {/* {boolresponse ? <h1 className="text-green-700">{Response}</h1> : <></>} */}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="fullname" className="block mb-1">

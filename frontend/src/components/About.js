@@ -28,6 +28,7 @@ const About = () => {
                 </div>
 
                 {/* Team Members */}
+                {/* here we are using map function to get rid or hardcoding data   if we have to add a member ve simply add data of team member to out asser/teammember file*/}
                 <div className="mt-10">
                     <h2 className="text-3xl font-bold text-center mb-6">Meet Our Team</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">

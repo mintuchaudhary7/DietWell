@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
 const Profile = () => {
   const [profile, setProfile] = useState({
     name: "",
@@ -22,7 +23,10 @@ const Profile = () => {
     });
     const result = await response.json();
     if (!response.ok) {
-      console.log(result);
+      // console.log(result);
+      toast.info(result.message,{
+        position:"top-center"
+      })
       return;
     }
     if (response.ok) {
@@ -37,6 +41,9 @@ const Profile = () => {
         gender: result.data.Gender,
         activityLevel: result.data.Activity,
       });
+      toast.success(result.message,{
+        position:"top-center"
+      })
       //   console.log(result.data.Name);
       return;
     }

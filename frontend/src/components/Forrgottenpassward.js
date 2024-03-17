@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 // import { use } from "../../../backend/routes/routes";
 import { UserContext } from "../App";
+import { toast } from "react-toastify";
 import { useContext } from "react";
 const Forrgottenpassward = () => {
   const user = useContext(UserContext);
@@ -12,9 +13,9 @@ const Forrgottenpassward = () => {
   const[otp,setOtp] = useState("");
   const[emailsent,setEmailSend] = useState(false);
   const[otpbackend,setotpbackend] = useState("");
-  const[error,setError] = useState(false);
-  const[errormsg,setErrorMsg] = useState("");
-  
+  // const[error,setError] = useState(false);
+  // const[errormsg,setErrorMsg] = useState("");
+  // api call function
   const EmailSubmit = async (e) => {
     e.preventDefault();
     
@@ -30,41 +31,51 @@ const Forrgottenpassward = () => {
   
     const result = await response.json();
     
-   
+  //  displaying toast as per response
     if (!response.ok) {
-     
+      toast.error(result.message,{
+        position:"top-center"
+      })
       // setEmailSend(false);
-      setErrorMsg(result.message)
-      setError(true);
+      // setErrorMsg(result.message)
+      // setError(true);
       console.log(result)
 
     }
     if (response.ok) {
+      toast.success(result.showmsg,{
+        position:"top-center"
+      })
       console.log(result);
       setEmailSend(true)
-      setError(!error)
+      // setError(!error)
       setotpbackend(result.message)
-      console.log("otp is"+result.message)
+      // console.log("otp is"+result.message)
     }
   };
+  // verifing otp from backend and frontend for redirection
   const otpSubmit = async (e) => {
     e.preventDefault();
     if(otpbackend === otp){
       setchangePasswardOtpVerified(true);
       if(changePasswardOtpVerified){
         navigate("/changepassward");
+        
       }
       
     }
     else{
-      setError(true);
-      setErrorMsg("Wrong otp please enter again")
+      // setError(true);
+      toast.error("Wrong otp please enter again",{
+        position:"top-center"
+      })
+      // setErrorMsg("Wrong otp please enter again")
     }
   };
   return (
     <div>
-      {error ? <h1 className="text-red-600">{errormsg}</h1> :<></>}
-
+      {/* {error ? <h1 className="text-red-600">{errormsg}</h1> :<></>} */}
+{/* conditional redering for otp page and email page */}
       {emailsent? <form action="" onSubmit={otpSubmit}>
        <label
       className="block text-gray-700 text-sm font-bold mb-2"
