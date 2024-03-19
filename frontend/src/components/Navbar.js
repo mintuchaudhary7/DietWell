@@ -21,7 +21,7 @@ const Navbar = () => {
   const clickhandler = () => {
     setIsvisible(!isvisible);
   };
-// logout function
+  // logout function
   const logout = async () => {
     const response = await fetch("http://localhost:2000/logout", {
       method: "GET",
@@ -67,7 +67,7 @@ const Navbar = () => {
   // console.log(islogin);
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="bg-green-300 p-2   font-bold">
+    <nav className="bg-green-300 p-2 rounded-xl font-bold fixed z-10 w-full mx-5 my-5">
       <div className="max-w-6xl mx-auto  text-2xl flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
