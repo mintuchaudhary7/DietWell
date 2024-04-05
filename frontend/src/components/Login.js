@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useContext, createContext } from "react";
 import { UserContext } from "../App";
 import loginImage from "../assets/4957136.jpg";
-import { NavLink } from "react-router-dom";
 // importing the components which are required
 const Login = () => {
   const user = useContext(UserContext);
@@ -12,7 +11,6 @@ const Login = () => {
   const setIslogin = user.setIslogin;
   const [Email, setEmail] = useState("");
   const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(false);
   const [Passward, setPassward] = useState("");
   // creating a usestate variable read usestate and useeffect form we3schools
   const navigate = useNavigate(); //navigete for moving form one rout to another
@@ -31,9 +29,8 @@ const Login = () => {
     const result = await response.json(); //await is used because function is async and it takes some time
     // if any error occur in backend this block executed
     if (!response.ok) {
-      console.log(result.message);
+      console.log(result.error);
       setError(true);
-      setErrorMessage(result.message);
       //setting  error because we have to display error that user entered wrong passward
       // setError(result.error);
     }
@@ -58,7 +55,7 @@ const Login = () => {
           </h2>
           {/* again here we are doing conditional rendering */}
           {error ? (
-            <h1 className="text-red-500">{errorMessage}</h1>
+            <h1 className="text-red-500">Incorrect passward or gmail</h1>
           ) : (
             <></>
           )}
@@ -125,14 +122,7 @@ const Login = () => {
               </a>
             </div>
           </div>
-          <div>
-          <div>Not Registerd yet 
-          </div>
 
-          <NavLink to="/signup" className="text-blue-700">Signup</NavLink>
-          </div>
-         
-          
           <div>
             <button
               type="submit"
