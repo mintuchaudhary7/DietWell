@@ -46,9 +46,22 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:false,
         default:"NULL"
-    }
-    
-
+    },
+    BMR:{
+        type:Number,
+        required:false,
+        default:0
+    },
+    Allergy:{
+        type:String,
+        required:false,
+        default:"NULL"
+    },
+    Disease:{
+        type:String,
+        required:false,
+        default:"NULL"
+    },
 
     
 

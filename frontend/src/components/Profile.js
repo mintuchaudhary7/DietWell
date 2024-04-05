@@ -12,6 +12,9 @@ const Profile = () => {
     activityLevel: "",
     email: "",
     phoneno: "",
+    bmr:"",
+    allergy:"",
+    disease:""
   });
   const firstRender = async () => {
     const response = await fetch("http://localhost:2000/profile", {
@@ -40,6 +43,9 @@ const Profile = () => {
         weight: result.data.Weight,
         gender: result.data.Gender,
         activityLevel: result.data.Activity,
+        bmr:result.data.BMR,
+        allergy:result.data.Allergy,
+        disease:result.data.Disease
       });
       toast.success(result.message,{
         position:"top-center"
@@ -109,9 +115,27 @@ const Profile = () => {
             {profile.activityLevel}
           </div>
         </div>
+        <div>
+          <label>BMR:</label>
+          <div className="border border-gray-400 p-2 w-full rounded-md">
+            {profile.bmr}
+          </div>
+        </div>
+        <div>
+          <label>Allergy:</label>
+          <div className="border border-gray-400 p-2 w-full rounded-md">
+            {profile.allergy}
+          </div>
+        </div>
+        <div>
+          <label>Disease:</label>
+          <div className="border border-gray-400 p-2 w-full rounded-md">
+            {profile.disease}
+          </div>
+        </div>
       </div>
 
-      <NavLink cla to="/profile/updateprofile">
+      <NavLink to="/profile/updateprofile">
         <button className="bg-blue-500 m-5 h-10 rounded-sm p-2">
           Update Profile
         </button>
