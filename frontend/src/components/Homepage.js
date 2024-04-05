@@ -1,7 +1,19 @@
 import homeImage from "../assets/homeImage.png";
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { ReactTyped } from "react-typed";
+import { UserContext } from "../App";
+import { useContext } from "react";
+import About from "./About";
+import Contact from "./Contact";
+import Services from "./Services";
+//  impoorting all the required library
 const Home = () => {
+  const user = useContext(UserContext);
+  const islogin = user.islogin;
+  // const [homeImage, setHomeImage] = useState("");
+  const setIslogin = user.setIslogin;
+  // fetching data from context api
   const [quotes, setQuotes] = useState("");
   //   fuction for geerating random quotes
   const getRandomQuotes = async () => {
@@ -24,24 +36,66 @@ const Home = () => {
       setQuotes("Network error");
     }
   };
+  // const [currentIndex, setCurrentIndex] = useState(0);
+ 
   useEffect(() => {
     getRandomQuotes();
+   
   }, []);
+  // use state for first render
   return (
+    // <div className="relative   ">
+    //   <div className="flex flex-col md:flex-row justify-center items-center md:space-x-16">
+    //     <div className="md:absolute md:top-29 md:left-20 text-center md:text-left">
+    //       <h1 className="font-bold mb-6 text-3xl md:text-4xl">
+    //         <ReactTyped strings={["Better Diet,"]} typeSpeed={220} loop />
+    //         <br />
+    //         <ReactTyped strings={["Better Life !!!"]} typeSpeed={220} loop />
+    //       </h1>
+    //       <div className="mb-7">"{quotes}"</div>
+    //       <NavLink to="/services">
+    //         <button className="flex justify-center items-center bg-yellow-300 w-28 h-10 text-center rounded-xl font-bold">
+    //           Get Started
+    //         </button>
+    //       </NavLink>
+    //     </div>
+    //     <div className="w-full md:w-auto md:max-w-lg">
+    //       <img src={homeImage} alt="" className="" />
+    //     </div>
+    //   </div>
+    //   {/* Render Services, About, and Contact components below */}
+    //   <Services />
+    //   <About />
+    //   <Contact />
+    // </div>
     <div>
-      <div className="flex justify-center items-center ">
-        <div className="absolute top-29 md:ml-20  left-20">
-          <h1 className="font-bold mb-6 text-3xl">
-            <ReactTyped strings={["Better Diet ,"]} typeSpeed={220} loop />
-            <br></br>
-            <ReactTyped strings={["Better Life !!!"]} typeSpeed={220} loop />
-          </h1>
-          <div className="mb-7">"{quotes}"</div>
-        
-            <button className="absolute top-30 flex justify-center items-center align-center bg-yellow-300 w-28 h-10 text-center rounded-xl font-bold">Get Started</button>
+      <div
+        className="relative min-h-screen   bg-right "
+        style={{ backgroundImage: `url(${homeImage})` }}
+      >
+        <div className="absolute inset-0 bg-opacity-10"></div>
+        <div className="absolute inset-0 flex flex-col  justify-center items-center  text-white">
+          <div className="text-center absolute left-10">
+            <h1 className="font-bold text-black text-4xl md:text-6xl mb-4">
+              <ReactTyped
+                strings={["Better Diet,", "Better Life !!!"]}
+                typeSpeed={100}
+                backSpeed={50}
+                loop
+              />
+            </h1>
+            <div className="mb-6 text-black font-bold text-2xl">{quotes}</div>
+            <NavLink to="/services">
+              <button className="bg-yellow-300 hover:bg-yellow-400 py-2 text-black px-4 rounded-lg font-bold text-lg">
+                Get Started
+              </button>
+            </NavLink>
+          </div>
         </div>
-        <img src={homeImage} alt="" />
       </div>
+      <Services />
+      <About />
+      <Contact />
     </div>
   );
 };

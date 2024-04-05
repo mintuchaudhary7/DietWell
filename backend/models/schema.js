@@ -16,7 +16,42 @@ const userSchema = new mongoose.Schema({
     Passward:{
         type:String,
         required:true
+    },
+    Age:{
+        type:Number,
+        required:false,
+        default:0
+    },
+    Height:{
+        type:Number,
+        required:false,
+        default:0
+    },
+    Weight:{
+        type:Number,
+        required:false,
+        default:0
+    },
+    Gender:{
+        type:String,
+        required:false,
+        default:"Null"
+    },
+    Dietpreference:{
+        type:String,
+        required:false,
+        default:"NULL"
+    },
+    Activity:{
+        type:String,
+        required:false,
+        default:"NULL"
     }
+    
+
+
+    
+
 
 })
 // const mongoose = require('mongoose');

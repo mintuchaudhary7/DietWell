@@ -17,3 +17,4 @@ const contactSchema = new mongoose.Schema({
 })
 
 module.exports = mongoose.model('query',contactSchema);
+// this is schema of contact 

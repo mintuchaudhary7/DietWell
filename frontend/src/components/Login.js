@@ -1,19 +1,24 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContext, createContext } from "react";
 import { UserContext } from "../App";
 import loginImage from "../assets/4957136.jpg";
+import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
+
 // importing the components which are required
 const Login = () => {
   const user = useContext(UserContext);
+  
   //  same again ham destructure krr rhe hai jaise navbar me kiya the
   const islogin = user.islogin;
   const setIslogin = user.setIslogin;
   const [Email, setEmail] = useState("");
   const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
   const [Passward, setPassward] = useState("");
   // creating a usestate variable read usestate and useeffect form we3schools
-  const navigate = useNavigate(); //navigete for moving form one rout to another
+  const navigate = useNavigate(); //navigete for moving form one route to another
   const handleSubmit = async (e) => {
     e.preventDefault();
     //default behevior is to reload the page and we are prventing fro reloding the page
@@ -24,13 +29,18 @@ const Login = () => {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify(addUser), //we can say this is type or body parser use to json -> string
     });
     const result = await response.json(); //await is used because function is async and it takes some time
     // if any error occur in backend this block executed
     if (!response.ok) {
-      console.log(result.error);
+      console.log(result.message);
       setError(true);
+      setErrorMessage(result.message);
+      toast.error(result.message,{
+        position:"top-center"
+      });
       //setting  error because we have to display error that user entered wrong passward
       // setError(result.error);
     }
@@ -43,7 +53,11 @@ const Login = () => {
       setIslogin(true);
       //  and finally out log in success then user ko home route pe chala jayega using nevigate
       navigate("/");
+      toast.success(result.message,{
+        position:"top-center"
+      });
     }
+   
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -54,11 +68,7 @@ const Login = () => {
             Sign in to your account
           </h2>
           {/* again here we are doing conditional rendering */}
-          {error ? (
-            <h1 className="text-red-500">Incorrect passward or gmail</h1>
-          ) : (
-            <></>
-          )}
+          {/* {error ? <h1 className="text-red-500">{errorMessage}</h1> : <></>} */}
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="rounded-md shadow-sm -space-y-px">
@@ -114,13 +124,17 @@ const Login = () => {
             </div>
 
             <div className="text-sm">
-              <a
-                href="#"
-                className="font-medium text-indigo-600 hover:text-indigo-500"
-              >
-                Forgot your password?
-              </a>
+              <NavLink to="/forgottenpassward" className="text-blue-700">
+                forgot passward ?
+              </NavLink>
             </div>
+          </div>
+          <div>
+            <div>Not Registerd yet</div>
+
+            <NavLink to="/signup" className="text-blue-700">
+              Signup
+            </NavLink>
           </div>
 
           <div>

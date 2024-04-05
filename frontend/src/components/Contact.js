@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
+// impoorting all the required library
 const Contact = () => {
   const [Email, setEmail] = useState("");
   const [ContactNo, setContactno] = useState("");
@@ -7,48 +9,64 @@ const Contact = () => {
   const [Query, setQuery] = useState("");
   const [Response, setResponse] = useState("");
   const [boolresponse, setboolresponse] = useState(false);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+
+  // creating the variables
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // same sa login
-    // creatingan object which we have to send to backend
+    // prevent default help to prevent default function of reload
+    // creatinga n object which we have to send to backend
     var addUser = { Name, Email, ContactNo, Query };
     console.log(addUser);
 
-    // api call same as login
+    // api call where we have to send data
     const response = await fetch("http://localhost:2000/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify(addUser),
     });
+
     // converting our response to json object
     const result = await response.json();
-
+// response handling
     if (!response.ok) {
-      console.log(result.message);
-    
+      // let message;
+      toast.error(result.message,{
+        position:"top-center"
+      })
+      // setboolresponse(true)
+      // setResponse(result.message);
+      // console.log(result.message);
+      return;
+      // setResponse("sahil")
+      // if any error reciveed from backend
     }
     if (response.ok) {
-      console.log(result);
-      setResponse(result.message);
-      setboolresponse(true);
+      // console.log(result);
+      // setResponse(result.message);
+      // setboolresponse(true);
+      toast.success(result.message,{
+        position:"top-center"
+      })
       setName("");
       setEmail("");
 
       setContactno("");
       setQuery("");
+      // if ervery thing is fine we set all values to empty
       // navigate('/contact')
       return;
+      // and return
     }
   };
   return (
     <div className="py-20">
       <div className="max-w-lg mx-auto">
         <h2 className="text-3xl font-semibold mb-8">Contact Us</h2>
-        {boolresponse ? <h1 className="text-green-700">{Response}</h1> : <></>}
+        {/* {boolresponse ? <h1 className="text-green-700">{Response}</h1> : <></>} */}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="fullname" className="block mb-1">

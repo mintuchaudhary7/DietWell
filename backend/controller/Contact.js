@@ -41,6 +41,7 @@ const Contact = async(req,res)=>{
             });
             return;
         }
+        // if we reached here then we are creating a database entry for query collection
         const question = await query.create({
             Name,
             Email,
