@@ -11,7 +11,9 @@ const UpdateProfile = () => {
     weight: "",
     gender: "",
     activity: "",
-    dietpreference:""
+    dietpreference:"",
+    disease:"",
+    allergy:"",
   });
   const nevigate = useNavigate();
 
@@ -41,7 +43,7 @@ const UpdateProfile = () => {
     }
     // for intant updating the data
     if (response.ok) {
-        setProfile({name:result.data.Name, email:result.data.Email,phoneno:result.data.ContactNo,dietpreference:result.data.Dietpreference,age:result.data.Age,height:result.data.Height,weight:result.data.Weight,gender:result.data.Gender,activity:result.data.Activity})
+        setProfile({name:result.data.Name, email:result.data.Email,phoneno:result.data.ContactNo,dietpreference:result.data.Dietpreference,age:result.data.Age,height:result.data.Height,weight:result.data.Weight,gender:result.data.Gender,activity:result.data.Activity,disease:result.data.Disease,allergy:result.data.Allergy})
     //   console.log(result.data.Name);
     // toast.success(result.message,{
     //   position:"top-center"
@@ -233,6 +235,39 @@ const UpdateProfile = () => {
             onChange={handleChange}
           />
         </div>
+        <div>
+          <label
+            htmlFor="diease"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Ary you Suffering from any special disease
+          </label>
+          <input
+            type="text"
+            name="disease"
+            id="disease"
+            className="mt-1 p-2 border rounded-md w-full"
+            value={profile.disease}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="allergyl"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Do you have any allergy
+          </label>
+          <input
+            type="text"
+            name="allergy"
+            id="allergy"
+            className="mt-1 p-2 border rounded-md w-full"
+            value={profile.allergy}
+            onChange={handleChange}
+          />
+        </div>
+        
         <div>
           <button
             type="submit"

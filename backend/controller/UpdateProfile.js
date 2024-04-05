@@ -27,6 +27,16 @@ const UpdateProfile = async (req, res) => {
       const Email = decoded.Email;
 
       console.log(Email);
+      const userHeight = profile.height
+      const userWeight = profile.weight
+      const userAge = profile.age
+      let bmr= 0;
+      if(profile.gender === "male" || profile.gender === "Male"){
+        bmr = 88.362 + (13.397 * userWeight) + (4.799 * userHeight) - (5.677 * userAge);
+      }
+      else if (profile.gender === "female" || profile.gender === "Female"){
+        bmr = 447.593 + (9.247 * userWeight) + (3.098 * userHeight) - (4.330 * userAge);
+      }
       //creating an update veriable in which all the updated data is stored
       const update = {
         $set: {
@@ -40,6 +50,9 @@ ContactNo: profile.phoneno,
           Gender: profile.gender,
           Dietpreference: profile.dietpreference,
           Activity: profile.activity,
+          Disease:profile.disease,
+          Allergy:profile.allergy,
+          Bmr:bmr
         },
       };
     //   console.log(profile)

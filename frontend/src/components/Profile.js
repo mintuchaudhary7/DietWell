@@ -12,6 +12,9 @@ const Profile = () => {
     activityLevel: "",
     email: "",
     phoneno: "",
+    allergy:"",
+    disease:"",
+    Bmr:""
   });
   const firstRender = async () => {
     const response = await fetch("http://localhost:2000/profile", {
@@ -40,6 +43,10 @@ const Profile = () => {
         weight: result.data.Weight,
         gender: result.data.Gender,
         activityLevel: result.data.Activity,
+        disease:result.data.Disease,
+        allergy:result.data.Allergy,
+        Bmr:result.data.Bmr
+
       });
       toast.success(result.message,{
         position:"top-center"
@@ -107,6 +114,24 @@ const Profile = () => {
           <label>Activity Level:</label>
           <div className="border border-gray-400 p-2 w-full rounded-md">
             {profile.activityLevel}
+          </div>
+        </div>
+        <div>
+          <label>Allergy:</label>
+          <div className="border border-gray-400 p-2 w-full rounded-md">
+            {profile.allergy}
+          </div>
+        </div>
+        <div>
+          <label>Diseease</label>
+          <div className="border border-gray-400 p-2 w-full rounded-md">
+            {profile.disease}
+          </div>
+        </div>
+        <div>
+          <label>Your Bmr is</label>
+          <div className="border border-gray-400 p-2 w-full rounded-md">
+            {profile.Bmr}
           </div>
         </div>
       </div>
