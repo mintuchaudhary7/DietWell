@@ -2,7 +2,7 @@ const Footer = () => {
     return (
       <footer className="bg-gray-800 text-ghttps://www.australianeggs.org.au/nutrition/meal-plans/weight-gain-meal-planray-300 body-font">
         <div className="flex justify-center mr-20">
-          <nav className="flex flex-wrap mt-4 text-sm">
+          <nav className="flex flex-wrap font-normal text-base text-white  mt-4 text-sm">
             <a href="#" className="mr-5 hover:text-gray-400">
               Career
             </a>

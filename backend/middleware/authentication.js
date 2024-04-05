@@ -8,7 +8,7 @@ const auth = async (req, res, next) => {
     const token = req.cookies.token;
     // || req.body  || req.header('uthorization'.replace('Bearer '," "))
     // console.log("token is"+ req.cookies.token)
-    // const cook = req.cookie;
+    // const cook = req.cookie; 
     console.log(req.cookies);
     // if no token it meanse user token is expired or user is not logged in and we send a erorr message in response
     if (!token || token === undefined) {
@@ -24,7 +24,9 @@ const auth = async (req, res, next) => {
       const jwt = require("jsonwebtoken");
       const decode = jwt.verify(token, process.env.JWT_SECRET);
       // console.log("verified s " + req.cookies.token);
-      res.status(200);
+      if(decode != undefined){
+        res.status(200);
+      }
 
       // req.User.token = decode;
       // console.log("user verified")
