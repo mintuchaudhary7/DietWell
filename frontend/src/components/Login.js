@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContext, createContext } from "react";
 import { UserContext } from "../App";
@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 // importing the components which are required
 const Login = () => {
   const user = useContext(UserContext);
-  
+
   //  same again ham destructure krr rhe hai jaise navbar me kiya the
   const islogin = user.islogin;
   const setIslogin = user.setIslogin;
@@ -38,8 +38,8 @@ const Login = () => {
       console.log(result.message);
       setError(true);
       setErrorMessage(result.message);
-      toast.error(result.message,{
-        position:"top-center"
+      toast.error(result.message, {
+        position: "top-center",
       });
       //setting  error because we have to display error that user entered wrong passward
       // setError(result.error);
@@ -53,11 +53,10 @@ const Login = () => {
       setIslogin(true);
       //  and finally out log in success then user ko home route pe chala jayega using nevigate
       navigate("/");
-      toast.success(result.message,{
-        position:"top-center"
+      toast.success(result.message, {
+        position: "top-center",
       });
     }
-   
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">

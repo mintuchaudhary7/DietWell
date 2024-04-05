@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-avatar": "^5.0.3",
+    "react-toastify": "^10.0.5"
+  }
+}
