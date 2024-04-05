@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SignupImage from "../assets/signup.jpeg";
 import { NavLink } from "react-router-dom";
+// <<<<<<< version-s
 import validator from 'validator' 
 import { toast } from "react-toastify";
+// =======
+
+// >>>>>>> main
 const Signup = () => {
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
