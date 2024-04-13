@@ -2,13 +2,22 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SignupImage from "../assets/signup.jpeg";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../App";
 // <<<<<<< version-s
-//import validator from 'validator' 
+//import validator from 'validator' c
 import { toast } from "react-toastify";
 // =======
 
 // >>>>>>> main
+
 const Signup = () => {
+  const user = useContext(UserContext);
+
+  //  same again ham destructure krr rhe hai jaise navbar me kiya the
+  const islogin = user.islogin;
+  const setIslogin = user.setIslogin;
+  
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
   const [ContactNo, setContactno] = useState(0);
@@ -79,7 +88,7 @@ const Signup = () => {
       // above we are makink all the feild empty
       //   setIsSignup(true);
       // after signup we go to login and user can login
-      navigate("/login");
+      navigate("/login"); 
     }
   };
   return (

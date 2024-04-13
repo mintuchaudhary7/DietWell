@@ -1,6 +1,104 @@
-const WeightGain = ()=>{
-    return (
-        <div>Welcome to weight gain</div>
-    )
-}
-export default WeightGain
+import { useState } from "react";
+import { useEffect } from "react";
+
+const WeightGain = () => {
+  const [menu1, setMenu1] = useState("");
+  const [resgot, setResgot] = useState(false);
+  const [selectedDay, setSelectedDay] = useState(null);
+  const days = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+  const handleClick = (day) => {
+    setSelectedDay(day);
+  };
+  const weightGain = async () => {
+    const response = await fetch("http://localhost:2000/services/weightgain", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      // body: JSON.stringify(),
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      setMenu1(result.message);
+      return;
+    }
+    if (response.ok) {
+      var x = await JSON.parse(result.data.function_call.arguments);
+      setMenu1(x);
+
+      setResgot(true);
+      return;
+    }
+  };
+  useEffect(() => {
+    weightGain();
+  }, []);
+  const DayCard = ({ day }) => (
+    <div
+      className="max-w-sm rounded overflow-hidden shadow-lg bg-blue-100"
+      onClick={() => handleClick(day)}
+    >
+      <div className="px-6 py-4">
+        <div className="font-bold text-xl mb-2">{day}</div>
+      </div>
+    </div>
+  );
+  const NumberCard = ({ number }) => (
+    <div
+      className="max-w-sm rounded overflow-hidden shadow-lg bg-green-100 transform rotate-180"
+      onClick={() => handleClick(null)}
+    >
+      <div className="px-6 py-4">
+        <div className="font-bold text-xl mb-4  transform rotate-180">
+          Calories: {menu1.days[number - 1].totalNutrients.calories}{" "}
+          Carbohydrates: {menu1.days[number - 1].totalNutrients.carbohydrates}{" "}
+          Fats: {menu1.days[number - 1].totalNutrients.fats} Protein:{" "}
+          {menu1.days[number - 1].totalNutrients.proteins} Fiber:{" "}
+          {menu1.days[number - 1].totalNutrients.fibers}
+        </div>
+        <div className="font-bold text-xl mb-4  transform rotate-180">
+          Dinner: {menu1.days[number - 1].dinner}
+        </div>
+        <div className="font-bold text-xl mb-4  transform rotate-180">
+          Lunch: {menu1.days[number - 1].lunch}
+        </div>
+        <div className="font-bold text-xl mb-4  transform rotate-180">
+          Breakfast: {menu1.days[number - 1].breakfast}
+        </div>
+      </div>
+    </div>
+  );
+  return (
+    <div>
+      Welcome to weight gain
+      {resgot ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+          {days.map((day, index) => (
+            <div key={index} className="relative">
+              {/* {console.log(menu1)} */}
+              {selectedDay === day ? (
+                <NumberCard number={index + 1} />
+              ) : (
+                <DayCard day={day} />
+              )}
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div>Loading</div>
+      )}
+    </div>
+  );
+};
+export default WeightGain;
