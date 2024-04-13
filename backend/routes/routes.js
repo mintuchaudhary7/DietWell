@@ -10,6 +10,7 @@ const logout = require('../controller/Logout')
 const UpdateProfile = require('../controller/UpdateProfile')
 const getProfile = require('../controller/GetProfile');
 const profile = require("../controller/Profile");
+const WeightGain = require('../controller/WeightGain')
 // router.use('/contact',auth)
 // on homepage we send a get request by using useeffect which is for check user have token or not if user have token then we directly show profile option
 router.get('/',auth,(req,res)=>{
@@ -31,4 +32,5 @@ router.get("/services",auth,(req,res)=>{//same as above
         message:"hii"
     })
 })
+router.get('/services/weightgain',WeightGain)
 module.exports = router;//basic export function

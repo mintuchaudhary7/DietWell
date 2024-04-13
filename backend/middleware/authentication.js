@@ -23,10 +23,17 @@ const auth = async (req, res, next) => {
       // verifing token by secret key and sending a success message
       const jwt = require("jsonwebtoken");
       const decode = jwt.verify(token, process.env.JWT_SECRET);
+      if(decode!=undefined){
+        res.status(200);
+      }
       // console.log("verified s " + req.cookies.token);
+// <<<<<<< version-s
+      
+// =======
       if(decode != undefined){
         res.status(200);
       }
+// >>>>>>> main
 
       // req.User.token = decode;
       // console.log("user verified")

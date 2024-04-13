@@ -12,9 +12,14 @@ const UpdateProfile = () => {
     gender: "",
     activity: "",
     dietpreference:"",
+// <<<<<<< version-s
+    disease:"",
+    allergy:"",
+// =======
     bmr:"",
     allergy:"",
     disease:""
+// >>>>>>> main
   });
   const nevigate = useNavigate();
 
@@ -44,7 +49,11 @@ const UpdateProfile = () => {
     }
     // for intant updating the data
     if (response.ok) {
+// <<<<<<< version-s
+        setProfile({name:result.data.Name, email:result.data.Email,phoneno:result.data.ContactNo,dietpreference:result.data.Dietpreference,age:result.data.Age,height:result.data.Height,weight:result.data.Weight,gender:result.data.Gender,activity:result.data.Activity,disease:result.data.Disease,allergy:result.data.Allergy})
+// =======
         setProfile({name:result.data.Name, email:result.data.Email,phoneno:result.data.ContactNo,dietpreference:result.data.Dietpreference,age:result.data.Age,height:result.data.Height,weight:result.data.Weight,gender:result.data.Gender,activity:result.data.Activity, bmr:result.data.BMR,allergy:result.data.Allergy, disease:result.data.Disease})
+// >>>>>>> main
     //   console.log(result.data.Name);
     // toast.success(result.message,{
     //   position:"top-center"
@@ -238,6 +247,19 @@ const UpdateProfile = () => {
         </div>
         <div>
           <label
+// <<<<<<< version-s
+            htmlFor="diease"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Ary you Suffering from any special disease
+          </label>
+          <input
+            type="text"
+            name="disease"
+            id="disease"
+            className="mt-1 p-2 border rounded-md w-full"
+            value={profile.disease}
+// =======
             htmlFor="BMR"
             className="block text-sm font-medium text-gray-700"
           >
@@ -249,15 +271,23 @@ const UpdateProfile = () => {
             id="BMR"
             className="mt-1 p-2 border rounded-md w-full"
             value={profile.bmr}
+// >>>>>>> main
             onChange={handleChange}
           />
         </div>
         <div>
           <label
+// <<<<<<< version-s
+            htmlFor="allergyl"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Do you have any allergy
+// =======
             htmlFor="allergy"
             className="block text-sm font-medium text-gray-700"
           >
             Allergy
+// >>>>>>> main
           </label>
           <input
             type="text"
@@ -268,6 +298,9 @@ const UpdateProfile = () => {
             onChange={handleChange}
           />
         </div>
+// <<<<<<< version-s
+        
+// =======
         <div>
           <label
             htmlFor="disease"
@@ -284,6 +317,7 @@ const UpdateProfile = () => {
             onChange={handleChange}
           />
         </div>
+// >>>>>>> main
         <div>
           <button
             type="submit"

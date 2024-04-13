@@ -7,6 +7,7 @@ import { useContext } from "react";
 import About from "./About";
 import Contact from "./Contact";
 import Services from "./Services";
+import Footer from "./Footer";
 //  impoorting all the required library
 const Home = () => {
   const user = useContext(UserContext);
@@ -96,6 +97,7 @@ const Home = () => {
       <Services />
       <About />
       <Contact />
+      <Footer></Footer>
     </div>
   );
 };

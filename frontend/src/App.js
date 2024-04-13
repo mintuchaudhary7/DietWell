@@ -107,7 +107,7 @@ function App() {
         <ToastContainer className="Toast" />
       </UserContext.Provider>
 
-      <Footer></Footer>
+      
     </div>
   );
 }
