@@ -25,7 +25,17 @@ const UpdateProfile = async (req, res) => {
       decoded = jwt.verify(token, process.env.JWT_SECRET);
       // console.log(decoded)
       const Email = decoded.Email;
+      let bmr = 0;
+      if(profile.gender == "Male"){
+        bmr = 88.362 + (13.397*profile.weight) + (4.799*profile.height) - (5.677*profile.age);
+        //88.362 + (13.397 x weight in kg) + (4.799 x height in cm) – (5.677 x age in years)
+      }
+      else if(profile.gender == "Female"){
+        bmr = 447.593 + (9.247*profile.weight) + (3.098*profile.height) - (4.330*profile.age);
+        //Women: BMR = 447.593 + (9.247 x weight in kg) + (3.098 x height in cm) – (4.330 x age in years)
+      }
 
+// <<<<<<< version-s
       console.log(Email);
       const userHeight = profile.height
       const userWeight = profile.weight
@@ -37,26 +47,34 @@ const UpdateProfile = async (req, res) => {
       else if (profile.gender === "female" || profile.gender === "Female"){
         bmr = 447.593 + (9.247 * userWeight) + (3.098 * userHeight) - (4.330 * userAge);
       }
+// =======
+      console.log("bmr = " + profile.gender);
+// >>>>>>> main
       //creating an update veriable in which all the updated data is stored
       const update = {
         $set: {
           Email: profile.email,
           Name: profile.name,
-          
-ContactNo: profile.phoneno,
+          ContactNo: profile.phoneno,
           Age: profile.age,
           Height: profile.height,
           Weight: profile.weight,
           Gender: profile.gender,
           Dietpreference: profile.dietpreference,
           Activity: profile.activity,
+// <<<<<<< version-s
           Disease:profile.disease,
           Allergy:profile.allergy,
           Bmr:bmr
+// =======
+          BMR:bmr,
+          Allergy: profile.allergy,
+          Disease: profile.disease,
+// >>>>>>> main
         },
       };
-    //   console.log(profile)
-      console.log()
+      // console.log(update)
+      // console.log()
       // const update2 = { Age: 60 }
       // filter like our primary key on which we can search user objech
       const filter = { Email: Email };

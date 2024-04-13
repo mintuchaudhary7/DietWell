@@ -12,9 +12,15 @@ const Profile = () => {
     activityLevel: "",
     email: "",
     phoneno: "",
+// <<<<<<< version-s
     allergy:"",
     disease:"",
     Bmr:""
+// =======
+    bmr:"",
+    allergy:"",
+    disease:""
+// >>>>>>> main
   });
   const firstRender = async () => {
     const response = await fetch("http://localhost:2000/profile", {
@@ -43,10 +49,16 @@ const Profile = () => {
         weight: result.data.Weight,
         gender: result.data.Gender,
         activityLevel: result.data.Activity,
+// <<<<<<< version-s
         disease:result.data.Disease,
         allergy:result.data.Allergy,
         Bmr:result.data.Bmr
 
+// =======
+        bmr:result.data.BMR,
+        allergy:result.data.Allergy,
+        disease:result.data.Disease
+// >>>>>>> main
       });
       toast.success(result.message,{
         position:"top-center"
@@ -117,6 +129,7 @@ const Profile = () => {
           </div>
         </div>
         <div>
+// <<<<<<< version-s
           <label>Allergy:</label>
           <div className="border border-gray-400 p-2 w-full rounded-md">
             {profile.allergy}
@@ -132,11 +145,28 @@ const Profile = () => {
           <label>Your Bmr is</label>
           <div className="border border-gray-400 p-2 w-full rounded-md">
             {profile.Bmr}
+// =======
+          <label>BMR:</label>
+          <div className="border border-gray-400 p-2 w-full rounded-md">
+            {profile.bmr}
+          </div>
+        </div>
+        <div>
+          <label>Allergy:</label>
+          <div className="border border-gray-400 p-2 w-full rounded-md">
+            {profile.allergy}
+          </div>
+        </div>
+        <div>
+          <label>Disease:</label>
+          <div className="border border-gray-400 p-2 w-full rounded-md">
+            {profile.disease}
+// >>>>>>> main
           </div>
         </div>
       </div>
 
-      <NavLink cla to="/profile/updateprofile">
+      <NavLink to="/profile/updateprofile">
         <button className="bg-blue-500 m-5 h-10 rounded-sm p-2">
           Update Profile
         </button>

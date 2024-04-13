@@ -8,7 +8,7 @@ const auth = async (req, res, next) => {
     const token = req.cookies.token;
     // || req.body  || req.header('uthorization'.replace('Bearer '," "))
     // console.log("token is"+ req.cookies.token)
-    // const cook = req.cookie;
+    // const cook = req.cookie; 
     console.log(req.cookies);
     // if no token it meanse user token is expired or user is not logged in and we send a erorr message in response
     if (!token || token === undefined) {
@@ -27,7 +27,13 @@ const auth = async (req, res, next) => {
         res.status(200);
       }
       // console.log("verified s " + req.cookies.token);
+// <<<<<<< version-s
       
+// =======
+      if(decode != undefined){
+        res.status(200);
+      }
+// >>>>>>> main
 
       // req.User.token = decode;
       // console.log("user verified")

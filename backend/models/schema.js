@@ -47,6 +47,14 @@ const userSchema = new mongoose.Schema({
         required:false,
         default:"NULL"
     },
+// <<<<<<< version-s
+// =======
+    BMR:{
+        type:Number,
+        required:false,
+        default:0
+    },
+// >>>>>>> main
     Allergy:{
         type:String,
         required:false,
@@ -57,6 +65,7 @@ const userSchema = new mongoose.Schema({
         required:false,
         default:"NULL"
     },
+// <<<<<<< version-s
     Bmr:{
         type:Number,
         required:false,
@@ -64,6 +73,8 @@ const userSchema = new mongoose.Schema({
     }
     
 
+// =======
+// >>>>>>> main
 
     
 
