@@ -69,7 +69,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home></Home>} />
 
-          <Route path="/services" element={<Services></Services>} />
+          <Route path="/services" element={<protectedRoute><Services></Services></protectedRoute>} />
           <Route path="about" element={<About></About>} />
           <Route path="/contact" element={<Contact></Contact>} />
           <Route path="/login" element={<Login></Login>} />
