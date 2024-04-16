@@ -10,27 +10,7 @@ const Services = () => {
   const [middleware, setMiddleware] = useState("");
   const [middlewareresponse, setmiddlewarerespnse] = useState(false);
 
-  const checklog = async () => {
-    const response = await fetch("http://localhost:2000/services", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    });
-    const result = await response.json();
-
-    if (!response.ok) {
-      nevigate("/login");
-      toast.error(result.message, {
-        position: "top-center",
-      });
-      return;
-    }
-    if (response.ok) {
-      return;
-    }
-  };
+  
 
   return (
     <div className="bg-orange-100">
@@ -51,7 +31,7 @@ const Services = () => {
               <NavLink
                 key={service.id}
                 to={service.to}
-                onClick={checklog}
+                
                 className="flex justify-center"
               >
                 <div className="bg-orange-300 shadow-lg rounded-lg p-4 flex flex-col items-center hover:shadow-xl transform transition duration-500 hover:scale-105 cursor-pointer">

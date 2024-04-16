@@ -31,12 +31,13 @@ const WeightGain = () => {
 
     if (!response.ok) {
       setMenu1(result.message);
+      console.log("get")
       return;
     }
     if (response.ok) {
       var x = await JSON.parse(result.data.function_call.arguments);
       setMenu1(x);
-
+      console.log("get")
       setResgot(true);
       return;
     }

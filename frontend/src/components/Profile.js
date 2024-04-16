@@ -31,13 +31,14 @@ const Profile = () => {
     });
     const result = await response.json();
     if (!response.ok) {
-      // console.log(result);
+      console.log(result);
       toast.info(result.message,{
         position:"top-center"
       })
       return;
     }
     if (response.ok) {
+      console.log(result)
       setProfile({
         name: result.data.Name,
         email: result.data.Email,

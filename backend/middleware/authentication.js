@@ -1,6 +1,7 @@
 // for protected routes
 
 require("dotenv").config();
+const user = require('../models/schema')
 //  this is our middleware which if user on route which is only accessed by logged in user so the work is this middleware is very simple only to check token is present or not
 const auth = async (req, res, next) => {
   try {
@@ -25,9 +26,14 @@ const auth = async (req, res, next) => {
       const decode = jwt.verify(token, process.env.JWT_SECRET);
       // console.log("verified s " + req.cookies.token);
       if(decode != undefined){
-        res.status(200);
+        const Email = decode.Email
+        const data = await user.findOne({Email});
+        console.log(data.Role)
+        return res.status(200).json({
+          success:true,
+          role:data.Role
+        })
       }
-
       // req.User.token = decode;
       // console.log("user verified")
       // for error handling

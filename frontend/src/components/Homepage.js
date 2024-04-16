@@ -7,6 +7,7 @@ import { useContext } from "react";
 import About from "./About";
 import Contact from "./Contact";
 import Services from "./Services";
+import ProtectedRoute from "./ProtectedRoute";
 //  impoorting all the required library
 const Home = () => {
   const user = useContext(UserContext);
@@ -93,7 +94,10 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Services />
+      {/* <ProtectedRoute> */}
+
+       <Services />
+      {/* </ProtectedRoute> */}
       <About />
       <Contact />
     </div>

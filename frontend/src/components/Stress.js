@@ -26,16 +26,18 @@ const Stress = () => {
     });
 
     const result = await response.json();
-
+    console.log(result)
     if (!response.ok) {
+      // console.log(result.message)
       setMenu1(result.message);
-    //   setResgot(true);
+      setResgot(true);
       return;
     }
     if (response.ok) {
       var x = await JSON.parse(result.data.function_call.arguments);
       setMenu1(x);
-
+      console.log(result.message)
+      console.log(x)
       setResgot(true);
       return;
     }

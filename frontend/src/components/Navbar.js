@@ -56,6 +56,7 @@ const Navbar = () => {
   // destructuring the data which we passed in context api
   // like ham kisi box se kuch bhahar nikal rhe hai consume krne ke liye
   const user = useContext(UserContext);
+  console.log(user)
   const islogin = user.islogin;
   const [isvisible, setIsvisible] = useState(false);
   const setIslogin = user.setIslogin;

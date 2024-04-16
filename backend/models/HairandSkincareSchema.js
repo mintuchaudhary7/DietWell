@@ -2,7 +2,8 @@ const schema = {
   type: "object",
   properties: {
     Haircare: {
-      description: " 3 Products with product name or company name for hare care",
+      description:
+        " 3 Products with product name or company name for hare care",
       type: "object",
       properties: {
         Shampoo: {
@@ -24,7 +25,8 @@ const schema = {
     },
     Skincare: {
       type: "object",
-      description: "3 Products  with product name or company name for skin care",
+      description:
+        "3 Products  with product name or company name for skin care",
       properties: {
         Moiteriser: {
           type: "string",
@@ -33,19 +35,23 @@ const schema = {
         },
         Toner: {
           type: "string",
-          description: "any 3 toner  with product name or company name according to given data",
+          description:
+            "any 3 toner  with product name or company name according to given data",
         },
         Mask: {
           type: "string",
-          description: "3 mask oil  with product name or company name according to given data",
+          description:
+            "3 mask oil  with product name or company name according to given data",
         },
         Cleanser: {
           type: "string",
-          description: "3 cleanser  with product name or company name according to given data",
+          description:
+            "3 cleanser  with product name or company name according to given data",
         },
         Serum: {
           type: "string",
-          description: "3 serum  with product name or company name according to given data",
+          description:
+            "3 serum  with product name or company name according to given data",
         },
       },
     },

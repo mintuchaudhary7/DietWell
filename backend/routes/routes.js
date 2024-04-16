@@ -13,32 +13,26 @@ const profile = require("../controller/Profile");
 const weightgain = require("../controller/WeightGain");
 const weightloss = require("../controller/WeightLoss");
 const haireandskincare = require("../controller/HairandSkincare");
-const stress = require("../controller/StressManagement")
+const stress = require("../controller/StressManagement");
+const protectedRoute = require("../controller/ProtectedRoute");
 // router.use('/contact',auth)
 // on homepage we send a get request by using useeffect which is for check user have token or not if user have token then we directly show profile option
 router.get("/", auth, (req, res) => {
-  res.send("hello");
+  res.status(200);
 });
 
-router.post("/contact", auth, contact);
+router.post("/contact",auth, contact);
 router.post("/login", login); //mapping the controller with routes
 router.post("/signup", signup); //same as above
 router.post("/forgottenpassward", forgot);
 router.patch("/changepassward", Changepassward);
 router.get("/logout", logout);
-router.post("/profile/updateprofile", auth, UpdateProfile); //here we mounted our middleware because this route is only accessed by loggedin user
-router.get("/profile/updateprofile", auth, getProfile); //same as above
-router.get("/profile", auth, profile); //same as above
-router.get("/services", auth, (req, res) => {
-  //same as above
-  res.status(200).json({
-    success: true,
-    message: "hii",
-  });
-});
-
-router.get("/services/weightgain", auth, weightgain);
-router.get("/services/weightloss", auth, weightloss);
-router.get("/services/haireandskincare", auth, haireandskincare);
-router.get("/services/stress",auth,stress);
+router.post("/profile/updateprofile", UpdateProfile); //here we mounted our middleware because this route is only accessed by loggedin user
+router.get("/profile/updateprofile", getProfile); //same as above
+router.get("/profile", profile); //same as above
+router.get("/services/weightgain", weightgain);
+router.get("/services/weightloss", weightloss);
+router.get("/services/haireandskincare", haireandskincare);
+router.get("/services/stress", stress);
+router.get("/protected", protectedRoute);
 module.exports = router; //basic export function

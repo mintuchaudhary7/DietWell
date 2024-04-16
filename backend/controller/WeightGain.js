@@ -8,7 +8,7 @@ const WeightGain = async (req, res) => {
     var decoded;
     const token = req.cookies.token;
     if (!token || token === undefined) {
-      res.status(404).json({
+      return res.status(404).json({
         success: false,
         message: "Not a verified user please login",
       });
@@ -21,12 +21,12 @@ const WeightGain = async (req, res) => {
     const gender = user.Gender;
     const weight = user.Weight;
     const height = user.Height;
-    const bmr = user.Bmr;
+    const bmr = user.BMR;
     const activity = user.Activity;
     const dietpreference = user.Dietpreference;
     const allergy = user.Allergy;
     const disease = user.Disease;
-    
+
     if (
       age === null ||
       gender === "" ||
@@ -64,13 +64,13 @@ const WeightGain = async (req, res) => {
     });
     // const result = await chatCompletion.json()
     // console.log(chatCompletion.choices[0].message.tool_calls.arguments)
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       message: "Your diet plan is generated successfully",
       data: chatCompletion.choices[0].message,
     });
   } catch (error) {
-    res.status(400).json({
+    return res.status(400).json({
       success: false,
       message: error.message,
     });

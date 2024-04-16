@@ -23,6 +23,7 @@ const WeightLoss = ()=>{
     
         if (!response.ok) {
             setMenu1(result.message)
+            setResgot(true)
             return;
         }
         if (response.ok) {
@@ -34,7 +35,7 @@ const WeightLoss = ()=>{
         }
     }
     useEffect(() => {
-        // weightLoss();
+        weightLoss();
     }, []);
     const DayCard = ({ day }) => (
         <div className="max-w-sm rounded overflow-hidden shadow-lg bg-blue-100" onClick={() => handleClick(day)}>
@@ -63,6 +64,12 @@ const WeightLoss = ()=>{
       );
     return (
         <div>Welcome to weight gain
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
             {
                 resgot ? <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
                 {days.map((day, index) => (
@@ -71,7 +78,7 @@ const WeightLoss = ()=>{
                     {selectedDay === day ? <NumberCard number={index + 1} /> : <DayCard day={day} />}
                   </div>
                 ))}
-              </div>:<div>Loading</div>
+              </div>:<div>Loading...</div>
             }
             
         </div>

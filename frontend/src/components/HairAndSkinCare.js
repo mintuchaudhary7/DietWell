@@ -34,11 +34,13 @@ const HairandSkincare = () => {
 
     if (!response.ok) {
       setMenu1(result.message);
+      console.log("abc")
       return;
     }
     if (response.ok) {
       var x = await JSON.parse(result.data.function_call.arguments);
       setMenu1(x);
+      console.log(x)
       setResgot(true);
       return;
     }
@@ -56,6 +58,7 @@ const HairandSkincare = () => {
   
     return (
       <div className="w-full sm:w-1/2 lg:w-1/3 p-4">
+        {console.log(menu1)}
         <div className="relative w-full h-80 bg-white shadow-md rounded-lg overflow-hidden border border-gray-200 cursor-pointer" onClick={handleFlip}>
           <div className={`absolute top-0 left-0 w-full h-full transform transition-transform duration-500 ${isFlipped ? 'rotate-y-180' : ''}`}>
             <div className="bg-white w-full h-full flex justify-center items-center">

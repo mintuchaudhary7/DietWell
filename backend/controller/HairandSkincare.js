@@ -8,7 +8,7 @@ const HairandSkincare = async (req, res) => {
     var decoded;
     const token = req.cookies.token;
     if (!token || token === undefined) {
-      res.status(404).json({
+      return res.status(404).json({
         success: false,
         message: "Not a verified user please login",
       });
@@ -30,16 +30,16 @@ const HairandSkincare = async (req, res) => {
     const hairtexture = user.Hairtexture;
     const damagecount = user.DamageCount;
     const skintype = user.SkinType;
-    
+
     if (
-    //   age === null ||
+      //   age === null ||
       gender === "" ||
       hairtype === null ||
       hairtexture === null ||
       damagecount === null ||
       disease === "" ||
       skintype === "" ||
-    //   dietpreference === "" ||
+      //   dietpreference === "" ||
       allergy === "" ||
       disease === ""
     ) {
@@ -67,14 +67,14 @@ const HairandSkincare = async (req, res) => {
       temperature: 0,
     });
     // const result = await chatCompletion.json()
-    console.log(chatCompletion)
-    res.status(200).json({
+    console.log(chatCompletion);
+    return res.status(200).json({
       success: true,
       message: "Your diet plan is generated successfully",
       data: chatCompletion.choices[0].message,
     });
   } catch (error) {
-    res.status(400).json({
+    return res.status(400).json({
       success: false,
       message: error.message,
     });
