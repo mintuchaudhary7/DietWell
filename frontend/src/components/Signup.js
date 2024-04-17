@@ -2,18 +2,28 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SignupImage from "../assets/signup.jpeg";
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../App";
 // <<<<<<< version-s
-import validator from 'validator' 
+//import validator from 'validator' c
 import { toast } from "react-toastify";
 // =======
 
 // >>>>>>> main
+
 const Signup = () => {
+  const user = useContext(UserContext);
+
+  //  same again ham destructure krr rhe hai jaise navbar me kiya the
+  const islogin = user.islogin;
+  const setIslogin = user.setIslogin;
+  
   const [Name, setName] = useState("");
   const [Email, setEmail] = useState("");
   const [ContactNo, setContactno] = useState(0);
   const [confirmPassword, setConfirmPassward] = useState("");
   const [Passward, setPassward] = useState("");
+  const [Role, setRole] = useState("");
   // const [error, setError] = useState(false);
   // const [errorMessage,setErrorMessage] = useState(false);
   // declaring usestate variable
@@ -40,7 +50,7 @@ const Signup = () => {
     }
     // same sa login
     // creatingan object which we have to send to backend
-    var addUser = { Name, Email, ContactNo, Passward };
+    var addUser = { Name, Email, ContactNo, Passward,Role };
     console.log(addUser);
     // eslint-disable-next-line no-unused-expressions
     // api call same as login
@@ -79,7 +89,7 @@ const Signup = () => {
       // above we are makink all the feild empty
       //   setIsSignup(true);
       // after signup we go to login and user can login
-      navigate("/login");
+      navigate("/login"); 
     }
   };
   return (
@@ -132,6 +142,24 @@ const Signup = () => {
         name="email"
         value={Email}
         onChange={(e) => setEmail(e.target.value)}
+        required
+      />
+    </div>
+    <div className="mb-4">
+      <label
+        className="block text-gray-700 text-sm font-bold mb-2"
+        htmlFor="email"
+      >
+        Role
+      </label>
+      <input
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="Role"
+        type="text"
+        placeholder="Role"
+        name="Role"
+        value={Role}
+        onChange={(e) => setRole(e.target.value)}
         required
       />
     </div>

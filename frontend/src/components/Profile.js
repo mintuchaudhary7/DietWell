@@ -12,9 +12,14 @@ const Profile = () => {
     activityLevel: "",
     email: "",
     phoneno: "",
+    bmr:"",
     allergy:"",
     disease:"",
-    Bmr:""
+    Hairtexture:"",
+    hairtype:"",
+    damagecount:"",
+    skintype:"",
+    stressdescription:""
   });
   const firstRender = async () => {
     const response = await fetch("http://localhost:2000/profile", {
@@ -26,13 +31,14 @@ const Profile = () => {
     });
     const result = await response.json();
     if (!response.ok) {
-      // console.log(result);
+      console.log(result);
       toast.info(result.message,{
         position:"top-center"
       })
       return;
     }
     if (response.ok) {
+      console.log(result)
       setProfile({
         name: result.data.Name,
         email: result.data.Email,
@@ -43,10 +49,14 @@ const Profile = () => {
         weight: result.data.Weight,
         gender: result.data.Gender,
         activityLevel: result.data.Activity,
-        disease:result.data.Disease,
+        bmr:result.data.BMR,
         allergy:result.data.Allergy,
-        Bmr:result.data.Bmr
-
+        disease:result.data.Disease,
+        Hairtexture:result.data.Hairtexture,
+        hairtype:result.data.Hairtype,
+        damagecount:result.data.DamageCount,
+        skintype:result.data.SkinType,
+        stressdescription:result.data.Stressdescription
       });
       toast.success(result.message,{
         position:"top-center"
@@ -117,26 +127,56 @@ const Profile = () => {
           </div>
         </div>
         <div>
+          <label>BMR:</label>
+          <div className="border border-gray-400 p-2 w-full rounded-md">
+            {profile.bmr}
+          </div>
+        </div>
+        <div>
           <label>Allergy:</label>
           <div className="border border-gray-400 p-2 w-full rounded-md">
             {profile.allergy}
           </div>
         </div>
         <div>
-          <label>Diseease</label>
+          <label>Disease:</label>
           <div className="border border-gray-400 p-2 w-full rounded-md">
             {profile.disease}
           </div>
         </div>
         <div>
-          <label>Your Bmr is</label>
+          <label>Hair-Texture</label>
           <div className="border border-gray-400 p-2 w-full rounded-md">
-            {profile.Bmr}
+            {profile.Hairtexture}
+          </div>
+        </div>
+        <div>
+          <label>Hair-Type</label>
+          <div className="border border-gray-400 p-2 w-full rounded-md">
+            {profile.hairtype}
+          </div>
+        </div>
+        <div>
+          <label>Damage-Count</label>
+          <div className="border border-gray-400 p-2 w-full rounded-md">
+            {profile.damagecount}
+          </div>
+        </div>
+        <div>
+          <label>Skin-Type</label>
+          <div className="border border-gray-400 p-2 w-full rounded-md">
+            {profile.skintype}
+          </div>
+        </div>
+        <div>
+          <label>Stress-description</label>
+          <div className="border border-gray-400 p-2 w-full rounded-md">
+            {profile.stressdescription}
           </div>
         </div>
       </div>
 
-      <NavLink cla to="/profile/updateprofile">
+      <NavLink to="/profile/updateprofile">
         <button className="bg-blue-500 m-5 h-10 rounded-sm p-2">
           Update Profile
         </button>

@@ -21,12 +21,18 @@ import WeightLoss from "./components/WightLoss";
 import Stress from "./components/Stress";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ProtectedRoute from "./components/ProtectedRoute";
+import AdminPage from "./components/AdminPage";
+import Userpage from "./components/UserPage";
+
 // const islogin = createContext();
 const UserContext = createContext();
 function App() {
   const [changePasswardOtpVerified, setchangePasswardOtpVerified] =
     useState(false);
   const [islogin, setIslogin] = useState(false);
+  const [role, setRole] = useState("");
+  
   const logauth = async (e) => {
     // const data = { islogin };
     const response = await fetch("http://localhost:2000", {
@@ -37,78 +43,125 @@ function App() {
       credentials: "include",
       // body: JSON.stringify(),
     });
-    // const result = await response.json();
-    // console.log(result);
+    const result = await response.json();
+    console.log(result.role);
     if (!response.ok) {
       setIslogin(false);
-      console.log(response);
+      // console.log(response);
       return;
     }
     if (response.ok) {
       setIslogin(true);
+      setRole(result.role)
       console.log("sahil");
       return;
     }
   };
-// we are using use effect because we need to check on first render
+  // we are using use effect because we need to check on first render
   useEffect(() => {
-    logauth();
+   logauth();
   }, []);
   return (
-    <div className="h-full ">
-      <UserContext.Provider
-        value={{
-          islogin,
-          setIslogin,
-          changePasswardOtpVerified,
-          setchangePasswardOtpVerified,
-        }}
-      >
-        <Navbar className=""></Navbar>
+    role ==="admin" ? <AdminPage></AdminPage> : <UserContext.Provider
+    value={{
+      islogin,
+      setIslogin,
+      changePasswardOtpVerified,
+      setchangePasswardOtpVerified,
+      role,setRole
+    }}
+  ><Userpage></Userpage></UserContext.Provider>
+    // <div className="h-full ">
+    //   <UserContext.Provider
+    //     value={{
+    //       islogin,
+    //       setIslogin,
+    //       changePasswardOtpVerified,
+    //       setchangePasswardOtpVerified,
+    //       role,setRole
+    //     }}
+    //   >
+    //     {console.log(role)}
+    //     <Navbar className=""></Navbar>
 
-        <Routes>
-          <Route path="/" element={<Home></Home>} />
+    //     <Routes>
+    //       <Route path="/" element={<Home></Home>} />
 
-          <Route path="/services" element={<Services></Services>} />
-          <Route path="about" element={<About></About>} />
-          <Route path="/contact" element={<Contact></Contact>} />
-          <Route path="/login" element={<Login></Login>} />
-          <Route path="/signup" element={<Signup></Signup>} />
-          <Route
-            path="/forgottenpassward"
-            element={<ForrgottenPassward></ForrgottenPassward>}
-          />
-          <Route
-            path="/changepassward"
-            element={<Changepassward></Changepassward>}
-          />
-          <Route path="/profile" element={<Profile></Profile>} />
-          <Route path="/profile/updateprofile" element={<UpdateProfile></UpdateProfile>} />
-          <Route
-            path="/services/hairandskin"
-            element={<HairAndSkinCare></HairAndSkinCare>}
-          />
-          <Route
-            path="/services/weightgain"
-            element={<WeightGain></WeightGain>}
-          />
-          <Route
-            path="/services/weightloss"
-            element={<WeightLoss></WeightLoss>}
-          />
-          <Route
-            path="/services/stress"
-            element={<Stress></Stress>}
-          />
+    //       <Route
+    //         path="/services"
+    //         element={
+    //           // <ProtectedRoute>
+    //             <Services></Services>
+    //           // </ProtectedRoute>
+    //         }
+    //       />
+    //       <Route path="about" element={<About></About>} />
+    //       <Route path="/contact" element={<Contact></Contact>} />
+    //       <Route path="/login" element={<Login></Login>} />
+    //       <Route path="/signup" element={<Signup></Signup>} />
+    //       <Route
+    //         path="/forgottenpassward"
+    //         element={<ForrgottenPassward></ForrgottenPassward>}
+    //       />
+    //       <Route
+    //         path="/changepassward"
+    //         element={<Changepassward></Changepassward>}
+    //       />
+    //       <Route path="/profile" element={
+    //         <ProtectedRoute>
 
-          <Route path="/*" element={<div>Page not exist</div>} />
+    //           <Profile></Profile>
+    //         </ProtectedRoute>
+    //       } />
+    //       <Route
+    //         path="/profile/updateprofile"
+    //         element={
+    //           <ProtectedRoute>
 
-        </Routes>
-        <ToastContainer className="Toast" />
-      </UserContext.Provider>
+    //             <UpdateProfile></UpdateProfile>
+    //           </ProtectedRoute>
+    //       }
+    //       />
+    //       <Route
+    //         path="/services/hairandskin"
+    //         element={
+    //           <ProtectedRoute  >
+    //             <HairAndSkinCare></HairAndSkinCare>
+    //           </ProtectedRoute>
+    //         }
+    //       />
+    //       <Route
+    //         path="/services/weightgain"
+    //         element={
+    //           <ProtectedRoute>
+    //             <WeightGain></WeightGain>
+    //           </ProtectedRoute>
+    //         }
+    //       />
+    //       <Route
+    //         path="/services/weightloss"
+    //         element={
+    //           <ProtectedRoute>
+    //             <WeightLoss></WeightLoss>
+    //           </ProtectedRoute>
+    //         }
+    //       />
+    //       <Route
+    //         path="/services/stress"
+    //         element={
+    //           <ProtectedRoute>
+    //             <Stress></Stress>
+    //           </ProtectedRoute>
+    //         }
+    //       />
 
-      
-    </div>
+    //       <Route path="/*" element={<div>Page not exist</div>} />
+    //     </Routes>
+    //     <ToastContainer className="Toast" />
+    //   </UserContext.Provider>
+
+    //   <Footer></Footer>
+    // </div>
   );
 }
 

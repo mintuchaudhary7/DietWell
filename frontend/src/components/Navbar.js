@@ -21,7 +21,7 @@ const Navbar = () => {
   const clickhandler = () => {
     setIsvisible(!isvisible);
   };
-// logout function
+  // logout function
   const logout = async () => {
     const response = await fetch("http://localhost:2000/logout", {
       method: "GET",
@@ -56,6 +56,7 @@ const Navbar = () => {
   // destructuring the data which we passed in context api
   // like ham kisi box se kuch bhahar nikal rhe hai consume krne ke liye
   const user = useContext(UserContext);
+  console.log(user)
   const islogin = user.islogin;
   const [isvisible, setIsvisible] = useState(false);
   const setIslogin = user.setIslogin;
@@ -67,8 +68,8 @@ const Navbar = () => {
   // console.log(islogin);
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="bg-green-300 p-2   font-bold">
-      <div className="max-w-6xl mx-auto  text-2xl flex justify-between items-center">
+    <nav className="bg-orange-300 p-2 rounded-3xl font-bold fixed z-10 w-full mt-5 ">
+      <div className="max-w-6xl mx-auto text-2xl flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
           <NavLink to="/">
@@ -83,7 +84,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden">
+        <div className=" md:hidden">
           <button
             onClick={toggleMobileMenu}
             className="text-3xl text-black focus:outline-none"
@@ -117,10 +118,10 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex justify-evenly gap-6 mr-10 text-xl ">
           {/* NavLinks for routes */}
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/services">Services</NavLink>
-          <NavLink to="/about">About us</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+          <NavLink className="hover:text-orange-500" to="/">Home</NavLink>
+          <NavLink className="hover:text-orange-500" to="/services">Services</NavLink>
+          <NavLink className="hover:text-orange-500" to="/about">About us</NavLink>
+          <NavLink className="hover:text-orange-500" to="/contact">Contact</NavLink>
 
           {/* Conditional rendering for login/signup or profile/logout */}
           {islogin ? (
@@ -129,8 +130,8 @@ const Navbar = () => {
             </div>
           ) : (
             <>
-              <NavLink to="/login">Login</NavLink>
-              <NavLink to="/signup">Signup</NavLink>
+              <NavLink className="hover:text-orange-500" to="/login">Login</NavLink>
+              <NavLink className="hover:text-orange-500" to="/signup">Signup</NavLink>
             </>
           )}
 

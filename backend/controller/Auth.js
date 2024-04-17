@@ -89,7 +89,7 @@ exports.login = async (req, res) => {
 exports.signup = async (req, res) => {
   try {
     //fetching the data from request;
-    const { Name, Email, Passward, ContactNo } = req.body;
+    const { Name, Email, Passward, ContactNo, Role } = req.body;
     // checking in database that user is not already registered;
     const existingUser = await user.findOne({ Email });
     //if user exist then return error status;
@@ -119,6 +119,7 @@ exports.signup = async (req, res) => {
       Email,
       Passward:hasedpassward,
       ContactNo,
+      Role
     });
     // sending an success message to client
     return res.status(200).json({
