@@ -15,10 +15,18 @@ const weightloss = require("../controller/WeightLoss");
 const haireandskincare = require("../controller/HairandSkincare");
 const stress = require("../controller/StressManagement");
 const protectedRoute = require("../controller/ProtectedRoute");
+const fetchuser = require('../controller/FetchUsers');
+const fetchDietition = require("../controller/FetchDietition")
 // router.use('/contact',auth)
 // on homepage we send a get request by using useeffect which is for check user have token or not if user have token then we directly show profile option
 router.get("/", auth, (req, res) => {
-  res.status(200);
+  const role = res.locals.role;
+  console.log(res.locals);
+  return res.status(200).json({
+    success:true,
+    message:"",
+    role:role
+  })
 });
 
 router.post("/contact",auth, contact);
@@ -26,7 +34,7 @@ router.post("/login", login); //mapping the controller with routes
 router.post("/signup", signup); //same as above
 router.post("/forgottenpassward", forgot);
 router.patch("/changepassward", Changepassward);
-router.get("/logout", logout);
+router.get("/logout",auth, logout);
 router.post("/profile/updateprofile", UpdateProfile); //here we mounted our middleware because this route is only accessed by loggedin user
 router.get("/profile/updateprofile", getProfile); //same as above
 router.get("/profile", profile); //same as above
@@ -35,4 +43,6 @@ router.get("/services/weightloss", weightloss);
 router.get("/services/haireandskincare", haireandskincare);
 router.get("/services/stress", stress);
 router.get("/protected", protectedRoute);
+router.get("/users",fetchuser);
+router.get("/dietition",fetchDietition);
 module.exports = router; //basic export function
