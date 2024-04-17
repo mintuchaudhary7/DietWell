@@ -1,0 +1,37 @@
+.card {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    perspective: 1000px;
+  }
+  
+  .card div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: transform 0.5s;
+  }
+  
+  .card .front {
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card .back {
+    background-color: #f3f3f3;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card.is-flipped .front {
+    transform: rotateY(180deg);
+  }
+  
+  .card.is-flipped .back {
+    transform: rotateY(0deg);
+  }
