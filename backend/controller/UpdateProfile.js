@@ -25,7 +25,7 @@ const UpdateProfile = async (req, res) => {
       decoded = jwt.verify(token, process.env.JWT_SECRET);
       // console.log(decoded)
       const Email = decoded.Email;
-      let bmr = 0;
+      let bmr;
       if(profile.gender == "Male"){
         bmr = 88.362 + (13.397*profile.weight) + (4.799*profile.height) - (5.677*profile.age);
         //88.362 + (13.397 x weight in kg) + (4.799 x height in cm) – (5.677 x age in years)
@@ -35,21 +35,7 @@ const UpdateProfile = async (req, res) => {
         //Women: BMR = 447.593 + (9.247 x weight in kg) + (3.098 x height in cm) – (4.330 x age in years)
       }
 
-// <<<<<<< version-s
-      console.log(Email);
-      const userHeight = profile.height
-      const userWeight = profile.weight
-      const userAge = profile.age
-      let bmr= 0;
-      if(profile.gender === "male" || profile.gender === "Male"){
-        bmr = 88.362 + (13.397 * userWeight) + (4.799 * userHeight) - (5.677 * userAge);
-      }
-      else if (profile.gender === "female" || profile.gender === "Female"){
-        bmr = 447.593 + (9.247 * userWeight) + (3.098 * userHeight) - (4.330 * userAge);
-      }
-// =======
       console.log("bmr = " + profile.gender);
-// >>>>>>> main
       //creating an update veriable in which all the updated data is stored
       const update = {
         $set: {
@@ -62,15 +48,14 @@ const UpdateProfile = async (req, res) => {
           Gender: profile.gender,
           Dietpreference: profile.dietpreference,
           Activity: profile.activity,
-// <<<<<<< version-s
-          Disease:profile.disease,
-          Allergy:profile.allergy,
-          Bmr:bmr
-// =======
           BMR:bmr,
           Allergy: profile.allergy,
           Disease: profile.disease,
-// >>>>>>> main
+          Hairtexture:profile.Hairtexture,
+          Hairtype:profile.hairtype,
+          DamageCount:profile.damagecount,
+          SkinType:profile.skintype,
+          Stressdescription:profile.stressdescription
         },
       };
       // console.log(update)

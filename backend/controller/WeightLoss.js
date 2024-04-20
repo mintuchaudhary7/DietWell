@@ -3,9 +3,10 @@ require("dotenv").config();
 const { OpenAI } = require("openai");
 const schema = require("../models/WeightGainSchema");
 const User = require("../models/schema");
-const WeightGain = async (req, res) => {
+const WeightLoss = async (req, res) => {
   try {
     var decoded;
+    console.log("12");
     const token = req.cookies.token;
     if (!token || token === undefined) {
       return res.status(404).json({
@@ -26,7 +27,7 @@ const WeightGain = async (req, res) => {
     const dietpreference = user.Dietpreference;
     const allergy = user.Allergy;
     const disease = user.Disease;
-
+    console.log("12");
     if (
       age === null ||
       gender === "" ||
@@ -42,6 +43,7 @@ const WeightGain = async (req, res) => {
       console.log("Enter your Data and complete your profile");
       return res.status(400).json({
         success: false,
+
         message:
           "Enter your Data and complete your profile for accurate diet plan",
       });
@@ -50,8 +52,8 @@ const WeightGain = async (req, res) => {
     const openai = new OpenAI({
       apiKey: process.env.OPENAI_API_KEY, // This is also the default
     });
-    // console.log('aba')
-    const question = `i am a ${gender} my bmr is ${bmr},my age is ${age} , my weight is ${weight} kg, my height is ${height} cm, and I have these allergies ${allergy} and these ${disease} diesese  , and my diet preference is ${dietpreference},my activity level is ${activity} prepare a 7 days monday to sunday diet-paln for me to gain weight and it should be specific for indian climate Aand it should also be budget friendly and aslo give me description of nutrients present and their count and send the data in json format`;
+    console.log("aba");
+    const question = `i am a ${gender} my bmr is ${bmr},my age is ${age} , my weight is ${weight} kg, my height is ${height} cm, and I have these allergies ${allergy} and these ${disease} diesese  , and my diet preference is ${dietpreference},my activity level is ${activity} prepare a 7 days monday to sunday diet-paln for me to lose weight and it should be specific for indian climate Aand it should also be budget friendly and aslo give me description of nutrients present and their count and send the data in json format`;
     const chatCompletion = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [
@@ -76,4 +78,4 @@ const WeightGain = async (req, res) => {
     });
   }
 };
-module.exports = WeightGain;
+module.exports = WeightLoss;

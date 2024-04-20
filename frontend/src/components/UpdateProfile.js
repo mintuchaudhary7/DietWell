@@ -12,14 +12,14 @@ const UpdateProfile = () => {
     gender: "",
     activity: "",
     dietpreference:"",
-// <<<<<<< version-s
-    disease:"",
-    allergy:"",
-// =======
     bmr:"",
     allergy:"",
-    disease:""
-// >>>>>>> main
+    disease:"",
+    Hairtexture:"",
+    hairtype:"",
+    damagecount:"",
+    skintype:"",
+    stressdescription:""
   });
   const nevigate = useNavigate();
 
@@ -49,11 +49,7 @@ const UpdateProfile = () => {
     }
     // for intant updating the data
     if (response.ok) {
-// <<<<<<< version-s
-        setProfile({name:result.data.Name, email:result.data.Email,phoneno:result.data.ContactNo,dietpreference:result.data.Dietpreference,age:result.data.Age,height:result.data.Height,weight:result.data.Weight,gender:result.data.Gender,activity:result.data.Activity,disease:result.data.Disease,allergy:result.data.Allergy})
-// =======
-        setProfile({name:result.data.Name, email:result.data.Email,phoneno:result.data.ContactNo,dietpreference:result.data.Dietpreference,age:result.data.Age,height:result.data.Height,weight:result.data.Weight,gender:result.data.Gender,activity:result.data.Activity, bmr:result.data.BMR,allergy:result.data.Allergy, disease:result.data.Disease})
-// >>>>>>> main
+        setProfile({name:result.data.Name, email:result.data.Email,phoneno:result.data.ContactNo,dietpreference:result.data.Dietpreference,age:result.data.Age,height:result.data.Height,weight:result.data.Weight,gender:result.data.Gender,activity:result.data.Activity, bmr:result.data.BMR,allergy:result.data.Allergy, disease:result.data.Disease,Hairtexture:result.data.Hairtexture,hairtype:result.data.Hairtype,damagecount:result.data.DamageCount,skintype:result.data.SkinType,stressdescription:result.data.Stressdescription})
     //   console.log(result.data.Name);
     // toast.success(result.message,{
     //   position:"top-center"
@@ -247,19 +243,6 @@ const UpdateProfile = () => {
         </div>
         <div>
           <label
-// <<<<<<< version-s
-            htmlFor="diease"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Ary you Suffering from any special disease
-          </label>
-          <input
-            type="text"
-            name="disease"
-            id="disease"
-            className="mt-1 p-2 border rounded-md w-full"
-            value={profile.disease}
-// =======
             htmlFor="BMR"
             className="block text-sm font-medium text-gray-700"
           >
@@ -271,23 +254,15 @@ const UpdateProfile = () => {
             id="BMR"
             className="mt-1 p-2 border rounded-md w-full"
             value={profile.bmr}
-// >>>>>>> main
             onChange={handleChange}
           />
         </div>
         <div>
           <label
-// <<<<<<< version-s
-            htmlFor="allergyl"
-            className="block text-sm font-medium text-gray-700"
-          >
-            Do you have any allergy
-// =======
             htmlFor="allergy"
             className="block text-sm font-medium text-gray-700"
           >
             Allergy
-// >>>>>>> main
           </label>
           <input
             type="text"
@@ -298,9 +273,6 @@ const UpdateProfile = () => {
             onChange={handleChange}
           />
         </div>
-// <<<<<<< version-s
-        
-// =======
         <div>
           <label
             htmlFor="disease"
@@ -317,7 +289,86 @@ const UpdateProfile = () => {
             onChange={handleChange}
           />
         </div>
-// >>>>>>> main
+        <div>
+          <label
+            htmlFor="Hairtexture"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Hair-Texture
+          </label>
+          <input
+            type="text"
+            name="Hairtexture"
+            id="Hairtexture"
+            className="mt-1 p-2 border rounded-md w-full"
+            value={profile.Hairtexture}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="hairtype"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Hair-Type
+          </label>
+          <input
+            type="text"
+            name="hairtype"
+            id="hairtype"
+            className="mt-1 p-2 border rounded-md w-full"
+            value={profile.hairtype}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="damagecount"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Damage-Count
+          </label>
+          <input
+            type="text"
+            name="damagecount"
+            id="damagecount"
+            className="mt-1 p-2 border rounded-md w-full"
+            value={profile.damagecount}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="skintype"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Skin-Type
+          </label>
+          <input
+            type="text"
+            name="skintype"
+            id="skintype"
+            className="mt-1 p-2 border rounded-md w-full"
+            value={profile.skintype}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="stressdescription"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Stress-Description
+          </label>
+          <input
+            type="text"
+            name="stressdescription"
+            id="stressdescription"
+            className="mt-1 p-2 border rounded-md w-full"
+            value={profile.stressdescription}
+            onChange={handleChange}
+          />
+        </div>
         <div>
           <button
             type="submit"

@@ -1,4 +1,5 @@
 import homeImage from "../assets/homeImage.png";
+import homeElement from "../assets/hemeElement.png";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { ReactTyped } from "react-typed";
@@ -7,7 +8,7 @@ import { useContext } from "react";
 import About from "./About";
 import Contact from "./Contact";
 import Services from "./Services";
-import Footer from "./Footer";
+import ProtectedRoute from "./ProtectedRoute";
 //  impoorting all the required library
 const Home = () => {
   const user = useContext(UserContext);
@@ -94,10 +95,12 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <Services />
+      {/* <ProtectedRoute> */}
+
+       <Services />
+      {/* </ProtectedRoute> */}
       <About />
       <Contact />
-      <Footer></Footer>
     </div>
   );
 };

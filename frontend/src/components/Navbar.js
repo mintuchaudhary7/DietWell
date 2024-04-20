@@ -56,6 +56,7 @@ const Navbar = () => {
   // destructuring the data which we passed in context api
   // like ham kisi box se kuch bhahar nikal rhe hai consume krne ke liye
   const user = useContext(UserContext);
+  console.log(user)
   const islogin = user.islogin;
   const [isvisible, setIsvisible] = useState(false);
   const setIslogin = user.setIslogin;
@@ -67,7 +68,7 @@ const Navbar = () => {
   // console.log(islogin);
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="bg-orange-300 p-2 rounded-3xl font-bold fixed z-10 w-full mt-5 ">
+    <nav className="bg-orange-300 p-2  font-bold fixed z-10 w-full  ">
       <div className="max-w-6xl mx-auto text-2xl flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">

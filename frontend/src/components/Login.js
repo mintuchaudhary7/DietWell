@@ -9,6 +9,8 @@ import { toast } from "react-toastify";
 // importing the components which are required
 const Login = () => {
   const user = useContext(UserContext);
+  const role = user.role;
+  const setRole = user.setRole;
 
   //  same again ham destructure krr rhe hai jaise navbar me kiya the
   const islogin = user.islogin;
@@ -46,6 +48,7 @@ const Login = () => {
     }
     if (response.ok) {
       console.log(result);
+      setRole(result.User.Role)
       // making all the feilds empty
       setEmail("");
       setPassward("");
