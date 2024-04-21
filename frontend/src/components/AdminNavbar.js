@@ -15,7 +15,7 @@ const AdminNavbar = () => {
             <div className="text-white font-bold">Admin Dashboard</div>
           </div>
           <div className="hidden md:flex items-center">
-            <NavLink to="/dashboard">
+            <NavLink to="/">
               <button className="text-white hover:text-gray-300 px-3 py-2">
                 Dashboard
               </button>
@@ -45,7 +45,7 @@ const AdminNavbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-gray-700">
-          <NavLink to="/dashboard">
+          <NavLink to="/">
             <div className="block text-white w-full text-left px-3 py-2">
               Dashboard
             </div>
