@@ -35,7 +35,7 @@ function App() {
   
   const logauth = async (e) => {
     // const data = { islogin };
-    const response = await fetch("http://localhost:2000", {
+    const response = await fetch("http://localhost:2000/", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -44,10 +44,10 @@ function App() {
       // body: JSON.stringify(),
     });
     const result = await response.json();
-    console.log(result.role);
+    // console.log(response);
     if (!response.ok) {
       setIslogin(false);
-      // console.log(response);
+      console.log(response);
       return;
     }
     if (response.ok) {
@@ -62,7 +62,15 @@ function App() {
    logauth();
   }, []);
   return (
-    role ==="admin" ? <AdminPage></AdminPage> : <UserContext.Provider
+    role ==="admin" ? <UserContext.Provider
+    value={{
+      islogin,
+      setIslogin,
+      changePasswardOtpVerified,
+      role,setRole,logauth,
+      setchangePasswardOtpVerified,
+    }}
+  ><AdminPage></AdminPage></UserContext.Provider> : <UserContext.Provider
     value={{
       islogin,
       setIslogin,
@@ -70,7 +78,13 @@ function App() {
       setchangePasswardOtpVerified,
       role,setRole
     }}
-  ><Userpage></Userpage></UserContext.Provider>
+  ><Userpage value={{
+    islogin,
+    setIslogin,
+    changePasswardOtpVerified,
+    setchangePasswardOtpVerified,
+    role,setRole,logauth
+  }}></Userpage></UserContext.Provider>
     // <div className="h-full ">
     //   <UserContext.Provider
     //     value={{

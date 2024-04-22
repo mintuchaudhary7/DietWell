@@ -34,7 +34,7 @@ const Navbar = () => {
     const result = await response.json();
     if (!response.ok) {
       // setIslogin();
-      // console.log(result);
+      console.log(result);
       console.log("singh");
       toast.error(result.message, {
         position: "top-center",
@@ -42,7 +42,7 @@ const Navbar = () => {
       return;
     }
     if (response.ok) {
-      console.log(result.message);
+      console.log(result);
       nevigate("/");
       setIslogin(false);
       setIsvisible(false);

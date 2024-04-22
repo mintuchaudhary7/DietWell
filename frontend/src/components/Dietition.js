@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import AdminNavbar from "./AdminNavbar";
 import UserCard from "./UserCard";
+import SearchUserEmail from "./SearchUserEmail";
+
+
 // UserCard
 const Dietition = () => {
   const [dietition, setdietition] = useState({});
@@ -32,13 +35,18 @@ const Dietition = () => {
   useEffect(() => {
     fetchUsers();
   }, []);
+  const findUser = async(e)=>{
+    e.preventDefault();
+    
+  }
   //    console.log(users);
   return (
     <div>
       <AdminNavbar></AdminNavbar>
-      {respgot ? <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+     <SearchUserEmail route = {"searchdietitionemail"}></SearchUserEmail>
+      {respgot ? <div className=" gap-4">
         {dietition.map((diet) => (
-          <UserCard key={diet._id} user={diet} />
+          <UserCard reload={fetchUsers} key={diet._id} user={diet} />
         ))}
       </div>: <div>Loading...</div> }
      

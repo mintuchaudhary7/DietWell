@@ -15,26 +15,32 @@ const weightloss = require("../controller/WeightLoss");
 const haireandskincare = require("../controller/HairandSkincare");
 const stress = require("../controller/StressManagement");
 const protectedRoute = require("../controller/ProtectedRoute");
-const fetchuser = require('../controller/FetchUsers');
-const fetchDietition = require("../controller/FetchDietition")
+const fetchuser = require("../controller/FetchUsers");
+const fetchDietition = require("../controller/FetchDietition");
+const dashboard = require("../controller/Dashboard");
+const category = require("../controller/CategotyDetail");
+const toDelete = require("../controller/Todelete");
+const searchdietitonmail = require("../controller/SearchDietitionEmail");
+const searchuseremail = require("../controller/SearchUserEmail")
+
 // router.use('/contact',auth)
 // on homepage we send a get request by using useeffect which is for check user have token or not if user have token then we directly show profile option
 router.get("/", auth, (req, res) => {
-  const role = res.locals.role;
-  console.log(res.locals);
+  console.log("hii");
+  const role = res.locals.role; // Access 'role' property with lowercase 'role'
   return res.status(200).json({
-    success:true,
-    message:"",
-    role:role
-  })
+    success: true,
+    message: "Role retrieved successfully",
+    role: role, // Send the retrieved role in the response
+  });
 });
 
-router.post("/contact",auth, contact);
+router.post("/contact", auth, contact);
 router.post("/login", login); //mapping the controller with routes
 router.post("/signup", signup); //same as above
 router.post("/forgottenpassward", forgot);
 router.patch("/changepassward", Changepassward);
-router.get("/logout",auth, logout);
+router.get("/logout", logout);
 router.post("/profile/updateprofile", UpdateProfile); //here we mounted our middleware because this route is only accessed by loggedin user
 router.get("/profile/updateprofile", getProfile); //same as above
 router.get("/profile", profile); //same as above
@@ -43,6 +49,11 @@ router.get("/services/weightloss", weightloss);
 router.get("/services/haireandskincare", haireandskincare);
 router.get("/services/stress", stress);
 router.get("/protected", protectedRoute);
-router.get("/users",fetchuser);
-router.get("/dietition",fetchDietition);
+router.get("/users", fetchuser);
+router.get("/dietition", fetchDietition);
+router.get("/dashboard", dashboard);
+router.post("/searchdietitionemail", searchdietitonmail);
+router.post("/searchuseremail", searchuseremail);
+router.post("/:catagory", category);
+router.delete("/:todelete", toDelete);
 module.exports = router; //basic export function

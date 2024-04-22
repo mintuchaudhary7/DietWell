@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import AdminNavbar from "./AdminNavbar";
 import UserCard from "./UserCard";
+import SearchUserEmail from "./SearchUserEmail";
+
 // UserCard
 const Users = () => {
   const [users, setUsers] = useState({});
@@ -36,9 +38,10 @@ const Users = () => {
   return (
     <div>
       <AdminNavbar></AdminNavbar>
-      {respgot ? <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <SearchUserEmail route = {"searchuseremail"}></SearchUserEmail>
+      {respgot ? <div className="gap-4">
         {users.map((user) => (
-          <UserCard key={user._id} user={user} />
+          <UserCard reload = {fetchUsers} key={user._id} user={user} />
         ))}
       </div>: <div>Loading...</div> }
      
