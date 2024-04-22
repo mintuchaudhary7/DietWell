@@ -1,10 +1,10 @@
 import teamMembers from "../assets/Teammembers";
 const About = () => {
   return (
-    <div className=" bg-orange-100 min-h-screen p-5 pt-32 ">
+    <div className=" bg-[#233037] min-h-screen p-5 pt-20 ">
       <div className=" max-w-4xl mx-auto ">
-        <h1 className="text-4xl font-bold text-center mb-4">About Us</h1>
-        <p className="text-lg text-gray-700 mb-10">
+        <h1 className="text-4xl text-white font-bold text-center mb-4">About Us</h1>
+        <p className="text-lg text-white mb-10">
           Welcome to DietWell, where we are dedicated to empowering individuals
           to achieve optimal health and wellness through personalized nutrition
           guidance. Our team of passionate dietitians is committed to helping
@@ -41,7 +41,7 @@ const About = () => {
         {/* Team Members */}
         {/* here we are using map function to get rid or hardcoding data   if we have to add a member ve simply add data of team member to out asser/teammember file*/}
         <div className="mt-10">
-          <h2 className="text-3xl font-bold text-center mb-6">Meet Our Team</h2>
+          <h2 className="text-3xl text-white font-bold text-center mb-6">Meet Our Team</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {teamMembers.map((member, index) => (
               <div

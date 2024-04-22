@@ -26,7 +26,7 @@ const Dietition = () => {
     if (response.ok) {
       console.log("sahil");
       setdietition(result.users);
-      //   console.log(result)
+        console.log(result)
       setRespgot(true)
     //   console.log(dietition);
       return;

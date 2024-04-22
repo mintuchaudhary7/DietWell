@@ -13,7 +13,7 @@ const UserCard = ({ user,reload }) => {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:2000/${user._id}`, {
+      const response = await fetch(http://localhost:2000/${user._id}, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
