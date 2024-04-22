@@ -69,7 +69,7 @@ const Dashboard = () => {
     const handleCategorySelect = (category) => {
       setSelectedCategory(category);
       const categoryDetails = async () => {
-        const response = await fetch(http://localhost:2000/${category}, {
+        const response = await fetch(`http://localhost:2000/${category}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -91,7 +91,7 @@ const Dashboard = () => {
       categoryDetails();
 
       // Implement any action based on the selected category
-      console.log(Selected category: ${category});
+      // console.log(Selected category: ${category});
     };
 
     return (
@@ -102,7 +102,7 @@ const Dashboard = () => {
         <UserCategoryMenu handleCategorySelect={handleCategorySelect} />
         {selectedCategory && (
           <div className="text-center mt-4">
-            <p className="font-bold text-xl">{Displaying ${selectedCategory}}</p>
+            <p className="font-bold text-xl">Displaying {`${selectedCategory}`}</p>
             {categoryresp ? (
               <div>
                 
