@@ -23,22 +23,33 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProtectedRoute from "./ProtectedRoute";
 import AdminPage from "./AdminPage";
-const UserContext = createContext();
+import { useContext } from "react";
+import { UserContext } from "../App";
 
-const Userpage = ()=>{
-    const [changePasswardOtpVerified, setchangePasswardOtpVerified] =
-    useState(false);
-  const [islogin, setIslogin] = useState(false);
-  const [role, setRole] = useState("");
-    return (
-        <div className="h-full ">
+const Userpage = () => {
+  const user = useContext(UserContext);
+  const islogin = user.islogin;
+  const setIslogin = user.setIslogin;
+  const changePasswardOtpVerified = user.changePasswardOtpVerified;
+  const setchangePasswardOtpVerified = user.setchangePasswardOtpVerified;
+  const role = user.role;
+  const logauth = user.logauth;
+  const setRole = user.setRole;
+  // const [changePasswardOtpVerified, setchangePasswardOtpVerified] =
+  //   useState(false);
+  
+  // const [islogin, setIslogin] = useState(false);
+  // const [role, setRole] = useState("");
+  return (
+    <div className="h-full ">
       <UserContext.Provider
         value={{
           islogin,
           setIslogin,
           changePasswardOtpVerified,
           setchangePasswardOtpVerified,
-          role,setRole
+          role,
+          setRole,
         }}
       >
         {console.log(role)}
@@ -51,7 +62,7 @@ const Userpage = ()=>{
             path="/services"
             element={
               // <ProtectedRoute>
-                <Services></Services>
+              <Services></Services>
               // </ProtectedRoute>
             }
           />
@@ -67,25 +78,26 @@ const Userpage = ()=>{
             path="/changepassward"
             element={<Changepassward></Changepassward>}
           />
-          <Route path="/profile" element={
-            <ProtectedRoute>
-
-              <Profile></Profile>
-            </ProtectedRoute>
-          } />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile></Profile>
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/profile/updateprofile"
             element={
               <ProtectedRoute>
-
                 <UpdateProfile></UpdateProfile>
               </ProtectedRoute>
-          }
+            }
           />
           <Route
             path="/services/hairandskin"
             element={
-              <ProtectedRoute  >
+              <ProtectedRoute>
                 <HairAndSkinCare></HairAndSkinCare>
               </ProtectedRoute>
             }
@@ -122,6 +134,6 @@ const Userpage = ()=>{
 
       <Footer></Footer>
     </div>
-    )
-}
-export default Userpage
+  );
+};
+export default Userpage;
