@@ -1,7 +1,7 @@
 const user = require('../models/schema');
 const fetchDietition = async(req,res)=>{
     try{
-        const AllUsers = await user.find({Role:'Dietition'})
+        const AllUsers = await user.find({Role:'Dietiton'})
         // AllUsers.Passward = "NULL";
         // console.log("fetching")
         AllUsers.map((users)=>{
