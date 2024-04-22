@@ -1,5 +1,5 @@
 import homeImage from "../assets/homeImage.png";
-import homeElement from "../assets/hemeElement.png";
+import homeElement from "../assets/homeElement.png";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { ReactTyped } from "react-typed";
@@ -72,13 +72,13 @@ const Home = () => {
     // </div>
     <div>
       <div
-        className="relative min-h-screen   bg-right "
+        className="relative min-h-screen bg-right"
         style={{ backgroundImage: `url(${homeImage})` }}
       >
-        <div className="absolute inset-0 bg-opacity-10"></div>
-        <div className="absolute inset-0 flex flex-col  justify-center items-center  text-white">
+        <div className=" absolute inset-0 bg-opacity-10"></div>
+        <div className="absolute inset-0 flex flex-col  justify-center items-center text-white">
           <div className="text-left absolute left-10 ml-10 md:ml-20 mt-20">
-            <h1 className="font-bold text-black text-4xl md:text-6xl mb-4">
+            <h1 className="font-bold text-white text-4xl md:text-6xl mb-4">
               <ReactTyped
                 strings={["Better Diet,", "Better Life !!!"]}
                 typeSpeed={100}
@@ -86,9 +86,9 @@ const Home = () => {
                 loop
               />
             </h1>
-            <div className="mb-6 text-black text-xl">{quotes}</div>
+            <div className="mb-6 text-white text-xl">{quotes}</div>
             <NavLink to="/services">
-              <button className="bg-orange-400 hover:bg-orange-500 py-2 text-black px-4 rounded-full font-bold text-lg">
+              <button className="bg-green-500 hover:bg-green-400 py-2 text-white px-4 rounded-full font-bold text-lg">
                 Get Started
               </button>
             </NavLink>

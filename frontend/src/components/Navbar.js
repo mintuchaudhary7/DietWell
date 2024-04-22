@@ -68,15 +68,15 @@ const Navbar = () => {
   // console.log(islogin);
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="bg-orange-300 p-2  font-bold fixed z-10 w-full  ">
+    <nav className="bg-[#4a5976] p-2  font-bold fixed z-10 w-full text-white max-h-20">
       <div className="max-w-6xl mx-auto text-2xl flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
           <NavLink to="/">
             <img
               className="ml-4 sm:ml-10 rounded-full"
-              height={80}
-              width={80}
+              height={65}
+              width={65}
               src={logo}
               alt=""
             />
@@ -87,7 +87,7 @@ const Navbar = () => {
         <div className=" md:hidden">
           <button
             onClick={toggleMobileMenu}
-            className="text-3xl text-black focus:outline-none"
+            className="text-3xl text-white focus:outline-none"
           >
             <svg
               className="h-6 w-6"
@@ -118,10 +118,10 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex justify-evenly gap-6 mr-10 text-xl ">
           {/* NavLinks for routes */}
-          <NavLink className="hover:text-orange-500" to="/">Home</NavLink>
-          <NavLink className="hover:text-orange-500" to="/services">Services</NavLink>
-          <NavLink className="hover:text-orange-500" to="/about">About us</NavLink>
-          <NavLink className="hover:text-orange-500" to="/contact">Contact</NavLink>
+          <NavLink className="hover:text-green-400" to="/">Home</NavLink>
+          <NavLink className="hover:text-green-400" to="/services">Services</NavLink>
+          <NavLink className="hover:text-green-400" to="/about">About us</NavLink>
+          <NavLink className="hover:text-green-400" to="/contact">Contact</NavLink>
 
           {/* Conditional rendering for login/signup or profile/logout */}
           {islogin ? (
@@ -130,8 +130,8 @@ const Navbar = () => {
             </div>
           ) : (
             <>
-              <NavLink className="hover:text-orange-500" to="/login">Login</NavLink>
-              <NavLink className="hover:text-orange-500" to="/signup">Signup</NavLink>
+              <NavLink className="hover:text-green-400" to="/login">Login</NavLink>
+              <NavLink className="hover:text-green-400" to="/signup">Signup</NavLink>
             </>
           )}
 

@@ -63,13 +63,13 @@ const Contact = () => {
     }
   };
   return (
-    <div className="py-20">
+    <div className="bg-[#233037] py-20">
       <div className="max-w-lg mx-auto">
-        <h2 className="text-3xl font-semibold mb-8">Contact Us</h2>
+        <h2 className="text-3xl text-white font-semibold mb-8">Contact Us</h2>
         {/* {boolresponse ? <h1 className="text-green-700">{Response}</h1> : <></>} */}
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="fullname" className="block mb-1">
+            <label htmlFor="fullname" className="block mb-1 text-white">
               Name
             </label>
             <input
@@ -84,13 +84,13 @@ const Contact = () => {
             />
           </div>
           <div>
-            <label htmlFor="email" className="block mb-1">
+            <label htmlFor="email" className="block mb-1 text-white">
               Email
             </label>
             <input
               type="email"
               className="w-full border rounded-md px-4 py-2"
-              placeholder="mintuchd@gmail.com"
+              placeholder="abc@example.com"
               name="email"
               id="email"
               value={Email}
@@ -99,7 +99,7 @@ const Contact = () => {
             />
           </div>
           <div>
-            <label htmlFor="contact" className="block mb-1">
+            <label htmlFor="contact" className="block mb-1 text-white">
               Contact No
             </label>
             <input
@@ -115,7 +115,7 @@ const Contact = () => {
           </div>
 
           <div>
-            <label htmlFor="query" className="block mb-1">
+            <label htmlFor="query" className="block mb-1 text-white">
               Message
             </label>
             <textarea
@@ -132,7 +132,7 @@ const Contact = () => {
           <div>
             <button
               type="submit"
-              className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-colors duration-300"
+              className="bg-green-500 text-white px-6 py-2 rounded-md hover:bg-green-700 transition-colors duration-300"
             >
               Submit
             </button>
