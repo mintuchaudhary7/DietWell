@@ -14,7 +14,15 @@ const FetchQueries = async (req,res)=>{
             query = {Status:"pending"};
         }
         console.log("hello")
+        var count  = {
+            solvedQueries :0,
+            pendingQueries:0,
+            allQueries :0
+        }
         const ans = await Queries.find(query);
+        count.solvedQueries =  await Queries.find({Status:"solved"}).count();
+        count.pendingQueries = await Queries.find({Status:"pending"}).count();
+        count.allQueries  = await Queries.find({}).count();
         // console.log(ans.Name)     
         if(!ans){
             return res.status(401).json({
@@ -25,7 +33,8 @@ const FetchQueries = async (req,res)=>{
         return res.status(200).json({
             success:true,
             message:"Queries found Successfully",
-            data:ans
+            data:ans,
+            count:count
         })
         
       } catch (error) {

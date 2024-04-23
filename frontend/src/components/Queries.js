@@ -8,6 +8,7 @@ const Queries = () => {
   const [selectedOption, setSelectedOption] = useState("all");
   const [menu, setMenu] = useState({});
   const [resp, setResp] = useState(false);
+  const [count,setCount] = useState({});
 
   const FetchQueries = async (option) => {
     const response = await fetch(`http://localhost:2000/${option}`, {
@@ -29,6 +30,7 @@ const Queries = () => {
     if (response.ok) {
       setMenu(result.data);
       setResp(true);
+      setCount(result.count);
       return;
     }
     setSelectedOption(option)
@@ -40,6 +42,7 @@ const Queries = () => {
     <div>
       <AdminNavbar></AdminNavbar>
       <QueryOptions
+      count = {count}
         FetchQueries={FetchQueries}
         selectedOption={selectedOption}
         setSelectedOption={setSelectedOption}
