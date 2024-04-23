@@ -7,6 +7,8 @@ import Dietition from "./Dietition";
 import { useContext } from "react";
 import { UserContext } from "../App";
 import { ToastContainer } from "react-toastify";
+import Queries from "./Queries";
+
 const AdminPage = () => {
   const user = useContext(UserContext);
   const logauth = user.logauth;
@@ -29,6 +31,7 @@ const AdminPage = () => {
 
         <Route path="/users" element={<Users></Users>} />
         <Route path="/dietition" element={<Dietition></Dietition>} />
+        <Route path="/queries" element={<Queries></Queries>} />
       </Routes>
       {/* this is home dash board */}
     </div>
