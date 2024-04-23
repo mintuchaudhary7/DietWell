@@ -1,7 +1,7 @@
 import teamMembers from "../assets/Teammembers";
 const About = () => {
   return (
-    <div className=" bg-[#233037] min-h-screen p-5 pt-20 ">
+    <div className="bg-[#233037] min-h-screen p-5 pt-20 ">
       <div className=" max-w-4xl mx-auto ">
         <h1 className="text-4xl text-white font-bold text-center mb-4">About Us</h1>
         <p className="text-lg text-white mb-10">
@@ -14,25 +14,25 @@ const About = () => {
         {/* Vision, Mission, Values */}
         <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Vision */}
-          <div className="shadow-2xl bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105 cursor-pointer">
-            <h2 className="text-2xl font-bold mb-2">Our Vision</h2>
-            <p className=" text-gray-700">
+          <div className="shadow-2xl bg-[#4a5976] p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105 cursor-pointer">
+            <h2 className="text-white text-2xl font-bold mb-2">Our Vision</h2>
+            <p className=" text-white">
               To be recognized as leaders in our industry, inspiring change and
               fostering a culture of integrity and excellence.
             </p>
           </div>
           {/* Mission */}
-          <div className="shadow-2xl bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105 cursor-pointer">
-            <h2 className="text-2xl font-bold mb-2">Our Mission</h2>
-            <p className="text-gray-700">
+          <div className="shadow-2xl bg-[#4a5976] p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105 cursor-pointer">
+            <h2 className="text-2xl text-white font-bold mb-2">Our Mission</h2>
+            <p className="text-white">
               To deliver unparalleled service and innovative solutions that
               empower our clients and contribute to their success.
             </p>
           </div>
           {/* Values */}
-          <div className="shadow-2xl bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105 cursor-pointer">
-            <h2 className="text-2xl font-bold mb-2">Values</h2>
-            <p className="text-gray-700">
+          <div className="shadow-2xl bg-[#4a5976] p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105 cursor-pointer">
+            <h2 className="text-2xl text-white font-bold mb-2">Values</h2>
+            <p className="text-white">
               Integrity, Commitment, Collaboration, Innovation, Excellence.
             </p>
           </div>
@@ -46,15 +46,15 @@ const About = () => {
             {teamMembers.map((member, index) => (
               <div
                 key={index}
-                className="bg-white p-4 rounded-lg shadow-lg flex flex-col items-center"
+                className="bg-[#4a5976]  p-4 rounded-lg shadow-lg flex flex-col items-center"
               >
                 <img
                   src={member.imageUrl}
                   alt={"not found"}
                   className="rounded-full h-32 w-32 object-cover mb-4"
                 />
-                <h3 className="text-xl font-bold">{member.name}</h3>
-                <p className="text-gray-600">{member.role}</p>
+                <h3 className="text-xl text-white font-bold">{member.name}</h3>
+                <p className="text-white">{member.role}</p>
               </div>
             ))}
           </div>

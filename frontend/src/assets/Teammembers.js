@@ -1,7 +1,9 @@
 import sahil from './4957136.jpg'
+import sahilImage from './sahilphoto.jpeg'
+import mintuImage from './mintuphoto.jpeg'
 const teamMembers = [
-    { name: 'Deepanshu Singh', role: 'Lead Developer', imageUrl: sahil },
-    { name: 'Mintu Chaudhary', role: 'CEO, Marketing Head', imageUrl: sahil },
+    { name: 'Deepanshu Singh', role: 'Lead Developer', imageUrl: sahilImage },
+    { name: 'Mintu Chaudhary', role: 'CEO, Marketing Head', imageUrl: mintuImage },
     { name: 'Kanishka', role: 'Lead Designer', imageUrl: sahil },
     { name: 'Ayan Firdosh', role: 'Project Manager', imageUrl: sahil },
 ];

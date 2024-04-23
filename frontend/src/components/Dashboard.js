@@ -91,7 +91,7 @@ const Dashboard = () => {
       categoryDetails();
 
       // Implement any action based on the selected category
-      //console.log(Selected category: ${category});
+      // console.log(Selected category: ${category});
     };
 
     return (
