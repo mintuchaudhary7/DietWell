@@ -44,28 +44,30 @@ const StressManagement = async (req, res) => {
         success: false,
         message:
           "Enter your Data and complete your profile for accurate diet plan",
-      });
+        });
     }
-    // console.log("abcd")
+      // console.log("abcd")
     const openai = new OpenAI({
       apiKey: process.env.OPENAI_API_KEY, // This is also the default
     });
     // console.log('aba')
-    console.log("huu");
+   
     const question = `my age is ${age} i have ${Stressdesc} please give some reference i have this disease ${disease}
     and this allergy  ${allergy} my dietprefernce is ${dietpreference} and send the data in json format`;
     const chatCompletion = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [
-        { role: "system", content: "You are stress expert" },
+        { role: "system", content: "You are stress expert doctor" },
         { role: "user", content: question },
       ],
       functions: [{ name: "get_diet_plan", parameters: schema }],
       function_call: { name: "get_diet_plan" },
       temperature: 0,
     });
-    // const result = await chatCompletion.json()
-    // console.log(chatCompletion.choices[0].message_calls.arguments)
+    console.log("huu");
+    // const result = await chatCompletion.choices[0].message.tool_calls.arguments
+    // console.log(result)
+    // console.log(chatCompletion.choices[0])
     return res.status(200).json({
       success: true,
       message: "Your diet plan is generated successfully",

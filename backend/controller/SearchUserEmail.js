@@ -1,7 +1,6 @@
 const User = require("../models/schema");
 
 const SearchUserEmail = async (req, res) => {
-  
   // console.log(req.body);
 
   // Extract email from request body
@@ -12,18 +11,18 @@ const SearchUserEmail = async (req, res) => {
       success: false,
     });
   }
-console.log(email)
+  console.log(email);
   try {
     // Using the email to find the user
-    const foundUser = await User.findOne({ Email:email });
+    const foundUser = await User.findOne({ Email: email });
 
-    if (!foundUser || foundUser===undefined) {
+    if (!foundUser || foundUser === undefined) {
       return res.status(404).json({
         message: "User not found",
         success: false,
       });
     }
-    if(foundUser.Role !="user"){
+    if (foundUser.Role != "user") {
       return res.status(404).json({
         message: "Requested user is not User",
         success: false,
@@ -35,9 +34,8 @@ console.log(email)
       success: true,
       data: foundUser,
     });
-
   } catch (error) {
-    console.error('Error in finding user:', error);  
+    console.error("Error in finding user:", error);
     return res.status(500).json({
       message: "Error in finding user due to server error",
       success: false,
