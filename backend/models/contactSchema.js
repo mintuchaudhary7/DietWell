@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const { type } = require('./WeightGainSchema');
 const contactSchema = new mongoose.Schema({
     Name:{
         type:String,
@@ -12,7 +13,12 @@ const contactSchema = new mongoose.Schema({
     Query:{
         type:String,
         required:true
+    },
+    Status:{
+        type:String,
+        default:"pending",
     }
+
 
 })
 

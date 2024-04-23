@@ -63,6 +63,11 @@ const AdminNavbar = () => {
               Dietition
             </button>
             </NavLink>
+            <NavLink to="/queries">
+            <div className="block text-white w-full text-left px-3 py-2">
+              Queries
+            </div>
+          </NavLink>
             <button onClick={Logout} className="text-white hover:text-gray-300 px-3 py-2">
                 Logout
               </button>
@@ -95,6 +100,11 @@ const AdminNavbar = () => {
           <button className="block text-white w-full text-left px-3 py-2">
             Dietition
           </button>
+          <NavLink to="/queries">
+            <div className="block text-white w-full text-left px-3 py-2">
+              Queries
+            </div>
+          </NavLink>
           <button onClick={Logout} className="text-white hover:text-gray-300 px-3 py-2">
                 Logout
               </button>
