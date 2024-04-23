@@ -4,6 +4,8 @@ const QueryOptions = (props) => {
   const selectedOption = props.selectedOption;
   const setSelectedOption = props.setSelectedOption;
   const FetchQueries = props.FetchQueries;
+  const count = props.count;
+  console.log(count)
 
   const handleOptionChange = async (option) => {
     setSelectedOption(option);
@@ -21,7 +23,7 @@ const QueryOptions = (props) => {
         }`}
         onClick={() => handleOptionChange("all")}
       >
-        All Queries
+        All Queries {count.allQueries}
       </button>
       <button
         className={`mx-2 px-4 py-2 rounded-lg ${
@@ -31,7 +33,7 @@ const QueryOptions = (props) => {
         }`}
         onClick={() => handleOptionChange("solved")}
       >
-        Solved Queries
+        Solved Queries {count.solvedQueries}
       </button>
       <button
         className={`mx-2 px-4 py-2 rounded-lg ${
@@ -41,7 +43,7 @@ const QueryOptions = (props) => {
         }`}
         onClick={() => handleOptionChange("pending")}
       >
-        Pending Queries
+        Pending Queries {count.pendingQueries}
       </button>
     </div>
   );
