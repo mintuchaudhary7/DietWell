@@ -1,5 +1,6 @@
 const User = require("../models/schema");
-
+require("dotenv").config()
+const nodemailer = require("nodemailer");
 const ApproveDoctor = async (req, res) => {
   try {
     const { email } = req.body; // Destructure for easier access
@@ -31,7 +32,21 @@ const ApproveDoctor = async (req, res) => {
     
     console.log(`Updated user: ${updatedUser}`);
     console.log(`Updated admins: ${updateAdmins}`);
-
+    const  transporter = nodemailer.createTransport({
+      //host which email service we are using
+        host: process.env.MAIL_HOST,
+        // auth for providing out email id and app passward
+        auth: {
+          user: process.env.MAIL_USER,
+          pass: process.env.MAIL_PASS,
+        },
+    });
+    const info = await transporter.sendMail({
+      from: `sahil testing dietwell`,
+      to: email,
+      subject: `Approval for Dietiton on diewell`,
+      html: `<h2>Your request is approved and now you can log in as Dietiton</h2>`,
+  });
     return res.status(200).json({
       message: "Doctor approved and notifications updated successfully",
       success: true,
