@@ -1,5 +1,4 @@
 import homeImage from "../assets/homeImage.png";
-import homeElement from "../assets/homeElement.png";
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { ReactTyped } from "react-typed";

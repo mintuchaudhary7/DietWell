@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useContext, createContext } from "react";
 import { UserContext } from "../App";
-import loginImage from "../assets/4957136.jpg";
+import loginImage from "../assets/loginImage.jpeg";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -48,7 +48,7 @@ const Login = () => {
     }
     if (response.ok) {
       console.log(result);
-      setRole(result.User.Role)
+      setRole(result.User.Role);
       // making all the feilds empty
       setEmail("");
       setPassward("");
@@ -62,19 +62,29 @@ const Login = () => {
     }
   };
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <img className="" src={loginImage} height={500} width={500} alt="Logo" />
-      <div className="max-w-md w-full space-y-8">
+    <div className="min-h-screen flex flex-col sm:flex-row items-center justify-center bg-[#233037] py-12 px-4  sm:px-6 lg:px-8">
+      <div className="rounded-xl flex flex-col sm:flex-row items-center justify-center bg-[#4a5976] mt-10 p-4">
+      <img
+        className="rounded-xl "
+        src={loginImage}
+        height={350}
+        width={350}
+        alt="Logo"
+      />
+      <div className="bg-[#4a5976] rounded-xl max-w-sm w-full space-y-8  pb-4 px-4">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Sign in to your account
-          </h2>
+          <h1 className="mt-2 text-center text-white text-4xl font-extrabold">
+            Welcome Back
+          </h1>
+          <p className="text-center text-white text-sm">
+            Enter your credentials to Login
+          </p>
           {/* again here we are doing conditional rendering */}
           {/* {error ? <h1 className="text-red-500">{errorMessage}</h1> : <></>} */}
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="rounded-md shadow-sm -space-y-px">
-            <div>
+            <div className="pb-2 rounded-xl">
               <label htmlFor="username" className="sr-only">
                 Username
               </label>
@@ -87,7 +97,7 @@ const Login = () => {
                 value={Email}
                 onChange={(e) => setEmail(e.target.value)}
                 // {/* // this is use for is our user change anything to form it immidiatly updates the value and when user click submit button then aur browser dont need to collect data from here and there is help to increase response time of website */}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-md relative block w-full px-3 py-2 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Username"
               />
             </div>
@@ -103,7 +113,7 @@ const Login = () => {
                 required
                 value={Passward}
                 onChange={(e) => setPassward(e.target.value)}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-md relative block w-full px-3 py-2 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
               />
             </div>
@@ -119,22 +129,22 @@ const Login = () => {
               />
               <label
                 htmlFor="remember_me"
-                className="ml-2 block text-sm text-gray-900"
+                className="ml-2 block text-sm text-white"
               >
                 Remember me
               </label>
             </div>
 
             <div className="text-sm">
-              <NavLink to="/forgottenpassward" className="text-blue-700">
+              <NavLink to="/forgottenpassward" className="text-green-500">
                 forgot passward ?
               </NavLink>
             </div>
           </div>
           <div>
-            <div>Not Registerd yet</div>
+            <div className="text-white">Not Registerd yet ?</div>
 
-            <NavLink to="/signup" className="text-blue-700">
+            <NavLink to="/signup" className="text-green-500">
               Signup
             </NavLink>
           </div>
@@ -142,12 +152,13 @@ const Login = () => {
           <div>
             <button
               type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-500 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               Sign in
             </button>
           </div>
         </form>
+      </div>
       </div>
     </div>
   );
