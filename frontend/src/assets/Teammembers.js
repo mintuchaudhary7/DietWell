@@ -1,4 +1,4 @@
-import sahil from './4957136.jpg'
+import sahil from './loginImage.jpeg'
 import sahilImage from './sahilphoto.jpeg'
 import mintuImage from './mintuphoto.jpeg'
 const teamMembers = [

@@ -46,7 +46,7 @@ const WeightLoss = () => {
   }, []);
   const DayCard = ({ day }) => (
     <div
-      className="max-w-sm rounded overflow-hidden shadow-lg bg-blue-100"
+      className="max-w-sm rounded overflow-hidden shadow-lg bg-[#4a5976]"
       onClick={() => handleClick(day)}
     >
       {console.log(menu1)}
@@ -81,18 +81,13 @@ const WeightLoss = () => {
     </div>
   );
   return (
-    <div>
+    <div className="bg-[#233037] pt-28 px-4 min-h-screen text-white">
       Welcome to weight gain
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      
       {resgot ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
           {days.map((day, index) => (
-            <div key={index} className="relative">
+            <div key={index} className="relative ">
               {/* {console.log(menu1)} */}
               {selectedDay === day ? (
                 <NumberCard number={index + 1} />

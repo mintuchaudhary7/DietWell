@@ -57,7 +57,7 @@ const HairandSkincare = () => {
     };
   
     return (
-      <div className="w-full sm:w-1/2 lg:w-1/3 p-4">
+      <div className=" w-full  sm:w-1/2 lg:w-1/3 p-4">
         {console.log(menu1)}
         <div className="relative w-full h-80 bg-white shadow-md rounded-lg overflow-hidden border border-gray-200 cursor-pointer" onClick={handleFlip}>
           <div className={`absolute top-0 left-0 w-full h-full transform transition-transform duration-500 ${isFlipped ? 'rotate-y-180' : ''}`}>
@@ -93,19 +93,14 @@ const HairandSkincare = () => {
   };
   // export default MenuCategory;
   return (
-    <div>
-        <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      Welcome to weight gain
+    <div className="bg-[#233037] text-white pt-24 min-h-screen">
+      
+      <h2>Welcome to Hair and Skin Care</h2>
       
       {resgot ? (
       
           // <div>{console.log(menu1)}</div>
-          <div className="container mx-auto py-8 px-4">
+          <div className=" container mx-auto py-8 px-4">
           <div className="flex flex-wrap -mx-4">
             {Object.entries(menu1).map(([key, value]) => (
               <FlipCard key={key} title={key} content={value} />

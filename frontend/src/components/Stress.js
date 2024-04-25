@@ -54,9 +54,9 @@ const Stress = () => {
     };
 
     return (
-      <div className="w-full sm:w-1/2 lg:w-1/3 p-4">
+      <div className=" w-full sm:w-1/2 lg:w-1/3 p-4">
         <div
-          className="relative w-full h-80 bg-white shadow-md rounded-lg overflow-hidden border border-gray-200 cursor-pointer"
+          className="relative w-full h-80 bg-red-100 shadow-md rounded-lg overflow-hidden border border-gray-200 cursor-pointer"
           onClick={handleFlip}
         >
           <div
@@ -64,7 +64,7 @@ const Stress = () => {
               isFlipped ? "rotate-y-180" : ""
             }`}
           >
-            <div className="bg-white w-full h-full flex justify-center items-center">
+            <div className="bg-[#4a5976] w-full h-full flex justify-center items-center">
               <div className="text-center px-4 py-6">
                 <h2 className="text-lg lg:text-xl font-semibold mb-4">
                   {title}
@@ -104,10 +104,8 @@ const Stress = () => {
     );
   };
   return (
-    <div>
-      <br />
-      <br />
-      <br />
+    <div className="bg-[#233037] min-h-screen pt-24 text-white">
+      
       Welcome to weight gain
       {resgot ? (
         <div className="container mx-auto py-8 px-4">
