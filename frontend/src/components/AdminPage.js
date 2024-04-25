@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { UserContext } from "../App";
 import { ToastContainer } from "react-toastify";
 import Queries from "./Queries";
+import FetchApplyDoctor from "./FetchApplyDoctor";
 
 const AdminPage = () => {
   const user = useContext(UserContext);
@@ -17,12 +18,13 @@ const AdminPage = () => {
    }, []);
   return (
     <div>
+      <ToastContainer></ToastContainer>
       <Routes>
         <Route
           path="/"
           element={
             <div>
-             <ToastContainer></ToastContainer>
+             
               <Dashboard></Dashboard>
             </div>
           }
@@ -32,6 +34,7 @@ const AdminPage = () => {
         <Route path="/users" element={<Users></Users>} />
         <Route path="/dietition" element={<Dietition></Dietition>} />
         <Route path="/queries" element={<Queries></Queries>} />
+        <Route path="/fetchapplydoctor" element={<FetchApplyDoctor></FetchApplyDoctor>} />
       </Routes>
       {/* this is home dash board */}
     </div>

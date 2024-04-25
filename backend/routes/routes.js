@@ -21,9 +21,13 @@ const dashboard = require("../controller/Dashboard");
 const category = require("../controller/CategotyDetail");
 const toDelete = require("../controller/Todelete");
 const searchdietitonmail = require("../controller/SearchDietitionEmail");
-const searchuseremail = require("../controller/SearchUserEmail")
-const FetchQueries = require('../controller/FetchQueries');
-const MarkasSolved = require("../controller/MarkasSolved")
+const searchuseremail = require("../controller/SearchUserEmail");
+const FetchQueries = require("../controller/FetchQueries");
+const MarkasSolved = require("../controller/MarkasSolved");
+const ApplyDietitionSubmittion = require("../controller/ApplyDietitonSubmittion");
+const FetchApplyDoctor = require("../controller/FetchApplyDoctor");
+const ApproveDoctor = require("../controller/ApproveDoctor");
+
 // router.use('/contact',auth)
 // on homepage we send a get request by using useeffect which is for check user have token or not if user have token then we directly show profile option
 router.get("/", auth, (req, res) => {
@@ -54,9 +58,14 @@ router.get("/users", fetchuser);
 router.get("/dietition", fetchDietition);
 router.get("/dashboard", dashboard);
 router.post("/searchdietitionemail", searchdietitonmail);
+router.post("/applydietitonform", ApplyDietitionSubmittion);
+router.patch("/approvedoctor", ApproveDoctor);
 router.post("/searchuseremail", searchuseremail);
+
+
+router.get("/selected/:selectedOption", FetchQueries);//done
 router.post("/:catagory", category);
-router.delete("/:todelete", toDelete);
-router.get("/:selectedOption", FetchQueries);
-router.patch("/:id",MarkasSolved);
+router.delete("/delete/:todelete", toDelete);
+router.patch("/id/:id", MarkasSolved);//done
+router.get("/data/:data", FetchApplyDoctor); //done
 module.exports = router; //basic export function

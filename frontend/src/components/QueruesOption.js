@@ -10,6 +10,8 @@ const QueryOptions = (props) => {
   const handleOptionChange = async (option) => {
     setSelectedOption(option);
     FetchQueries(option);
+
+    
     // FetchQueries();
   };
 

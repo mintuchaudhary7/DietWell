@@ -92,6 +92,11 @@ const Home = () => {
                 Get Started
               </button>
             </NavLink>
+            <NavLink to="/applydietition">
+              <button className="bg-green-500 hover:bg-green-400 py-2 text-white px-4 rounded-full font-bold text-lg">
+                APPLY DIETITION
+              </button>
+            </NavLink>
           </div>
         </div>
       </div>

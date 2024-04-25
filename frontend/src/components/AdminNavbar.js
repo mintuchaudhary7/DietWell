@@ -67,7 +67,15 @@ const AdminNavbar = () => {
             <div className="block text-white w-full text-left px-3 py-2">
               Queries
             </div>
+            
           </NavLink>
+          <NavLink to="/fetchapplydoctor">
+            <div className="block text-white w-full text-left px-3 py-2">
+              Doctor Request
+            </div>
+            
+          </NavLink>
+          
             <button onClick={Logout} className="text-white hover:text-gray-300 px-3 py-2">
                 Logout
               </button>
@@ -104,6 +112,12 @@ const AdminNavbar = () => {
             <div className="block text-white w-full text-left px-3 py-2">
               Queries
             </div>
+          </NavLink>
+          <NavLink to="/fetchapplydoctor">
+            <div className="block text-white w-full text-left px-3 py-2">
+              Apply Doctor
+            </div>
+            
           </NavLink>
           <button onClick={Logout} className="text-white hover:text-gray-300 px-3 py-2">
                 Logout

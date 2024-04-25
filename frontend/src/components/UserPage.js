@@ -25,6 +25,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import AdminPage from "./AdminPage";
 import { useContext } from "react";
 import { UserContext } from "../App";
+import ApplyDietition from "./ApplyDietition";
 
 const Userpage = () => {
   const user = useContext(UserContext);
@@ -123,6 +124,14 @@ const Userpage = () => {
             element={
               <ProtectedRoute>
                 <Stress></Stress>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/applydietition"
+            element={
+              <ProtectedRoute>
+                <ApplyDietition></ApplyDietition>
               </ProtectedRoute>
             }
           />

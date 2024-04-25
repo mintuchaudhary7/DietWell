@@ -70,7 +70,7 @@ function App() {
       role,setRole,logauth,
       setchangePasswardOtpVerified,
     }}
-  ><AdminPage></AdminPage></UserContext.Provider> : <UserContext.Provider
+  ><AdminPage></AdminPage></UserContext.Provider>  : <UserContext.Provider
     value={{
       islogin,
       setIslogin,

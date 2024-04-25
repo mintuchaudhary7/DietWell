@@ -89,8 +89,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: false,
     default: "NULL"
-    
-  }
+  },
+  notification:[
+  ]
 });
 // const mongoose = require('mongoose');
 

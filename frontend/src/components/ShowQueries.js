@@ -3,10 +3,10 @@ import { toast } from "react-toastify";
 
 const ShowQueries = (props) => {
   var user = props.user;
-  const reload = props.reload
-  const selectedOption = props.selectedOption
+  const reload = props.reload;
+  const selectedOption = props.selectedOption;
   const [isSolved, setIsSolved] = useState(false);
-//   const  = fetch;
+  //   const  = fetch;
   const [id, setid] = useState("");
   useEffect(() => {
     if (user && user.Status && user.Status.toLowerCase() === "solved") {
@@ -23,7 +23,7 @@ const ShowQueries = (props) => {
     }
   }, [user]);
   const MarkasSolved = async () => {
-    const response = await fetch(`http://localhost:2000/${id}`, {
+    const response = await fetch(`http://localhost:2000/id/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -63,7 +63,7 @@ const ShowQueries = (props) => {
       {isSolved ? (
         <></>
       ) : (
-        <button onClick={MarkasSolved}>Mark as Solved</button>
+        <button  onClick={MarkasSolved}>Mark as Solved</button>
       )}
     </div>
   );
