@@ -52,6 +52,7 @@ const Services = () => {
                   <img
                     src={service.imageUrl}
                     alt={service.title}
+
                     className="w-32 h-32 object-cover rounded-full"
                   />
                   <h3 className="mt-2 font-bold">{service.title}</h3>
