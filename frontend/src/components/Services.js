@@ -28,17 +28,19 @@ const Services = () => {
           <h3>3 Easy Steps For Happy Life</h3>
         </div>
 
-        
-          <div className="text-white relative ml-60 mr-60 top-40 font-bold text-center flex justify-evenly">
-            <div className="bg-[#233037] py-2 px-4 rounded-md border-2 border-[#233037] text-xs hover:border-green-500">Get Diet Plan</div>
-
-            <div className="bg-[#233037] py-2 px-4 rounded-md border-2 border-[#233037] text-xs hover:border-green-500">Follow Diet Plan</div>
-
-            <div className="bg-[#233037] py-2 px-4 rounded-md border-2 border-[#233037] text-xs hover:border-green-500">Happy Life</div>
-
-            
+        <div className="text-white relative ml-60 mr-60 top-40 font-bold text-center flex justify-evenly">
+          <div className="bg-[#233037] py-2 px-4 rounded-md border-2 border-[#233037] text-xs hover:border-green-500">
+            Get Diet Plan
           </div>
-        
+
+          <div className="bg-[#233037] py-2 px-4 rounded-md border-2 border-[#233037] text-xs hover:border-green-500">
+            Follow Diet Plan
+          </div>
+
+          <div className="bg-[#233037] py-2 px-4 rounded-md border-2 border-[#233037] text-xs hover:border-green-500">
+            Happy Life
+          </div>
+        </div>
 
         <div className="relative mt-10 z-10 sm:top-48 md:top-48 mb-60 lg:top-60 mb-20">
           <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">

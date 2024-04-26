@@ -28,25 +28,23 @@ exports.login = async (req, res) => {
         message: "User Does Not Exist Please Signup",
       });
     }
-    //creating a payload for sesson handling to send in cookies 
+    //creating a payload for sesson handling to send in cookies
     const payload = {
       Email: User.Email,
       id: User._id,
-      Name:User.Name,
-      Passward:User.Passward
-      
-      
+      Name: User.Name,
+      Passward: User.Passward,
     };
     if (await bcrypt.compare(Passward, User.Passward)) {
       //creating an jwt token;
       // instance of jwt token;
       console.log(User.Passward);
-      const jwt = require('jsonwebtoken');
+      const jwt = require("jsonwebtoken");
       //creating a token
       let token = jwt.sign(payload, process.env.JWT_SECRET, {
         expiresIn: "3h",
       });
-      
+
       //creating a user token
       User = User.toObject();
       User.token = token;
@@ -60,9 +58,9 @@ exports.login = async (req, res) => {
         expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
         httpOnly: true,
       };
-      
+
       //creating a cookie and sending in response;
-       return res.cookie("token", token, options).status(200).json({
+      return res.cookie("token", token, options).status(200).json({
         success: true,
         token,
         User,
@@ -83,7 +81,7 @@ exports.login = async (req, res) => {
       success: false,
       message: "Server Error",
     });
-    return
+    return;
   }
 };
 exports.signup = async (req, res) => {
@@ -98,7 +96,7 @@ exports.signup = async (req, res) => {
         success: false,
         message: "User Already Exist",
       });
-      return
+      return;
     }
     let hasedpassward;
     try {
@@ -110,16 +108,15 @@ exports.signup = async (req, res) => {
         massage: "Error occured in hashing passward",
       });
     }
-    
 
     // if we reached here then it means that user does no exist
     //creating an database entry for user
     const User = await user.create({
       Name,
       Email,
-      Passward:hasedpassward,
+      Passward: hasedpassward,
       ContactNo,
-      Role
+      Role,
     });
     // sending an success message to client
     return res.status(200).json({
@@ -133,6 +130,6 @@ exports.signup = async (req, res) => {
       message: "User Cannnot Not be Registered Please Try Again Later",
       success: false,
     });
-    return
+    return;
   }
 };

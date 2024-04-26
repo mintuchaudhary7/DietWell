@@ -24,6 +24,7 @@ import "react-toastify/dist/ReactToastify.css";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminPage from "./components/AdminPage";
 import Userpage from "./components/UserPage";
+import DietitionPage from "./components/Dietition/DietitionPage";
 
 // const islogin = createContext();
 const UserContext = createContext();
@@ -70,7 +71,15 @@ function App() {
       role,setRole,logauth,
       setchangePasswardOtpVerified,
     }}
-  ><AdminPage></AdminPage></UserContext.Provider>  : <UserContext.Provider
+  ><AdminPage></AdminPage></UserContext.Provider> : role === "Dietiton" ?  <UserContext.Provider
+  value={{
+    islogin,
+    setIslogin,
+    changePasswardOtpVerified,
+    role,setRole,logauth,
+    setchangePasswardOtpVerified,
+  }}
+><DietitionPage></DietitionPage></UserContext.Provider>  : <UserContext.Provider
     value={{
       islogin,
       setIslogin,

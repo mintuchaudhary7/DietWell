@@ -73,6 +73,7 @@ const FetchApplyDoctor = () => {
   return (
     <div>
       <AdminNavbar />
+      <h1>Apply Doctor</h1>
       <div>
         <button
           className="m-10"
@@ -104,7 +105,7 @@ const FetchApplyDoctor = () => {
         <div>Loading</div>
       )}
 
-      <p>Apply doctor</p>
+     
     </div>
   );
 };
