@@ -64,23 +64,25 @@ const Dashboard = () => {
     );
   };
   const UserCategoryPage = () => {
-    
-
     const handleCategorySelect = (category) => {
       setSelectedCategory(category);
       const categoryDetails = async () => {
-        const response = await fetch(`http://localhost:2000/${category}`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          body: JSON.stringify(),
-        });
+        const response = await fetch(
+          `http://localhost:2000/${category}`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            credentials: "include",
+            body: JSON.stringify(),
+          }
+        );
         const result = await response.json();
         console.log(result);
         if (!response.ok) {
           setcategoryResp(true);
+          
           return;
         }
         if (response.ok) {
@@ -102,10 +104,11 @@ const Dashboard = () => {
         <UserCategoryMenu handleCategorySelect={handleCategorySelect} />
         {selectedCategory && (
           <div className="text-center mt-4">
-            <p className="font-bold text-xl">Displaying {`${selectedCategory}`}</p>
+            <p className="font-bold text-xl">
+              Displaying {`${selectedCategory}`}
+            </p>
             {categoryresp ? (
               <div>
-                
                 {categoryMenu.map((menu) => (
                   <DashboardCard key={menu._id} user={menu} />
                 ))}
@@ -113,7 +116,6 @@ const Dashboard = () => {
             ) : (
               <div>Loading...</div>
             )}
-            
           </div>
         )}
       </div>

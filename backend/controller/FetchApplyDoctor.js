@@ -6,8 +6,13 @@ const FetchApplyDoctor = async (req, res) => {
     console.log(Admin.notification);
     var main = [];
     var main2 = []
+    const count = {
+      solved:0,
+      pending:0
+    }
     Admin.notification.map((ele) => {
         // console.log(ele.notification)
+        
       if (ele.status == data) {
         console.log("pushing")
         main.push(ele);
