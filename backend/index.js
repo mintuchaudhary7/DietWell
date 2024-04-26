@@ -13,7 +13,7 @@ const corsOptions = {
     credentials: true, //included credentials as true
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 // app.use(cors());//same as above
 const dbConnect = require("./config/database");//importing function which we created to connect database
 
