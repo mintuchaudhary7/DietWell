@@ -57,7 +57,7 @@ const WeightLoss = () => {
   );
   const NumberCard = ({ number }) => (
     <div
-      className="max-w-sm rounded overflow-hidden shadow-lg bg-green-100 transform rotate-180"
+      className="max-w-sm rounded overflow-hidden shadow-lg bg-[#4a5976] transform rotate-180"
       onClick={() => handleClick(null)}
     >
       <div className="px-6 py-4">
@@ -82,7 +82,7 @@ const WeightLoss = () => {
   );
   return (
     <div className="bg-[#233037] pt-28 px-4 min-h-screen text-white">
-      Welcome to weight gain
+      Welcome to weight Loss
       
       {resgot ? (
         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">

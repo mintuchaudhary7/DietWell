@@ -47,7 +47,7 @@ const WeightGain = () => {
   }, []);
   const DayCard = ({ day }) => (
     <div
-      className="max-w-sm rounded overflow-hidden shadow-lg bg-blue-100"
+      className="max-w-sm rounded overflow-hidden shadow-lg bg-[#4a5976]"
       onClick={() => handleClick(day)}
     >
       <div className="px-6 py-4">
@@ -57,7 +57,7 @@ const WeightGain = () => {
   );
   const NumberCard = ({ number }) => (
     <div
-      className="max-w-sm rounded overflow-hidden shadow-lg bg-green-100 transform rotate-180"
+      className="max-w-sm rounded overflow-hidden shadow-lg bg-[#4a5976] transform rotate-180"
       onClick={() => handleClick(null)}
     >
       <div className="px-6 py-4">

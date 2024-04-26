@@ -59,9 +59,9 @@ const HairandSkincare = () => {
     return (
       <div className=" w-full  sm:w-1/2 lg:w-1/3 p-4">
         {console.log(menu1)}
-        <div className="relative w-full h-80 bg-white shadow-md rounded-lg overflow-hidden border border-gray-200 cursor-pointer" onClick={handleFlip}>
+        <div className="relative w-full h-80 bg-[#4a5976] shadow-md rounded-lg overflow-hidden border border-gray-200 cursor-pointer" onClick={handleFlip}>
           <div className={`absolute top-0 left-0 w-full h-full transform transition-transform duration-500 ${isFlipped ? 'rotate-y-180' : ''}`}>
-            <div className="bg-white w-full h-full flex justify-center items-center">
+            <div className="bg-[#4a5976]w-full h-full flex justify-center items-center">
               <div className="text-center px-4 py-6">
                 <h2 className="text-lg lg:text-xl font-semibold mb-4">{title}</h2>
                 {isFlipped && (
