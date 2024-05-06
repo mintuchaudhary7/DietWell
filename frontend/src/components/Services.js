@@ -66,6 +66,10 @@ const Services = () => {
           </div>
         </div>
       </div>
+      <NavLink className="" to="/user-dietition-question">
+        <img className="" height={100} width={100} src="https://cdn.pixabay.com/photo/2015/11/06/11/51/question-mark-1026526_640.jpg" alt="no" />
+
+      </NavLink>
     </div>
   );
 };
