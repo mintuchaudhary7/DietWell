@@ -26,6 +26,7 @@ import AdminPage from "./AdminPage";
 import { useContext } from "react";
 import { UserContext } from "../App";
 import ApplyDietition from "./ApplyDietition";
+import UserDietitionQuestion from "./UserDietitionQuestion";
 
 const Userpage = () => {
   const user = useContext(UserContext);
@@ -132,6 +133,14 @@ const Userpage = () => {
             element={
               <ProtectedRoute>
                 <ApplyDietition></ApplyDietition>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/user-dietition-question"
+            element={
+              <ProtectedRoute>
+                <UserDietitionQuestion></UserDietitionQuestion>
               </ProtectedRoute>
             }
           />
