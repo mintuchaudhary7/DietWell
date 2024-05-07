@@ -20,10 +20,12 @@ const WeightLoss = () => {
     setSelectedDay(day);
   };
   const weightLoss = async () => {
+    const token = sessionStorage.getItem('token')
     const response = await fetch("http://localhost:2000/services/weightloss", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+          'Authorization': `Bearer ${token}`,
       },
       credentials: "include",
       // body: JSON.stringify(),

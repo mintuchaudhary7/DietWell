@@ -9,11 +9,13 @@ const Users = () => {
   const [users, setUsers] = useState({});
   const [respgot,setRespgot] = useState(false);
   const fetchUsers = async (e) => {
+    const token = sessionStorage.getItem('token')
     // const data = { islogin };
     const response = await fetch("http://localhost:2000/users", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+          'Authorization': `Bearer ${token}`,
       },
       credentials: "include",
       // body: JSON.stringify(),

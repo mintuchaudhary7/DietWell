@@ -17,6 +17,7 @@ const Contact = () => {
     // prevent default help to prevent default function of reload
     // creatinga n object which we have to send to backend
     var addUser = { Name, Email, ContactNo, Query };
+    const token = sessionStorage.getItem('token')
     console.log(addUser);
 
     // api call where we have to send data
@@ -24,6 +25,7 @@ const Contact = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+          'Authorization': `Bearer ${token}`,
       },
       credentials: "include",
       body: JSON.stringify(addUser),

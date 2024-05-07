@@ -13,10 +13,12 @@ const UserCard = ({ user,reload }) => {
 
   const handleDelete = async () => {
     try {
+      const token = sessionStorage.getItem('token')
       const response = await fetch(`http://localhost:2000/delete/${user._id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
         },
         credentials: 'include',
       });

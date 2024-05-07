@@ -5,12 +5,14 @@ import { toast } from "react-toastify";
 const DietitionNavbar = ()=>{
     const [isOpen, setIsOpen] = useState(false);
     const logout = async(e)=>{
+      const token = sessionStorage.getItem('token')
       e.preventDefault();
-      
+      // const token = sessionStorage.getItem('token')
       const response = await fetch("http://localhost:2000/logout", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          'Authorization': `Bearer ${token}`,
         },
         credentials: "include",
         // body: JSON.stringify(),
@@ -23,6 +25,7 @@ const DietitionNavbar = ()=>{
         return
       }
       if(response.ok){
+        sessionStorage.clear();
         toast.success(result.message,{
           position : "top-center"
         })

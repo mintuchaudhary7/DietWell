@@ -13,6 +13,7 @@ const SearchDietitionEmail = (props) => {
   };
 
   const findUser = async (e) => {
+    const token = sessionStorage.getItem('token')
     e.preventDefault(); // Prevent the form from submitting in the traditional way
     console.log("Finding user:", email);
     const data = { email };
@@ -20,6 +21,7 @@ const SearchDietitionEmail = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+          'Authorization': `Bearer ${token}`,
       },
       credentials: "include",
       body: JSON.stringify(data),

@@ -12,12 +12,14 @@ const PendingQuery = ({ menu, fetchQuestion }) => {
   //   console.log(menu._id)
   const handleReplySubmit = async () => {
     const data = { reply, id };
+    const token = sessionStorage.getItem('token')
     const response = await fetch(
       `http://localhost:2000/user/dietition/submit-dietiton-response`,
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          'Authorization': `Bearer ${token}`,
         },
         credentials: "include",
         body: JSON.stringify(data),

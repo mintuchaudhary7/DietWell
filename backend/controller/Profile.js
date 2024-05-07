@@ -7,7 +7,8 @@ const Profile = async(req,res)=>{
         var decoded;
         //checking for user that he had a token or not if he have a token then only he can see  profile
         // ans also for storing email on basis of email we find user and send  his or her profile data
-        const token = req.cookies.token;
+        // const token = req.cookies.token;
+        const token = req.headers.authorization.split(' ')[1] 
         try {
           const jwt = require("jsonwebtoken");
           // verifying token

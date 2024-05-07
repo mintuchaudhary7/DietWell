@@ -5,12 +5,14 @@ import { toast } from "react-toastify";
 const ProtectedRoute = ({children})=>{
     const nevigate = useNavigate();
     const protectedRoute = async()=>{
+      const token = sessionStorage.getItem('token')
         const response = await fetch(
             "http://localhost:2000/protected",
             {
               method: "GET",
               headers: {
                 "Content-Type": "application/json",
+          'Authorization': `Bearer ${token}`,
               },
               credentials: "include",
               // body: JSON.stringify(),
@@ -18,8 +20,8 @@ const ProtectedRoute = ({children})=>{
         );
         const result = await response.json()
         if(!response.ok){
+          nevigate('/login');
             toast.error(result.message,{position:"top-center"});
-            nevigate('/login');
             return
             
 

@@ -23,10 +23,12 @@ const ShowQueries = (props) => {
     }
   }, [user]);
   const MarkasSolved = async () => {
+    const token = sessionStorage.getItem('token')
     const response = await fetch(`http://localhost:2000/id/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
+          'Authorization': `Bearer ${token}`,
       },
       credentials: "include",
       // body: JSON.stringify(),
