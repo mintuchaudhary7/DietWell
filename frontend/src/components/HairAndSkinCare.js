@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 const HairandSkincare = () => {
   const [menu1, setMenu1] = useState({});
@@ -33,7 +34,10 @@ const HairandSkincare = () => {
     const result = await response.json();
 
     if (!response.ok) {
-      setMenu1(result.message);
+      // setMenu1(result.message);
+      toast.error(result.message,{
+        position:"top-center"
+      })
       console.log("abc")
       return;
     }

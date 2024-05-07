@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 const WeightGain = () => {
   const [menu1, setMenu1] = useState("");
@@ -30,7 +31,9 @@ const WeightGain = () => {
     const result = await response.json();
 
     if (!response.ok) {
-      setMenu1(result.message);
+      toast.error(result.message,{
+        position:"top-center"
+      })
       console.log("get")
       return;
     }
