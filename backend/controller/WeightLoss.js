@@ -29,21 +29,20 @@ const WeightLoss = async (req, res) => {
     const disease = user.Disease;
     console.log("12");
     if (
-      age === null ||
-      gender === "" ||
-      height === null ||
-      weight === null ||
-      bmr === null ||
-      disease === "" ||
-      activity === "" ||
-      dietpreference === "" ||
-      allergy === "" ||
-      disease === ""
+      !age ||
+     !gender ||
+      !height ||
+      !weight ||
+      !bmr ||
+      !disease ||
+      !activity  ||
+      !dietpreference  ||
+      !allergy  ||
+      !disease
     ) {
       console.log("Enter your Data and complete your profile");
       return res.status(400).json({
         success: false,
-
         message:
           "Enter your Data and complete your profile for accurate diet plan",
       });

@@ -1,9 +1,36 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom"
+import { toast } from "react-toastify";
 
 const DietitionNavbar = ()=>{
     const [isOpen, setIsOpen] = useState(false);
-
+    const logout = async(e)=>{
+      e.preventDefault();
+      
+      const response = await fetch("http://localhost:2000/logout", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        // body: JSON.stringify(),
+      });
+      const result = await response.json()
+      if(!response.ok){
+        toast.error(result.message,{
+          position : "top-center"
+        })
+        return
+      }
+      if(response.ok){
+        toast.success(result.message,{
+          position : "top-center"
+        })
+        window.location.reload(false);
+        // nevigate('/user');
+        return
+      }
+    }
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -20,17 +47,11 @@ const DietitionNavbar = ()=>{
                 Dashboard
               </button>
             </NavLink>
-            
-             
-            
-          
-          
-            
-           
-          
-          
-          
-           
+            <NavLink>
+              <button onClick={logout} className="text-white hover:text-gray-300 px-3 py-2">
+                Logout
+              </button>
+            </NavLink> 
           </div>
           <div className="flex md:hidden items-center">
             <button
@@ -51,7 +72,11 @@ const DietitionNavbar = ()=>{
               Dashboard
             </div>
           </NavLink>
-        
+          <NavLink>
+              <button onClick={logout} className="text-white hover:text-gray-300 px-3 py-2">
+                Logout
+              </button>
+            </NavLink> 
          
          
          

@@ -33,11 +33,11 @@ const StressManagement = async (req, res) => {
 
     console.log("abc");
     if (
-      age === null ||
-      Stressdesc == "" ||
-      dietpreference == "" ||
-      allergy == "" ||
-      disease == ""
+      !age  ||
+      !Stressdesc  ||
+      !dietpreference ||
+      !allergy  ||
+      !disease 
     ) {
       console.log("Enter your Data and complete your profile");
       return res.status(400).json({

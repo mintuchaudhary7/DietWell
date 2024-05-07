@@ -27,9 +27,10 @@ const MarkasSolved = require("../controller/MarkasSolved");
 const ApplyDietitionSubmittion = require("../controller/ApplyDietitonSubmittion");
 const FetchApplyDoctor = require("../controller/FetchApplyDoctor");
 const ApproveDoctor = require("../controller/ApproveDoctor");
-const userquestionsubmittion = require("../controller/UserDietitonQuestionSubmition")
-const fetchUserQuestions = require('../controller/FetchUserQuestion')
-const DietitionReply=require("../controller/DietitonReply")
+const userquestionsubmittion = require("../controller/UserDietitonQuestionSubmition");
+const fetchUserQuestions = require("../controller/FetchUserQuestion");
+const DietitionReply = require("../controller/DietitonReply");
+const getNotification = require("../controller/GetNotification");
 // router.use('/contact',auth)
 // on homepage we send a get request by using useeffect which is for check user have token or not if user have token then we directly show profile option
 router.get("/", auth, (req, res) => {
@@ -69,7 +70,8 @@ router.post("/:catagory", category);
 router.delete("/delete/:todelete", toDelete);
 router.patch("/id/:id", MarkasSolved); //done
 router.get("/data/:data", FetchApplyDoctor); //done
-router.post("/user/dietition/question",userquestionsubmittion)
-router.get("/user/dietition/fetchUserQuestions/:status",fetchUserQuestions)
-router.post("/user/dietition/submit-dietiton-response",DietitionReply)
+router.post("/user/dietition/question", userquestionsubmittion);
+router.get("/user/dietition/fetchUserQuestions/:status", fetchUserQuestions);
+router.post("/user/dietition/submit-dietiton-response", DietitionReply);
+router.get("/notification", getNotification);
 module.exports = router; //basic export function

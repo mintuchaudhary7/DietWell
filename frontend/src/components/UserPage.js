@@ -3,6 +3,7 @@
 import { createContext, useState } from "react";
 import Navbar from "./Navbar";
 import { Routes, Route } from "react-router-dom";
+import Notificationbar from "./Notification";
 import Home from "./Homepage";
 import Login from "./Login";
 import Services from "./Services";
@@ -141,6 +142,14 @@ const Userpage = () => {
             element={
               <ProtectedRoute>
                 <UserDietitionQuestion></UserDietitionQuestion>
+              </ProtectedRoute>
+            }
+          />
+           <Route
+            path="/notification"
+            element={
+              <ProtectedRoute>
+                <Notificationbar></Notificationbar>
               </ProtectedRoute>
             }
           />

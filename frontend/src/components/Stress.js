@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 const Stress = () => {
   const [menu1, setMenu1] = useState("");
@@ -29,8 +30,11 @@ const Stress = () => {
     console.log(response);
     if (!response.ok) {
       console.log(result.message);
-      setMenu1(result.message);
-      setResgot(true);
+      toast.error(result.message,{
+        position:"top-center"
+      })
+      // setMenu1(result.message);
+      // setResgot(true);
       return;
     }
     if (response.ok) {

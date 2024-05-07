@@ -30,18 +30,17 @@ const HairandSkincare = async (req, res) => {
     const hairtexture = user.Hairtexture;
     const damagecount = user.DamageCount;
     const skintype = user.SkinType;
+    const age = user.Age
 
-    if (
-      //   age === null ||
-      gender === "" ||
-      hairtype === null ||
-      hairtexture === null ||
-      damagecount === null ||
-      disease === "" ||
-      skintype === "" ||
-      //   dietpreference === "" ||
-      allergy === "" ||
-      disease === ""
+    if (!gender ||
+      !hairtype ||
+      !hairtexture ||
+      !damagecount ||
+      !disease ||
+      !skintype ||
+      !allergy ||
+      !disease||
+      !age
     ) {
       console.log("Enter your Data and complete your profile");
       return res.status(400).json({
