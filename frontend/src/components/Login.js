@@ -73,7 +73,7 @@ const Login = () => {
       />
       <div className="bg-[#4a5976] rounded-xl max-w-sm w-full space-y-8  pb-4 px-4">
         <div>
-          <h1 className="mt-2 text-center text-white text-4xl font-extrabold">
+          <h1 className="mt-2 text-center text-green-400 text-4xl font-extrabold">
             Welcome Back
           </h1>
           <p className="text-center text-white text-sm">
@@ -136,7 +136,7 @@ const Login = () => {
             </div>
 
             <div className="text-sm">
-              <NavLink to="/forgottenpassward" className="text-green-500">
+              <NavLink to="/forgottenpassward" className="text-green-400">
                 forgot passward ?
               </NavLink>
             </div>
@@ -144,7 +144,7 @@ const Login = () => {
           <div>
             <div className="text-white">Not Registerd yet ?</div>
 
-            <NavLink to="/signup" className="text-green-500">
+            <NavLink to="/signup" className="text-green-400">
               Signup
             </NavLink>
           </div>

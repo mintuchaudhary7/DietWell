@@ -91,146 +91,142 @@ const Signup = () => {
   };
   return (
     <div className="min-h-screen flex flex-col sm:flex-row items-center justify-center bg-[#233037] py-12 px-4  sm:px-6 lg:px-8">
-      <h2 className="text-2xl text-white font-bold mb-6">Sign Up</h2>
-      <div className="rounded-xl flex flex-col sm:flex-row  justify-center bg-[#4a5976] mt-10 ">
-      <div className="w-full md:w-1/2">
-        <img
-          className=""
-          height={790}
-          width={500}
-          src={loginImage}
-          alt=""
-        />
-      </div>
-      <form
-        className="bg-[#4a5976] shadow-md rounded  px-8 pb-8 mb-4 w-full md:w-1/3"
-        onSubmit={handleSubmit}
-      >
-        
-        {/* {error ? <div className="text-red-400">{errorMessage}</div> : <></>} */}
-        <div className="mb-4">
-          <label
-            className="block text-white text-sm font-bold mb-2"
-            htmlFor="fullName"
-          >
-            Full Name
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="fullName"
-            type="text"
-            placeholder="Full Name"
-            name="fullName"
-            value={Name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
+      <div className="rounded-xl flex flex-col sm:flex-row items-center justify-between bg-[#4a5976] mt-10 ">
+        <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/2 xl:w-1/2 center ">
+          <img className="rounded-l-xl" height={790} width={500} src={loginImage} alt="" />
         </div>
-        <div className="mb-4">
-          <label
-            className="block text-white text-sm font-bold mb-2"
-            htmlFor="email"
-          >
-            Email
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="email"
-            type="email"
-            placeholder="Email"
-            name="email"
-            value={Email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            className="block text-white text-sm font-bold mb-2"
-            htmlFor="email"
-          >
-            Role
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="Role"
-            type="text"
-            placeholder="Role"
-            name="Role"
-            value={Role}
-            onChange={(e) => setRole(e.target.value)}
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            className="block text-white text-sm font-bold mb-2"
-            htmlFor="password"
-          >
-            Password
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="password"
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={Passward}
-            onChange={(e) => setPassward(e.target.value)}
-            required
-          />
-        </div>
-        <div className="mb-6">
-          <label
-            className="block text-white text-sm font-bold mb-2"
-            htmlFor="confirmPassword"
-          >
-            Confirm Password
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="confirmPassword"
-            type="password"
-            placeholder="Confirm Password"
-            name="confirmPassword"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassward(e.target.value)}
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            className="block text-white text-sm font-bold mb-2"
-            htmlFor="phoneNumber"
-          >
-            Phone Number
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="phoneNumber"
-            type="tel"
-            placeholder="Phone Number"
-            name="phoneNumber"
-            value={ContactNo}
-            onChange={(e) => setContactno(e.target.value)}
-            required
-          />
-        </div>
-        <div className="flex items-center justify-between">
-          <button
-            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4  rounded focus:outline-none focus:shadow-outline"
-            type="submit"
-          >
-            Sign Up
-          </button>
-          <div className="mt-4 text-white md:mt-0">
-            <div>Already registered ?</div>
-            <NavLink to="/login" className="text-green-500">
-              Log in
-            </NavLink>
+        <form
+          
+          onSubmit={handleSubmit}
+        >
+          {/* {error ? <div className="text-red-400">{errorMessage}</div> : <></>} */}
+          <div className="pr-8">
+          <h2 className="text-4xl text-center text-green-400 font-extrabold mt-4">Registration</h2>
+          <p className=" text-center text-white text-sm font-normal mb-6">Let's start a Legendary journey together</p>
+            <div className="my-2 flex justify-center">
+              <label
+                className="block text-white w-1/2 text-sm font-bold mb-2 "
+                htmlFor="fullName"
+              >
+                Full Name
+              </label>
+              <input
+                className="shadow appearance-none border rounded  ml-2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="fullName"
+                type="text"
+                placeholder="Full Name"
+                name="fullName"
+                value={Name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="my-2 flex justify-center">
+              <label
+                className="block text-white w-1/2 text-sm font-bold mb-2"
+                htmlFor="email"
+              >
+                Email
+              </label>
+              <input
+                className="shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="email"
+                type="email"
+                placeholder="Email"
+                name="email"
+                value={Email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div className="my-2 flex justify-center">
+              <label
+                className="block text-white w-1/2 text-sm font-bold mb-2"
+                htmlFor="email"
+              >
+                Role
+              </label>
+              <input
+                className="shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="Role"
+                type="text"
+                placeholder="Role"
+                name="Role"
+                value={Role}
+                onChange={(e) => setRole(e.target.value)}
+                required
+              />
+            </div>
+            <div className="my-2 flex justify-center">
+              <label
+                className="block text-white w-1/2 text-sm font-bold mb-2"
+                htmlFor="password"
+              >
+                Password
+              </label>
+              <input
+                className="shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="password"
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={Passward}
+                onChange={(e) => setPassward(e.target.value)}
+                required
+              />
+            </div>
+            <div className="my-2 flex justify-center">
+              <label
+                className="block text-white w-1/2 text-sm font-bold mb-2"
+                htmlFor="confirmPassword"
+              >
+                Confirm Password
+              </label>
+              <input
+                className="shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="confirmPassword"
+                type="password"
+                placeholder="Confirm Password"
+                name="confirmPassword"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassward(e.target.value)}
+                required
+              />
+            </div>
+            <div className="my-2 flex justify-center">
+              <label
+                className="block text-white w-1/2 text-sm font-bold mb-2"
+                htmlFor="phoneNumber"
+              >
+                Phone Number
+              </label>
+              <input
+                className="shadow appearance-none border rounded  py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="phoneNumber"
+                type="tel"
+                placeholder="Phone Number"
+                name="phoneNumber"
+                value={ContactNo}
+                onChange={(e) => setContactno(e.target.value)}
+                required
+              />
+            </div>
           </div>
-        </div>
-      </form>
+          <div className="flex items-center justify-between">
+            <button
+              className="bg-green-500  hover:bg-green-700 text-white font-bold py-2 px-4  rounded focus:outline-none focus:shadow-outline"
+              type="submit"
+            >
+              Sign Up
+            </button>
+            <div className="mt-4 text-white mr-8 md:mt-0">
+              <div>Already registered ?</div>
+              <NavLink to="/login" className="text-green-400">
+                Log in
+              </NavLink>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   );
