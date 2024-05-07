@@ -1,7 +1,6 @@
 const express = require('express');
 const cookieParser = require("cookie-parser");
 const app = express();
-
 const PORT = process.env.PORT || 2000;//dynamically choosing the port if our .env port is busy then by default aur backend choose 2000 port by default
 app.use(express.json());
 
