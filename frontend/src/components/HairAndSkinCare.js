@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
+import Loader from "./Loader";
 
 const HairandSkincare = () => {
   const [menu1, setMenu1] = useState({});
@@ -112,7 +113,7 @@ const HairandSkincare = () => {
           </div>
         </div>
       ) : (
-        <div>Loading...</div>
+        <Loader></Loader>
       )}
       
     </div>
