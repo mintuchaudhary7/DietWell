@@ -3,7 +3,8 @@ const userquestions = require("../models/UserQuestion")
 const jwt = require("jsonwebtoken")
 const UserDietitionQuestion = async (req,res)=>{
     try {
-        const token = req.cookies.token;
+        // const token = req.cookies.token;
+        const token = req.headers.authorization.split(' ')[1] 
         if (!token || token===undefined) {
             return res.status(400).json({
               success: false,

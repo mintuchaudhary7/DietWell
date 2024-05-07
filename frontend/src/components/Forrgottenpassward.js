@@ -20,11 +20,13 @@ const Forrgottenpassward = () => {
     e.preventDefault();
 
     var data = { Email };
+    const token = sessionStorage.getItem('token')
     console.log(data);
     const response = await fetch("http://localhost:2000/forgottenpassward", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+          'Authorization': `Bearer ${token}`,
       },
       body: JSON.stringify(data),
     });

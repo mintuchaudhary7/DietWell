@@ -4,12 +4,13 @@ import NotificationCard from "./NotificationCard";
 
 const Notificationbar = () => {
     const [menu, setMenu] = useState([]);
-
+    const token = sessionStorage.getItem('token')
     const getNotification = async () => {
         const response = await fetch("http://localhost:2000/notification", {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
+                'Authorization': `Bearer ${token}`,
             },
             credentials: "include", // Ensure the backend supports credentials (cookies)
         });

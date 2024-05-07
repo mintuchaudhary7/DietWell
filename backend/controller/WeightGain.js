@@ -6,7 +6,8 @@ const User = require("../models/schema");
 const WeightGain = async (req, res) => {
   try {
     var decoded;
-    const token = req.cookies.token;
+    // const token = req.cookies.token;
+    const token = req.headers.authorization.split(' ')[1] 
     if (!token || token === undefined) {
       return res.status(404).json({
         success: false,

@@ -23,12 +23,14 @@ const ApplyDietition = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // You can handle form submission logic here (e.g., send data to backend)
+    const token = sessionStorage.getItem('token')
     console.log("Form submitted:", formData);
     const DietitionData = { formData };
     const response = await fetch("http://localhost:2000/applydietitonform", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+          'Authorization': `Bearer ${token}`,
       },
       credentials: "include",
       body: JSON.stringify(DietitionData),

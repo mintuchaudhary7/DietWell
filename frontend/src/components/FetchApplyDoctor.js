@@ -10,10 +10,12 @@ const FetchApplyDoctor = () => {
 
   const fetchApplications = async () => {
     try {
+      const token = sessionStorage.getItem('token')
       const response = await fetch(`http://localhost:2000/data/${pending}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          'Authorization': `Bearer ${token}`,
         },
         credentials: "include",
       });
@@ -42,10 +44,12 @@ const FetchApplyDoctor = () => {
   const approveDoctor = async (email) => {
     try {
       const data = { email };
+      const token = sessionStorage.getItem('token')
       const response = await fetch("http://localhost:2000/approvedoctor", {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
+          'Authorization': `Bearer ${token}`,
         },
         credentials: "include",
         body: JSON.stringify(data),

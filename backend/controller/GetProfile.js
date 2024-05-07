@@ -2,7 +2,8 @@ const User = require('../models/schema')
 const GetProfile = async (req,res)=>{
     try {
         var decoded;//in this variable we store out decoded token out token contain some information like email of user etc
-        const token = req.cookies.token;//destructuring token
+        // const token = req.cookies.token;//destructuring token
+        const token = req.headers.authorization.split(' ')[1] 
         // console.log("get profile" + req.cookies.token)
         // console.log("update" + token)
         try {

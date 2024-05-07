@@ -3,8 +3,10 @@ require("dotenv").config();
 const WeightGain = async (req, res) => {
   try {
     var decoded;
-    const token = req.cookies.token;
-    if (!token || token === undefined) {
+    // const token = req.cookies.token;
+    const token = req.headers.authorization.split(" ")[1];
+    console.log("ro" + token);
+    if (!token || token === undefined || token == "null") {
       return res.status(400).json({
         success: false,
         message: "Not a verified user please login",

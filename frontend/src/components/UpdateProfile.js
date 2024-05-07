@@ -31,10 +31,12 @@ const UpdateProfile = () => {
     });
   };
   const firstRender=async()=>{
+    const token = sessionStorage.getItem('token')
     const response = await fetch("http://localhost:2000/profile/updateprofile", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+          'Authorization': `Bearer ${token}`,
       },
       credentials: "include",
     //   body: JSON.stringify(),

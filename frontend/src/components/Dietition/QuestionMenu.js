@@ -16,12 +16,14 @@ const QuestionMenu = () => {
   };
 
   const fetchQuestion = async () => {
+    const token = sessionStorage.getItem('token')
     const response = await fetch(
       `http://localhost:2000/user/dietition/fetchUserQuestions/${status}`,
       {
         method: "Get",
         headers: {
           "Content-Type": "application/json",
+          'Authorization': `Bearer ${token}`,
         },
         credentials: "include",
       }
