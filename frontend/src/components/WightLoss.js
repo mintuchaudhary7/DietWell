@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
+import Loader from "./Loader";
 
 const WeightLoss = () => {
   const [menu1, setMenu1] = useState("");
@@ -101,7 +102,7 @@ const WeightLoss = () => {
           ))}
         </div>
       ) : (
-        <div>Loading...</div>
+        <Loader></Loader>
       )}
     </div>
   );

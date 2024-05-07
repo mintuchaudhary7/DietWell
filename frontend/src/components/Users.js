@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AdminNavbar from "./AdminNavbar";
 import UserCard from "./UserCard";
 import SearchUserEmail from "./SearchUserEmail";
+import Loader from "./Loader";
 
 // UserCard
 const Users = () => {
@@ -43,7 +44,7 @@ const Users = () => {
         {users.map((user) => (
           <UserCard reload = {fetchUsers} key={user._id} user={user} />
         ))}
-      </div>: <div>Loading...</div> }
+      </div>: <Loader></Loader> }
      
     </div>
   );
