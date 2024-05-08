@@ -20,7 +20,7 @@ const Forrgottenpassward = () => {
     e.preventDefault();
 
     var data = { Email };
-    const token = sessionStorage.getItem('token')
+    const token = localStorage.getItem('token')
     console.log(data);
     const response = await fetch("http://localhost:2000/forgottenpassward", {
       method: "POST",

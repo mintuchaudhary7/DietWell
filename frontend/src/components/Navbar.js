@@ -23,7 +23,7 @@ const Navbar = () => {
   };
   // logout function
   const logout = async () => {
-    const token = sessionStorage.getItem('token')
+    const token = localStorage.getItem('token')
     const response = await fetch("http://localhost:2000/logout", {
       method: "GET",
       headers: {
@@ -44,7 +44,7 @@ const Navbar = () => {
       return;
     }
     if (response.ok) {
-      sessionStorage.clear();
+      localStorage.clear();
       console.log(result);
       nevigate("/");
       setIslogin(false);

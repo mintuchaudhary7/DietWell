@@ -22,7 +22,7 @@ const Profile = () => {
     stressdescription:""
   });
   const firstRender = async () => {
-    const token = sessionStorage.getItem('token')
+    const token = localStorage.getItem('token')
     const response = await fetch("http://localhost:2000/profile", {
       method: "GET",
       headers: {

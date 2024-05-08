@@ -41,7 +41,7 @@ const PasswordChangePage = () => {
     }
     // data which we send to backend
     var data = {Email,Passward}
-    const token = sessionStorage.getItem('token')
+    const token = localStorage.getItem('token')
     console.log(data);
     //  api call and request is put because we are prforming update operation
     const response = await fetch("http://localhost:2000/changepassward", {

@@ -9,7 +9,7 @@ const Users = () => {
   const [users, setUsers] = useState({});
   const [respgot,setRespgot] = useState(false);
   const fetchUsers = async (e) => {
-    const token = sessionStorage.getItem('token')
+    const token = localStorage.getItem('token')
     // const data = { islogin };
     const response = await fetch("http://localhost:2000/users", {
       method: "GET",

@@ -35,7 +35,7 @@ function App() {
   const [role, setRole] = useState("");
   
   const logauth = async (e) => {
-    const token = sessionStorage.getItem('token')
+    const token = localStorage.getItem('token')
     // const data = { islogin };
     const response = await fetch("http://localhost:2000/", {
       method: "GET",

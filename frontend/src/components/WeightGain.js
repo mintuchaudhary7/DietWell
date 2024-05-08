@@ -20,7 +20,7 @@ const WeightGain = () => {
     setSelectedDay(day);
   };
   const weightGain = async () => {
-    const token = sessionStorage.getItem('token')
+    const token = localStorage.getItem('token')
     const response = await fetch("http://localhost:2000/services/weightgain", {
       method: "GET",
       headers: {
