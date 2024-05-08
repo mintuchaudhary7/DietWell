@@ -6,7 +6,7 @@ const UserDietitionQuestion = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     // alert(`You entered: ${question}`);
-    const token = sessionStorage.getItem('token')
+    const token = localStorage.getItem('token')
     const data = { question };
     const response = await fetch(
       "http://localhost:2000/user/dietition/question",

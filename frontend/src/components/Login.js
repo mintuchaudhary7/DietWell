@@ -25,7 +25,7 @@ const Login = () => {
     e.preventDefault();
     //default behevior is to reload the page and we are prventing fro reloding the page
     var addUser = { Email, Passward }; //creating an object email and passward which we have to send on backend for maching with data is stored in backend;
-    const token = sessionStorage.getItem('token')
+    const token = localStorage.getItem('token')
     // this is used to make call for backend server
     const response = await fetch("http://localhost:2000/login", {
       method: "POST", //post request because we are sending data to backend
@@ -50,7 +50,7 @@ const Login = () => {
     }
     if (response.ok) {
       const token = result.token;
-      sessionStorage.setItem('token', token);
+      localStorage.setItem('token', token);
       console.log(result);
       setRole(result.User.Role);
       // making all the feilds empty

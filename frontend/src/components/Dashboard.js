@@ -10,7 +10,7 @@ const Dashboard = () => {
   const [categoryresp, setcategoryResp] = useState(false);
   const fetchUsers = async (e) => {
     // const data = { islogin };
-    const token = sessionStorage.getItem('token')
+    const token = localStorage.getItem('token')
     const response = await fetch("http://localhost:2000/dashboard", {
       method: "GET",
       headers: {
@@ -69,7 +69,7 @@ const Dashboard = () => {
     const handleCategorySelect = (category) => {
       setSelectedCategory(category);
       const categoryDetails = async () => {
-        const token = sessionStorage.getItem('token')
+        const token = localStorage.getItem('token')
         const response = await fetch(
           `http://localhost:2000/${category}`,
           {

@@ -65,7 +65,7 @@ const auth = async (req, res, next) => {
     const token = req.headers.authorization.split(' ')[1] 
     console.log(req.cookies);
 
-    if (!token || token===undefined) {
+    if (!token || token===undefined || token==="null") {
       return res.status(400).json({
         success: false,
         message: "Please login",

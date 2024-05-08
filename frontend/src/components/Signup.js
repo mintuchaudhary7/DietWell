@@ -49,7 +49,7 @@ const Signup = () => {
     // same sa login
     // creatingan object which we have to send to backend
     var addUser = { Name, Email, ContactNo, Passward, Role };
-    const token = sessionStorage.getItem('token')
+    const token = localStorage.getItem('token')
     console.log(addUser);
     // eslint-disable-next-line no-unused-expressions
     // api call same as login

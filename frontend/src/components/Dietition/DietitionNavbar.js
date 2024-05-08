@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 const DietitionNavbar = ()=>{
     const [isOpen, setIsOpen] = useState(false);
     const logout = async(e)=>{
-      const token = sessionStorage.getItem('token')
+      const token = localStorage.getItem('token')
       e.preventDefault();
       // const token = sessionStorage.getItem('token')
       const response = await fetch("http://localhost:2000/logout", {
@@ -25,7 +25,7 @@ const DietitionNavbar = ()=>{
         return
       }
       if(response.ok){
-        sessionStorage.clear();
+        localStorage.clear();
         toast.success(result.message,{
           position : "top-center"
         })

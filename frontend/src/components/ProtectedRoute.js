@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 const ProtectedRoute = ({children})=>{
     const nevigate = useNavigate();
     const protectedRoute = async()=>{
-      const token = sessionStorage.getItem('token')
+      const token = localStorage.getItem('token')
         const response = await fetch(
             "http://localhost:2000/protected",
             {

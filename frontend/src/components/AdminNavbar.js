@@ -11,7 +11,7 @@ const AdminNavbar = () => {
   };
   const Logout = async(e)=>{
     e.preventDefault();
-    const token = sessionStorage.getItem('token')
+    const token = localStorage.getItem('token')
     
     const response = await fetch("http://localhost:2000/logout", {
       method: "GET",

@@ -23,7 +23,7 @@ const ApplyDietition = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // You can handle form submission logic here (e.g., send data to backend)
-    const token = sessionStorage.getItem('token')
+    const token = localStorage.getItem('token')
     console.log("Form submitted:", formData);
     const DietitionData = { formData };
     const response = await fetch("http://localhost:2000/applydietitonform", {

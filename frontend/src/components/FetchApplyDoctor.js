@@ -44,7 +44,7 @@ const FetchApplyDoctor = () => {
   const approveDoctor = async (email) => {
     try {
       const data = { email };
-      const token = sessionStorage.getItem('token')
+      const token = localStorage.getItem('token')
       const response = await fetch("http://localhost:2000/approvedoctor", {
         method: "PATCH",
         headers: {
