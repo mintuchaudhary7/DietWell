@@ -7,9 +7,9 @@ const SolvedQuery = (menu) => {
         {/* {menu.map((item) => ( */}
           <div
             key={menu._id}
-            className="border border-gray-200 rounded p-4 mb-4"
+            className="border border-gray-200 rounded p-4 mt-4 mr-4 mb-4"
           >
-            <p>
+            <p className="overflow-hidden">
               <strong>Email:</strong> {menu.menu.Email}
             </p>
             <p>

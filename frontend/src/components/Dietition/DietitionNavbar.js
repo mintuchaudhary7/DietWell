@@ -38,7 +38,7 @@ const DietitionNavbar = ()=>{
     setIsOpen(!isOpen);
   };
     return (
-      <nav className="bg-gray-800 shadow-lg">
+      <nav className="bg-[#4a5976] shadow-lg">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between h-16">
           <div className="flex items-center">

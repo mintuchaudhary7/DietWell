@@ -46,10 +46,9 @@ const PendingQuery = ({ menu, fetchQuestion }) => {
   };
 
   return (
-    <div>
-      <h1>adfgbhnjkml</h1>
-      <div key={menu._id} className="border border-gray-200 rounded p-4 mb-4">
-        <p>
+    <div className="">
+      <div key={menu._id} className="border border-gray-200 rounded p-4 mt-4 mb-4 ">
+        <p className="overflow-hidden">
           <strong>Email:</strong> {menu.Email}
         </p>
         <p>
@@ -77,7 +76,7 @@ const PendingQuery = ({ menu, fetchQuestion }) => {
         ) : (
           <button
             onClick={() => setShowReplyInput(true)}
-            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg"
+            className="mt-4 px-4 py-2 font-semibold bg-green-500 text-white rounded-lg hover:bg-green-400"
           >
             Reply
           </button>
