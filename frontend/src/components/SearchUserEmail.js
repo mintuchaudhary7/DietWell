@@ -13,7 +13,7 @@ const SearchDietitionEmail = (props) => {
   };
 
   const findUser = async (e) => {
-    const token = sessionStorage.getItem('token')
+    const token = localStorage.getItem('token')
     e.preventDefault(); // Prevent the form from submitting in the traditional way
     console.log("Finding user:", email);
     const data = { email };

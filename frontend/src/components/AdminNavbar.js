@@ -11,7 +11,7 @@ const AdminNavbar = () => {
   };
   const Logout = async(e)=>{
     e.preventDefault();
-    const token = sessionStorage.getItem('token')
+    const token = localStorage.getItem('token')
     
     const response = await fetch("http://localhost:2000/logout", {
       method: "GET",
@@ -33,7 +33,7 @@ const AdminNavbar = () => {
       toast.success(result.message,{
         position : "top-center"
       })
-      sessionStorage.clear();
+      localStorage.clear();
       window.location.reload(false);
       // nevigate('/user');
       return

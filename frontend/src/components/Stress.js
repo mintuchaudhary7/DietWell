@@ -18,7 +18,7 @@ const Stress = () => {
   ];
 
   const stress = async () => {
-    const token = sessionStorage.getItem('token')
+    const token = localStorage.getItem('token')
     const response = await fetch("http://localhost:2000/services/stress", {
       method: "GET",
       headers: {
@@ -113,7 +113,7 @@ const Stress = () => {
   return (
     <div className="bg-[#233037] min-h-screen pt-24 text-white">
       
-      Welcome to weight gain
+      Welcome to Stress Management
       {resgot ? (
         <div className="container mx-auto py-8 px-4">
           <div className="flex flex-wrap -mx-4">

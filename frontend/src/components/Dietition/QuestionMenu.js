@@ -16,7 +16,7 @@ const QuestionMenu = () => {
   };
 
   const fetchQuestion = async () => {
-    const token = sessionStorage.getItem('token')
+    const token = localStorage.getItem('token')
     const response = await fetch(
       `http://localhost:2000/user/dietition/fetchUserQuestions/${status}`,
       {

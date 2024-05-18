@@ -4,7 +4,7 @@ import NotificationCard from "./NotificationCard";
 
 const Notificationbar = () => {
     const [menu, setMenu] = useState([]);
-    const token = sessionStorage.getItem('token')
+    const token = localStorage.getItem('token')
     const getNotification = async () => {
         const response = await fetch("http://localhost:2000/notification", {
             method: "GET",
@@ -37,8 +37,9 @@ const Notificationbar = () => {
     }, []);
 
     return (
-        <div>
-            <h2>Notifications</h2>
+        <div className="bg-[#233037] min-h-screen p-5 pt-24">
+            <h2 className="text-4xl text-white font-bold text-center mb-4">Your Notifications</h2>
+            
             {menu.map((item, index) => (
                 // Key should ideally be a unique identifier from your data
                 <NotificationCard key={index} question={item.Question} answer={item.Answer} />

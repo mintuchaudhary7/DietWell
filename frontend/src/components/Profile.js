@@ -22,7 +22,7 @@ const Profile = () => {
     stressdescription:""
   });
   const firstRender = async () => {
-    const token = sessionStorage.getItem('token')
+    const token = localStorage.getItem('token')
     const response = await fetch("http://localhost:2000/profile", {
       method: "GET",
       headers: {
@@ -71,116 +71,116 @@ const Profile = () => {
     firstRender();
   }, []);
   return (
-    <div className="container mx-auto mt-8">
-      <h1 className="text-3xl font-bold mb-4">Welcome {profile.name}</h1>
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <label>Name:</label>
-          <div className="border border-gray-400 p-2 w-full rounded-md">
+    <div className="bg-[#233037] min-h-screen  pt-24  ">
+      <h1 className="text-white text-3xl font-bold pl-5 mb-8">Welcome {profile.name}</h1>
+      <div className="bg-[#4a5976] mx-5 p-4 rounded-md  grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div >
+          <label className="text-white font-semibold">Name:</label>
+          <div className="border border-gray-400 bg-white p-2 w-full rounded-md">
             {profile.name}
           </div>
         </div>
-        <div>
-          <label>Email:</label>
-          <div className="border border-gray-400 p-2 w-full rounded-md">
+        <div >
+          <label className="text-white font-semibold">Email:</label>
+          <div className="border border-gray-400 bg-white p-2 w-full overflow-hidden rounded-md">
             {profile.email}
           </div>
         </div>
-        <div>
-          <label>Contact No.:</label>
-          <div className="border border-gray-400 p-2 w-full rounded-md">
+        <div >
+          <label className="text-white font-semibold">Contact No.:</label>
+          <div className="border border-gray-400 bg-white p-2 w-full rounded-md">
             {profile.phoneno}
           </div>
         </div>
-        <div>
-          <label>Age:</label>
-          <div className="border border-gray-400 p-2 w-full rounded-md">
+        <div >
+          <label className="text-white font-semibold">Age:</label>
+          <div className="border border-gray-400 bg-white p-2 w-full rounded-md">
             {profile.age}
           </div>
         </div>
-        <div>
-          <label>Height:</label>
-          <div className="border border-gray-400 p-2 w-full rounded-md">
+        <div >
+          <label className="text-white font-semibold">Height:</label>
+          <div className="border border-gray-400 bg-white p-2 w-full rounded-md">
             {profile.height}
           </div>
         </div>
-        <div>
-          <label>Weight:</label>
-          <div className="border border-gray-400 p-2 w-full rounded-md">
+        <div >
+          <label className="text-white font-semibold">Weight:</label>
+          <div className="border border-gray-400 bg-white p-2 w-full rounded-md">
             {profile.weight}
           </div>
         </div>
-        <div>
-          <label>Gender:</label>
-          <div className="border border-gray-400 p-2 w-full rounded-md">
+        <div >
+          <label className="text-white font-semibold">Gender:</label>
+          <div className="border border-gray-400 bg-white p-2 w-full rounded-md">
             {profile.gender}
           </div>
         </div>
-        <div>
-          <label>Diet Preference:</label>
-          <div className="border border-gray-400 p-2 w-full rounded-md">
+        <div >
+          <label className="text-white font-semibold">Diet Preference:</label>
+          <div className="border border-gray-400 bg-white p-2 w-full rounded-md">
             {profile.dietPreference}
           </div>
         </div>
-        <div>
-          <label>Activity Level:</label>
-          <div className="border border-gray-400 p-2 w-full rounded-md">
+        <div > 
+          <label className="text-white font-semibold">Activity Level:</label>
+          <div className="border border-gray-400 bg-white p-2 w-full rounded-md">
             {profile.activityLevel}
           </div>
         </div>
-        <div>
-          <label>BMR:</label>
-          <div className="border border-gray-400 p-2 w-full rounded-md">
+        <div >
+          <label className="text-white font-semibold">BMR:</label>
+          <div className="border border-gray-400 bg-white p-2 w-full rounded-md">
             {profile.bmr}
           </div>
         </div>
-        <div>
-          <label>Allergy:</label>
-          <div className="border border-gray-400 p-2 w-full rounded-md">
+        <div >
+          <label className="text-white font-semibold">Allergy:</label>
+          <div className="border border-gray-400 bg-white p-2 w-full rounded-md">
             {profile.allergy}
           </div>
         </div>
-        <div>
-          <label>Disease:</label>
-          <div className="border border-gray-400 p-2 w-full rounded-md">
+        <div >
+          <label className="text-white font-semibold">Disease:</label>
+          <div className="border border-gray-400 bg-white p-2 w-full rounded-md">
             {profile.disease}
           </div>
         </div>
-        <div>
-          <label>Hair-Texture</label>
-          <div className="border border-gray-400 p-2 w-full rounded-md">
+        <div >
+          <label className="text-white font-semibold">Hair-Texture</label>
+          <div className="border border-gray-400 bg-white p-2 w-full rounded-md">
             {profile.Hairtexture}
           </div>
         </div>
-        <div>
-          <label>Hair-Type</label>
-          <div className="border border-gray-400 p-2 w-full rounded-md">
+        <div >
+          <label className="text-white font-semibold">Hair-Type</label>
+          <div className="border border-gray-400 bg-white p-2 w-full rounded-md">
             {profile.hairtype}
           </div>
         </div>
-        <div>
-          <label>Damage-Count</label>
-          <div className="border border-gray-400 p-2 w-full rounded-md">
+        <div >
+          <label className="text-white font-semibold">Damage-Count</label>
+          <div className="border border-gray-400 bg-white p-2 w-full rounded-md">
             {profile.damagecount}
           </div>
         </div>
-        <div>
-          <label>Skin-Type</label>
-          <div className="border border-gray-400 p-2 w-full rounded-md">
+        <div >
+          <label className="text-white font-semibold">Skin-Type</label>
+          <div className="border border-gray-400 bg-white p-2 w-full rounded-md">
             {profile.skintype}
           </div>
         </div>
-        <div>
-          <label>Stress-description</label>
-          <div className="border border-gray-400 p-2 w-full rounded-md">
+        <div >
+          <label className="text-white font-semibold">Stress-description</label>
+          <div className="border border-gray-400 bg-white p-2 w-full rounded-md">
             {profile.stressdescription}
           </div>
         </div>
       </div>
 
       <NavLink to="/profile/updateprofile">
-        <button className="bg-blue-500 m-5 h-10 rounded-sm p-2">
-          Update Profile
+        <button className="bg-green-500 m-5 h-10 rounded-md text-white font-semibold p-2 hover:bg-green-700">
+          UPDATE PROFILE
         </button>
       </NavLink>
     </div>
