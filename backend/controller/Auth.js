@@ -1,5 +1,8 @@
 const user = require("../models/schema"); // imorting our schema of database which we use to create user
 const bcrypt = require("bcrypt");
+const axios = require("axios");
+require("dotenv").config();
+
 exports.login = async (req, res) => {
   try {
     // try block is compulsry to use for catching the error
@@ -98,31 +101,54 @@ exports.signup = async (req, res) => {
       });
       return;
     }
-    let hasedpassward;
-    try {
-      //hashing script bycript is a hashing techqnique
-      hasedpassward = await bcrypt.hash(Passward, 10);
-    } catch (error) {
-      return res.status(500).json({
-        success: false,
-        massage: "Error occured in hashing passward",
-      });
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(Email)) {
+      return res.status(400).json({ message: "Invalid email format" });
     }
 
-    // if we reached here then it means that user does no exist
-    //creating an database entry for user
-    const User = await user.create({
-      Name,
-      Email,
-      Passward: hasedpassward,
-      ContactNo,
-      Role,
-    });
-    // sending an success message to client
-    return res.status(200).json({
-      success: true,
-      message: "Sign in Successfull",
-    });
+    try {
+      const apiKey = process.env.ZEROBOUNCE_API_KEY;
+      const apiUrl = `https://api.zerobounce.net/v2/validate?api_key=${apiKey}&email=${Email}`;
+
+      const response = await axios.get(apiUrl);
+      console.log(response);
+      if (response.data.status === "valid") {
+        let hasedpassward;
+        try {
+          //hashing script bycript is a hashing techqnique
+          hasedpassward = await bcrypt.hash(Passward, 10);
+        } catch (error) {
+          return res.status(500).json({
+            success: false,
+            massage: "Error occured in hashing passward",
+          });
+        }
+
+        // if we reached here then it means that user does no exist
+        //creating an database entry for user
+        const User = await user.create({
+          Name,
+          Email,
+          Passward: hasedpassward,
+          ContactNo,
+          Role,
+        });
+        // sending an success message to client
+        return res.status(200).json({
+          success: true,
+          message: "Sign in Successfull",
+        });
+      } else {
+        return res
+          .status(400)
+          .json({ message: "Email address does not exist" });
+      }
+    } catch (error) {
+      return res.status(500).json({
+        message: "Error verifying email address",
+        error: error.message,
+      });
+    }
   } catch (error) {
     // error massage  in case of any network issue
     console.log(error);
