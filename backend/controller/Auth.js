@@ -7,6 +7,7 @@ exports.login = async (req, res) => {
   try {
     // try block is compulsry to use for catching the error
     const { Email, Passward } = req.body; // fetching data from user or frontend using request body
+    
     if (!Email) {
       //this block is responsible for checking that user entered any data or not
       return res.status(500).json({
@@ -92,6 +93,13 @@ exports.signup = async (req, res) => {
     //fetching the data from request;
     const { Name, Email, Passward, ContactNo, Role } = req.body;
     // checking in database that user is not already registered;
+    console.log(ContactNo.length)
+    if(ContactNo.length !=10){
+      return res.status(400).json({
+        success:false,
+        message:"Please enter your 10 digit phone number"
+      })
+    }
     const existingUser = await user.findOne({ Email });
     //if user exist then return error status;
     if (existingUser) {
