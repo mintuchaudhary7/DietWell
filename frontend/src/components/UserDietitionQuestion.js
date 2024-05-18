@@ -36,26 +36,27 @@ const UserDietitionQuestion = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100 px-4">
+    <div className="flex items-center justify-center h-screen bg-[#233037] px-4">
       <form onSubmit={handleSubmit} className="w-full max-w-lg">
         <div className="mb-6">
           <label
             htmlFor="question"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-xl font-bold text-white"
           >
-            Enter your Question
+            Ask your Question from Dietition
           </label>
           <textarea
             id="question"
             name="question"
             rows="10"
-            className="mt-1 block w-full p-2.5 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+            placeholder="Ask Your Question"
+            className="mt-1 block w-full p-2.5 border bg-[#4a5976] text-white rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
             onChange={(e) => setQuestion(e.target.value)}
           ></textarea>
         </div>
         <button
           type="submit"
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+          className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700"
         >
           Submit
         </button>
