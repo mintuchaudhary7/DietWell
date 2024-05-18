@@ -62,18 +62,14 @@ const ApplyDietition = () => {
    
   };
   return (
-    <div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <div className="max-w-md mx-auto">
-        <h2 className="text-xl font-bold mb-4">Apply to Become a Dietitian</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="bg-[#233037] pt-24 pb-4">
+      <div className="max-w-md mx-auto ">
+        <h2 className="text-xl font-bold mb-4 text-white">Apply to Become a Dietitian</h2>
+        <form onSubmit={handleSubmit} className="space-y-4 bg-[#4a5976] rounded-md p-4">
           <div>
             <label
               htmlFor="name"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-white"
             >
               Name
             </label>
@@ -90,7 +86,7 @@ const ApplyDietition = () => {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-white"
             >
               Email
             </label>
@@ -107,7 +103,7 @@ const ApplyDietition = () => {
           <div>
             <label
               htmlFor="contactNo"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-white"
             >
               Contact Number
             </label>
@@ -124,7 +120,7 @@ const ApplyDietition = () => {
           <div>
             <label
               htmlFor="university"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-white"
             >
               University
             </label>
@@ -141,7 +137,7 @@ const ApplyDietition = () => {
           <div>
             <label
               htmlFor="graduationYear"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-white"
             >
               Graduation Year
             </label>
@@ -158,7 +154,7 @@ const ApplyDietition = () => {
           <div>
             <label
               htmlFor="experience"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-white"
             >
               Experience
             </label>
@@ -174,7 +170,7 @@ const ApplyDietition = () => {
           </div>
           <button
             type="submit"
-            className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors"
+            className="bg-green-500 text-white font-semibold px-4 py-2 rounded-md hover:bg-green-400 transition-colors"
           >
             Submit Application
           </button>

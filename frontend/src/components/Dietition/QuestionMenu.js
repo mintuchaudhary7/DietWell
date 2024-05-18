@@ -47,7 +47,7 @@ const QuestionMenu = () => {
     fetchQuestion();
   }, [status]);
   return (
-    <div>
+    <div className="">
       <Toggle
         status={status}
         setStatus={setStatus}
