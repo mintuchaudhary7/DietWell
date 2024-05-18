@@ -33,7 +33,7 @@ const AdminNavbar = () => {
       toast.success(result.message,{
         position : "top-center"
       })
-      sessionStorage.clear();
+      localStorage.clear();
       window.location.reload(false);
       // nevigate('/user');
       return
