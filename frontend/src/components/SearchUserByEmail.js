@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-const SearchUserByEmail = () => {
+const SearchUserByEmail = (props) => {
   const [email, setEmail] = useState("");
-
+  const route = props.route
   const handleInputChange = (e) => {
     setEmail(e.target.value);
   };
@@ -13,7 +13,7 @@ const SearchUserByEmail = () => {
     var data = { email };
     console.log("Finding user:", data);
     // Add the logic to actually fetch the user data based on the email
-    const response = await fetch("http://localhost:2000/", {
+    const response = await fetch(`http://localhost:2000/${route}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

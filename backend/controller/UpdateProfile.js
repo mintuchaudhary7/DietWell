@@ -8,8 +8,9 @@ const UpdateProfile = async (req, res) => {
     var decoded;
     // token required because only verified user or logged in user can update profile and also for email by which we can search user
     // const token = req.cookies.token;
+    console.log("here")
     const token = req.headers.authorization.split(' ')[1] 
-    // console.log("update" + token)
+    console.log("update" + token)
     // var authorization = req.headers.authorization.split(' ')[1],
     // decoded;
     // console.log("sahil")
@@ -22,16 +23,17 @@ const UpdateProfile = async (req, res) => {
         })
       }
       const jwt = require("jsonwebtoken");
+     
       //verifiny token and storing email
       decoded = jwt.verify(token, process.env.JWT_SECRET);
       // console.log(decoded)
       const Email = decoded.Email;
       let bmr;
-      if(profile.gender == "Male"){
+      if(profile.gender === "Male"){
         bmr = 88.362 + (13.397*profile.weight) + (4.799*profile.height) - (5.677*profile.age);
         //88.362 + (13.397 x weight in kg) + (4.799 x height in cm) – (5.677 x age in years)
       }
-      else if(profile.gender == "Female"){
+      else if(profile.gender === "Female"){
         bmr = 447.593 + (9.247*profile.weight) + (3.098*profile.height) - (4.330*profile.age);
         //Women: BMR = 447.593 + (9.247 x weight in kg) + (3.098 x height in cm) – (4.330 x age in years)
       }
@@ -84,7 +86,7 @@ const UpdateProfile = async (req, res) => {
   } catch (error) {
     return res.status(401).json({
         success:false,
-        message:"Your profile is not  updated due to server error please try again later",
+        message:"Your profile is not  dated due to server error please try again later",
     });
   }
 };
