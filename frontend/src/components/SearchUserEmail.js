@@ -2,18 +2,18 @@ import React, { useState } from "react";
 import UserCard from "../components/UserCard";
 
 const SearchDietitionEmail = (props) => {
-  const route = props.route
+  const route = props.route;
   const [email, setEmail] = useState("");
   const [Userfound, setUserFound] = useState(false);
   const [menu, setmenu] = useState({});
-  const[goterror,setgoterror] = useState("")
+  const [goterror, setgoterror] = useState("");
 
   const handleInputChange = (e) => {
     setEmail(e.target.value);
   };
 
   const findUser = async (e) => {
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem("token");
     e.preventDefault(); // Prevent the form from submitting in the traditional way
     console.log("Finding user:", email);
     const data = { email };
@@ -21,7 +21,7 @@ const SearchDietitionEmail = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-          'Authorization': `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
       credentials: "include",
       body: JSON.stringify(data),
@@ -30,8 +30,8 @@ const SearchDietitionEmail = (props) => {
     // console.log(result)
     if (!response.ok) {
       //ii have to show a toast
-      setUserFound(false)
-      setgoterror(result.message)
+      setUserFound(false);
+      setgoterror(result.message);
       return;
     }
     if (response.ok) {
@@ -42,15 +42,15 @@ const SearchDietitionEmail = (props) => {
   };
 
   return (
-    <div>
+    <div className="mx-2">
       <form
-        className="max-w-md mx-auto my-10 p-5 shadow-md"
+        className="max-w-md mx-auto my-10 p-5 rounded-md shadow-lg bg-[#4a5976]"
         onSubmit={findUser}
       >
-        <div className="mb-4">
+        <div className="mb-4 ">
           <label
             htmlFor="searchuser"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-semibold text-white"
           >
             Enter Email to find user
           </label>
@@ -68,10 +68,20 @@ const SearchDietitionEmail = (props) => {
           type="submit"
           // onClick={findUser}
           value="Find"
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer"
+          className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded cursor-pointer"
         />
       </form>
-      <div>{Userfound ? <div> <h1>The requested user is </h1><UserCard user={menu}></UserCard> </div>: <>{goterror}</>}</div>
+      <div className="">
+        {Userfound ? (
+          <div>
+            {" "}
+            <h1 className="text-white text-2xl font-semibold ml-4 mb-2">The requested user is : </h1>
+            <UserCard user={menu}></UserCard>{" "}
+          </div>
+        ) : (
+          <>{goterror}</>
+        )}
+      </div>
     </div>
   );
 };

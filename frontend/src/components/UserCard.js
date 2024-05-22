@@ -43,12 +43,12 @@ const UserCard = ({ user,reload }) => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 mb-4">
+    <div className="bg-[#4a5976] text-white rounded-lg shadow-md mx-2 pb-2 p-4 mb-4">
       <h2 className="text-lg font-bold mb-2">User Details</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {Object.entries(user).slice(0, 6).map(([key, value]) => (
           <div key={key}>
-            <p className="text-sm font-semibold text-gray-600">{key}</p>
+            <p className="text-sm font-semibold text-yellow-300">{key}</p>
             <p className="text-sm overflow-auto">{value}</p>
           </div>
         ))}
@@ -56,7 +56,7 @@ const UserCard = ({ user,reload }) => {
       <div className="flex justify-between mt-4">
         <div>
           <button
-            className="py-2 px-4 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 transition duration-300"
+            className="py-2 px-4 bg-green-500 text-white rounded-md hover:bg-green-600 transition duration-300"
             onClick={toggleDetails}
           >
             {showAllDetails ? 'Hide Details' : 'Show Details'}
@@ -76,7 +76,7 @@ const UserCard = ({ user,reload }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {Object.entries(user).map(([key, value]) => (
               <div key={key}>
-                <p className="text-sm font-semibold text-gray-600">{key}</p>
+                <p className="text-sm font-semibold text-yellow-300">{key}</p>
                 <p className="text-sm overflow-auto">{value}</p>
               </div>
             ))}
