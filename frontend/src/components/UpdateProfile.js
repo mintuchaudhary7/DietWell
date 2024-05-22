@@ -85,6 +85,7 @@ const UpdateProfile = () => {
   }, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const token = localStorage.getItem("token");
     // You can handle form submission here
     var addUser = { profile };
     const response = await fetch(
@@ -93,6 +94,7 @@ const UpdateProfile = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         credentials: "include",
         body: JSON.stringify(addUser),
@@ -122,7 +124,9 @@ const UpdateProfile = () => {
 
   return (
     <div className="bg-[#233037] pt-24 pb-4">
-      <h1 className="text-white text-3xl font-bold text-center pl-5 mb-8">Update Your Profile </h1>
+      <h1 className="text-white text-3xl font-bold text-center pl-5 mb-8">
+        Update Your Profile{" "}
+      </h1>
       <div className="bg-[#4a5976] max-w-md mx-auto p-4 rounded-md">
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>

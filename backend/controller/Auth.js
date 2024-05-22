@@ -107,13 +107,12 @@ exports.signup = async (req, res) => {
         success: false,
         message: "User Already Exist",
       });
-      return;
+      // return;
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(Email)) {
       return res.status(400).json({ message: "Invalid email format" });
     }
-
     try {
       const apiKey = process.env.ZEROBOUNCE_API_KEY;
       const apiUrl = `https://api.zerobounce.net/v2/validate?api_key=${apiKey}&email=${Email}`;
