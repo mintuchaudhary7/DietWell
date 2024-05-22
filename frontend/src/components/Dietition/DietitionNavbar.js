@@ -44,14 +44,14 @@ const DietitionNavbar = ()=>{
           <div className="flex items-center">
             <div className="text-white font-bold">Doctor Dashboard</div>
           </div>
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center fond-bold">
             <NavLink to="/">
-              <button className="text-white hover:text-gray-300 px-3 py-2">
+              <button className="text-white  hover:text-green-500 px-3 py-2">
                 Dashboard
               </button>
             </NavLink>
             <NavLink>
-              <button onClick={logout} className="text-white hover:text-gray-300 px-3 py-2">
+              <button onClick={logout} className="text-white hover:text-green-500 px-3 py-2">
                 Logout
               </button>
             </NavLink> 
@@ -71,7 +71,7 @@ const DietitionNavbar = ()=>{
       {isOpen && (
         <div className="md:hidden bg-gray-700">
           <NavLink to="/">
-            <div className="block text-white w-full text-left px-3 py-2">
+            <div className="block text-white w-full  text-left px-3 py-2">
               Dashboard
             </div>
           </NavLink>

@@ -41,7 +41,7 @@ const AdminNavbar = () => {
   }
 
   return (
-    <nav className="bg-gray-800 shadow-lg">
+    <nav className="bg-[#4a5976] shadow-lg">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -49,7 +49,7 @@ const AdminNavbar = () => {
           </div>
           <div className="hidden md:flex items-center">
             <NavLink to="/">
-              <button className="text-white hover:text-gray-300 px-3 py-2">
+              <button className="text-white font-semibold hover:text-green-500  px-3 py-2">
                 Dashboard
               </button>
             </NavLink>
@@ -57,29 +57,29 @@ const AdminNavbar = () => {
              
             
             <NavLink to="/users">
-              <button className="text-white hover:text-gray-300 px-3 py-2">
+              <button className="text-white font-semibold hover:text-green-500  px-3 py-2">
                 Users
               </button>
             </NavLink>
             <NavLink to="/dietition">
-            <button className="text-white hover:text-gray-300 px-3 py-2">
+            <button className="text-white font-semibold hover:text-green-500 px-3 py-2">
               Dietition
             </button>
             </NavLink>
             <NavLink to="/queries">
-            <div className="block text-white w-full text-left px-3 py-2">
+            <div className="block text-white font-semibold hover:text-green-500  w-full text-left px-3 py-2">
               Queries
             </div>
             
           </NavLink>
           <NavLink to="/fetchapplydoctor">
-            <div className="block text-white w-full text-left px-3 py-2">
+            <div className="block text-white font-semibold hover:text-green-500  w-full text-left px-3 py-2">
               Doctor Request
             </div>
             
           </NavLink>
           
-            <button onClick={Logout} className="text-white hover:text-gray-300 px-3 py-2">
+            <button onClick={Logout} className="text-white font-semibold hover:text-green-500  px-3 py-2">
                 Logout
               </button>
           </div>

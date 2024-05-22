@@ -102,13 +102,13 @@ const Dashboard = () => {
 
     return (
       <div className="container mx-auto">
-        <h1 className="text-3xl font-bold text-center mt-8 mb-4">
+        <h1 className="text-3xl font-bold text-white text-center mt-8 mb-4">
           User Category Menu
         </h1>
         <UserCategoryMenu handleCategorySelect={handleCategorySelect} />
         {selectedCategory && (
           <div className="text-center mt-4">
-            <p className="font-bold text-xl">
+            <p className="font-bold text-xl text-white">
               Displaying {`${selectedCategory}`}
             </p>
             {categoryresp ? (

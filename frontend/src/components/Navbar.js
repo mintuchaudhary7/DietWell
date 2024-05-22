@@ -90,7 +90,7 @@ const Navbar = () => {
         <div className=" md:hidden">
           <button
             onClick={toggleMobileMenu}
-            className="text-3xl text-white focus:outline-none"
+            className="text-3xl text-white  focus:outline-none"
           >
             <svg
               className="h-6 w-6"
@@ -119,7 +119,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex justify-evenly gap-6 mr-10 text-xl ">
+        <div className="hidden md:flex justify-evenly  gap-6 mr-10 text-xl ">
           {/* NavLinks for routes */}
           <NavLink className="hover:text-green-400" to="/notification">Notification</NavLink>
           <NavLink className="hover:text-green-400" to="/">Home</NavLink>
@@ -129,7 +129,7 @@ const Navbar = () => {
 
           {/* Conditional rendering for login/signup or profile/logout */}
           {islogin ? (
-            <div onClick={clickhandler} className="cursor-pointer">
+            <div onClick={clickhandler} className=" cursor-pointer">
               <Avatar round={true} size="40" name="Sahil" />
             </div>
           ) : (
@@ -163,8 +163,8 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden flex flex-col mt-2">
-           <NavLink className="hover:text-green-400" to="/notification">Notification</NavLink>
+        <div className="bg-[#4a5976] pt-2 rounded-md md:hidden flex flex-col ">
+           <NavLink className="pl-4 text-left hover:text-green-400" to="/notification">Notification</NavLink>
           <NavLink to="/" className="block px-4 py-2 text-black">
             Home
           </NavLink>

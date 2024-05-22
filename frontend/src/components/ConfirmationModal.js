@@ -12,7 +12,7 @@ const ConfirmationModal = ({ isOpen, message, onConfirm, onCancel }) => {
   };
 
   return (
-    <div className={`fixed inset-0 flex items-center justify-center z-50 ${isOpen ? '' : 'hidden'}`}>
+    <div className={`text-red-500 font-semibold fixed inset-0 flex items-center justify-center z-50 ${isOpen ? '' : 'hidden'}`}>
       <div className="bg-gray-800 bg-opacity-75 absolute inset-0"></div>
       <div className="bg-white rounded-lg p-8 max-w-sm w-full mx-auto z-50 overflow-y-auto">
         <p className="text-lg text-center mb-4">{message}</p>

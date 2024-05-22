@@ -64,11 +64,12 @@ const PendingQuery = ({ menu, fetchQuestion }) => {
               value={reply}
               onChange={handleReplyChange}
               placeholder="Type your reply here..."
-              className="border border-gray-300 px-4 py-2 rounded-lg w-full"
+              className="border border-gray-300 text-black px-4 py-2 rounded-lg w-full"
             />
+            
             <button
               onClick={handleReplySubmit}
-              className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg"
+              className="mt-2 px-4 py-2 bg-green-500 font-semibold text-white rounded-lg hover:bg-green-400"
             >
               Submit Reply
             </button>
