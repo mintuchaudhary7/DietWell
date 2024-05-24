@@ -50,7 +50,7 @@ const Queries = () => {
         setSelectedOption={setSelectedOption}
       ></QueryOptions>
       {resp ? (
-        <div>
+        <div className="">
           {menu.map((menu) => (
             <ShowQueries reload={FetchQueries} selectedOption={selectedOption} key={menu._id} user={menu} />
           ))}

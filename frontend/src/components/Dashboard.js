@@ -108,11 +108,11 @@ const Dashboard = () => {
         <UserCategoryMenu handleCategorySelect={handleCategorySelect} />
         {selectedCategory && (
           <div className="text-center mt-4">
-            <p className="font-bold text-xl text-white">
+            <p className="font-bold text-xl text-white pb-4">
               Displaying {`${selectedCategory}`}
             </p>
             {categoryresp ? (
-              <div>
+              <div className="">
                 {categoryMenu.map((menu) => (
                   <DashboardCard key={menu._id} user={menu} />
                 ))}

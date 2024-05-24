@@ -49,23 +49,24 @@ const ShowQueries = (props) => {
     }
   };
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 mb-4">
+    <div className="bg-[#4a5976] mx-2 rounded-lg shadow-md p-4 mb-4">
       {/* console.log(user) */}
-      <h2 className="text-lg font-bold mb-2">Query Details</h2>
+      <h2 className="text-lg text-white font-bold mb-2">Query Details</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {Object.entries(user).map(([key, value]) => (
           <div key={key}>
             {/* {key=== "Status" ? key.Status === "solved" ? setisSolved("solved") : <></>:<></>} */}
 
-            <p className="text-sm font-semibold text-gray-600">{key}</p>
-            <p className="text-sm overflow-auto">{value}</p>
+            <p className="text-sm font-semibold text-yellow-500">{key}</p>
+            <p className="text-sm font-semibold overflow-auto text-white">{value}</p>
           </div>
         ))}
       </div>
       {isSolved ? (
         <></>
       ) : (
-        <button  onClick={MarkasSolved}>Mark as Solved</button>
+        <button className=" mt-4 mb-4 text-white font-semibold py-2 px-4 bg-green-500 rounded-md hover:bg-green-600 transition duration-300"
+          onClick={MarkasSolved}>Mark as Solved</button>
       )}
     </div>
   );

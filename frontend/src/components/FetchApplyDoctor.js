@@ -10,12 +10,12 @@ const FetchApplyDoctor = () => {
 
   const fetchApplications = async () => {
     try {
-      const token = sessionStorage.getItem('token')
+      const token = sessionStorage.getItem("token");
       const response = await fetch(`http://localhost:2000/data/${pending}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
         credentials: "include",
       });
@@ -44,12 +44,12 @@ const FetchApplyDoctor = () => {
   const approveDoctor = async (email) => {
     try {
       const data = { email };
-      const token = localStorage.getItem('token')
+      const token = localStorage.getItem("token");
       const response = await fetch("http://localhost:2000/approvedoctor", {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
         credentials: "include",
         body: JSON.stringify(data),
@@ -77,16 +77,19 @@ const FetchApplyDoctor = () => {
   return (
     <div>
       <AdminNavbar />
-      <h1>Apply Doctor</h1>
-      <div>
+      <h1 className="text-white font-bold text-2xl text-center pt-4">
+        Apply Doctor
+      </h1>
+      <div className="flex flex-col md:flex-row justify-center md:justify-start">
         <button
-          className="m-10"
+          className="ml-2 mr-2 md:ml-10 mt-4 mb-4 text-white font-semibold py-2 px-4 bg-yellow-500 rounded-md hover:bg-yellow-600 transition duration-300"
           onClick={() => setPending("pending")}
           disabled={pending === "pending"}
         >
           Pending
         </button>
         <button
+          className="ml-2 mr-2 md:ml-10 mt-4 mb-4 text-white font-semibold py-2 px-4 bg-green-500 rounded-md hover:bg-green-600 transition duration-300"
           onClick={() => setPending("approved")}
           disabled={pending === "approved"}
         >
@@ -99,8 +102,11 @@ const FetchApplyDoctor = () => {
           <div key={index}>
             <ShowApplications userData={userData} />
             {userData.status === "pending" && (
-              <button onClick={() => approveDoctor(userData.email)}>
-                Approve
+              <button
+                className="ml-2 mr-2 md:ml-10 mt-4 mb-4 text-white font-semibold py-2 px-4 bg-green-500 rounded-md hover:bg-green-600 transition duration-300"
+                onClick={() => approveDoctor(userData.email)}
+              >
+                Approve Request
               </button>
             )}
           </div>
@@ -108,8 +114,6 @@ const FetchApplyDoctor = () => {
       ) : (
         <div>Loading</div>
       )}
-
-     
     </div>
   );
 };
