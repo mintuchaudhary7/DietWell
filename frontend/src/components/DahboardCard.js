@@ -22,16 +22,16 @@ const DashboardCard = ({ user }) => {
     console.log(toDelete)
   }
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 mb-4">
-      <h2 className="text-lg font-bold mb-2">User Details</h2>
+    <div className="bg-[#4a5976] rounded-lg shadow-md p-4 mb-4">
+      <h2 className="text-lg text-white font-bold mb-2">User Details</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         
         {Object.entries(user).slice(0, 6).map(([key, value]) => (
           <div key={key}>
             
             
-            <p className="text-sm font-semibold text-gray-600">{key}</p>
-            <p className="text-sm overflow-auto">{value}</p>
+            <p className="text-sm font-semibold text-yellow-500">{key}</p>
+            <p className="text-sm font-semibold text-white overflow-auto">{value}</p>
             
           </div>
           
@@ -41,7 +41,7 @@ const DashboardCard = ({ user }) => {
 
       <div className="mt-4">
         <button
-          className="py-2 px-4 bg-yellow-500 text-white rounded-md hover:bg-yellow-600 transition duration-300"
+          className="py-2 px-4 bg-yellow-500 text-white text-semibold rounded-md hover:bg-yellow-600 transition duration-300"
           onClick={toggleDetails}
           >
           {showAllDetails ? 'Hide Details' : 'Show Details'}
@@ -55,8 +55,8 @@ const DashboardCard = ({ user }) => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {Object.entries(user).map(([key, value]) => (
               <div key={key}>
-                <p className="text-sm font-semibold text-gray-600">{key}</p>
-                <p className="text-sm overflow-auto">{value}</p>
+                <p className="text-sm font-semibold text-yellow-500">{key}</p>
+                <p className="text-sm font-semibold text-white overflow-auto">{value}</p>
               </div>
               
             ))}
