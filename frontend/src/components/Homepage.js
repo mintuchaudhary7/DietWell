@@ -87,12 +87,12 @@ const Home = () => {
             </h1>
             <div className="mb-6 text-white text-xl">{quotes}</div>
             <NavLink to="/services">
-              <button className="bg-green-500 hover:bg-green-400 py-2 text-white px-4 rounded-full font-bold text-lg">
+              <button className="bg-green-500 hover:bg-green-400 py-2 ml-2 text-white px-4 rounded-full font-bold text-lg">
                 Get Started
               </button>
             </NavLink>
             <NavLink to="/applydietition">
-              <button className="bg-green-500 hover:bg-green-400 py-2 ml-4 text-white px-4 rounded-full font-bold text-lg">
+              <button className="bg-green-500 hover:bg-green-400 py-2 ml-2 mt-4 text-white px-4 rounded-full font-bold text-lg">
                 APPLY DIETITION
               </button>
             </NavLink>

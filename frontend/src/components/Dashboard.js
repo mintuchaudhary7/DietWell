@@ -49,16 +49,16 @@ const Dashboard = () => {
     ];
 
     return (
-      <div className="flex flex-wrap justify-center mt-8">
+      <div className="flex flex-wrap justify-center mt-8 ">
         {categories.map((category) => (
           <div
             key={category.title}
             className="max-w-xs rounded overflow-hidden shadow-lg m-4 cursor-pointer"
             onClick={() => handleCategorySelect(category.title)}
           >
-            <div className="px-6 py-4">
-              <div className="font-bold text-xl mb-2">{category.title}</div>
-              <p className="text-gray-700 text-base">{category.description}</p>
+            <div className="px-6 py-4 bg-[#4a5976] ">
+              <div className="font-bold text-xl mb-2 text-white">{category.title}</div>
+              <p className="text-white font-bold text-base ">{category.description}</p>
             </div>
           </div>
         ))}
@@ -101,20 +101,20 @@ const Dashboard = () => {
     };
 
     return (
-      <div className="container mx-auto">
+      <div className="container mx-auto ">
         <h1 className="text-3xl font-bold text-white text-center mt-8 mb-4">
           User Category Menu
         </h1>
         <UserCategoryMenu handleCategorySelect={handleCategorySelect} />
         {selectedCategory && (
-          <div className="text-center mt-4">
+          <div className="text-center mt-4 ">
             <p className="font-bold text-xl text-white pb-4">
               Displaying {`${selectedCategory}`}
             </p>
             {categoryresp ? (
               <div className="">
                 {categoryMenu.map((menu) => (
-                  <DashboardCard key={menu._id} user={menu} />
+                  <DashboardCard  key={menu._id} user={menu} />
                 ))}
               </div>
             ) : (

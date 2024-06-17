@@ -11,11 +11,11 @@ const Services = () => {
   const [middlewareresponse, setmiddlewarerespnse] = useState(false);
 
   return (
-    <div className="bg-[#233037]">
+    <div className="bg-[#233037] pb-1">
       <div
         className="top-24 mb-24 relative max-w-7xl mx-auto px-4 py-8 bg-cover bg-center min-h-screen"
         style={{
-          backgroundImage: `url(${image})`,
+          // backgroundImage: `url(${image})`,
           filter: "brightness()",
         }}
       >
@@ -23,26 +23,38 @@ const Services = () => {
           Our Services
         </div>
 
-        <div className="text-white text-xl relative top-32 font-bold text-center">
-          <p className="text-xs text-green-500">How It Works</p>
-          <h3>3 Easy Steps For Happy Life</h3>
+        <div className="bg-[#4a5976] flex flex-col items-center py-8  mt-12 px-[2px] rounded-md">
+          <div className="text-white text-xl font-bold text-center mb-8">
+            <p className="text-xs text-green-500">How It Works</p>
+            <h3>3 Easy Steps For Happy Life</h3>
+          </div>
+
+          <div className="text-white font-bold text-center flex space-x-1 lg:space-x-4">
+            <div className="bg-[#233037] py-2 px-4 rounded-md border-2 border-green-500 text-xs ">
+              Get Diet Plan
+            </div>
+
+            <div className="bg-[#233037] py-2 px-4 rounded-md border-2 border-green-500 text-xs">
+              Follow Diet Plan
+            </div>
+
+            <div className="bg-[#233037] py-2 px-4 rounded-md border-2 border-green-500 text-xs">
+              Happy Life
+            </div>
+          </div>
         </div>
 
-        <div className="text-white relative ml-60 mr-60 top-40 font-bold text-center flex justify-evenly">
-          <div className="bg-[#233037] py-2 px-4 rounded-md border-2 border-[#233037] text-xs hover:border-green-500">
-            Get Diet Plan
-          </div>
+        <NavLink className="relative flex justify-end mt-4 mr-4" to="/user-dietition-question">
+        <img
+          className="h-12 w-12 rounded-2xl hover:"
+          height={100}
+          width={100}
+          src="https://cdn.pixabay.com/photo/2015/11/06/11/51/question-mark-1026526_640.jpg"
+          alt="chat with doctor"
+        />
+      </NavLink>
 
-          <div className="bg-[#233037] py-2 px-4 rounded-md border-2 border-[#233037] text-xs hover:border-green-500">
-            Follow Diet Plan
-          </div>
-
-          <div className="bg-[#233037] py-2 px-4 rounded-md border-2 border-[#233037] text-xs hover:border-green-500">
-            Happy Life
-          </div>
-        </div>
-
-        <div className="relative mt-10 z-10 sm:top-48 md:top-48 mb-60 lg:top-60 mb-20">
+        <div className="relative mt-10 z-10 sm:top-16 md:top-16 mb-20 lg:top-8">
           <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             {services.map((service) => (
               <NavLink
@@ -66,10 +78,7 @@ const Services = () => {
           </div>
         </div>
       </div>
-      <NavLink className="" to="/user-dietition-question">
-        <img className="h-12 w-12 rounded-2xl" height={100} width={100} src="https://cdn.pixabay.com/photo/2015/11/06/11/51/question-mark-1026526_640.jpg" alt="chat with doctor" />
-
-      </NavLink>
+      
     </div>
   );
 };

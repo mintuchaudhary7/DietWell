@@ -17,7 +17,7 @@ const AdminPage = () => {
     logauth();
    }, []);
   return (
-    <div className="bg-[#233037] min-h-screen">
+    <div className=" min-h-screen bg-[#233037] ">
       <ToastContainer></ToastContainer>
       <Routes>
         <Route

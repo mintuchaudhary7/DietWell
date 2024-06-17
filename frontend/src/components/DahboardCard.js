@@ -22,7 +22,7 @@ const DashboardCard = ({ user }) => {
     console.log(toDelete)
   }
   return (
-    <div className="bg-[#4a5976] rounded-lg shadow-md p-4 mb-4">
+    <div className="bg-[#4a5976] rounded-lg  p-4 mb-4">
       <h2 className="text-lg text-white font-bold mb-2">User Details</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         
