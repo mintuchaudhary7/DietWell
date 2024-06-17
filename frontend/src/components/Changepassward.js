@@ -75,7 +75,7 @@ const PasswordChangePage = () => {
   };
 
   return (
-   <div className='bg-[#233037] min-h-screen pt-28 text-white text-center text-2xl'>
+   <div className='bg-[#233037] text-black min-h-screen pt-28 text-white text-center text-2xl'>
     {
       // conditional rendering if our user is not verifieed with otp we render the page which say user to verify via otp help in url parshing from attackers
       changePasswardOtpVerified ?  <div className=" min-h-screen flex items-center justify-center sm:px-6 lg:px-8">
@@ -101,7 +101,7 @@ const PasswordChangePage = () => {
                 required
                 value={Email}
                 onChange={handleEmailChange}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="text-black rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
               />
             </div>

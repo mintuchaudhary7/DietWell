@@ -77,7 +77,7 @@ const Contact = () => {
             <input
               type="text"
               className="w-full border rounded-md px-4 py-2"
-              placeholder="Sahil Singh"
+              placeholder="Your Name"
               name="fullName"
               id="fullname"
               value={Name}
@@ -107,7 +107,7 @@ const Contact = () => {
             <input
               type="Number"
               className="w-full border rounded-md px-4 py-2"
-              placeholder="7318573930"
+              placeholder="99999 99999"
               name="contact"
               id="contact"
               value={ContactNo}

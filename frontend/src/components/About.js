@@ -14,7 +14,7 @@ const About = () => {
         {/* Vision, Mission, Values */}
         <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Vision */}
-          <div className="shadow-2xl bg-[#4a5976] p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105 cursor-pointer">
+          <div className="shadow-2xl bg-[#4a5976] p-6 rounded-lg  hover:shadow-xl transform transition duration-500 hover:scale-105 cursor-pointer">
             <h2 className="text-white text-2xl font-bold mb-2">Our Vision</h2>
             <p className=" text-white">
               To be recognized as leaders in our industry, inspiring change and
@@ -22,7 +22,7 @@ const About = () => {
             </p>
           </div>
           {/* Mission */}
-          <div className="shadow-2xl bg-[#4a5976] p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105 cursor-pointer">
+          <div className="shadow-2xl bg-[#4a5976] p-6 rounded-lg  hover:shadow-xl transform transition duration-500 hover:scale-105 cursor-pointer">
             <h2 className="text-2xl text-white font-bold mb-2">Our Mission</h2>
             <p className="text-white">
               To deliver unparalleled service and innovative solutions that
@@ -30,7 +30,7 @@ const About = () => {
             </p>
           </div>
           {/* Values */}
-          <div className="shadow-2xl bg-[#4a5976] p-6 rounded-lg shadow-lg hover:shadow-xl transform transition duration-500 hover:scale-105 cursor-pointer">
+          <div className="shadow-2xl bg-[#4a5976] p-6 rounded-lg hover:shadow-xl transform transition duration-500 hover:scale-105 cursor-pointer">
             <h2 className="text-2xl text-white font-bold mb-2">Values</h2>
             <p className="text-white">
               Integrity, Commitment, Collaboration, Innovation, Excellence.

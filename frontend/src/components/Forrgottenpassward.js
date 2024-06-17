@@ -88,7 +88,7 @@ const Forrgottenpassward = () => {
               onChange={(e) => setOtp(e.target.value)}
               required
             />
-            <button className="bg-white text-[#233037] font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+            <button className="bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
               Submit
             </button>
           </form>
