@@ -232,15 +232,19 @@ const UpdateProfile = () => {
             >
               Gender
             </label>
-            <input
-              type="text"
+            <select
               name="gender"
               id="gender"
               className="mt-1 p-2 border rounded-md w-full"
               value={profile.gender}
               onChange={handleChange}
-            />
+            >
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="User Specified">User Specified</option>
+            </select>
           </div>
+
           <div>
             <label
               htmlFor="activity"
@@ -262,17 +266,21 @@ const UpdateProfile = () => {
               htmlFor="dietpreference"
               className="block text-sm font-medium text-white"
             >
-              Diet-Preference
+              Diet Preference
             </label>
-            <input
-              type="text"
+            <select
               name="dietpreference"
               id="dietpreference"
               className="mt-1 p-2 border rounded-md w-full"
               value={profile.dietpreference}
               onChange={handleChange}
-            />
+            >
+              <option value="Veg">Veg</option>
+              <option value="Non-veg">Non-veg</option>
+              <option value="Vegan">Vegan</option>
+            </select>
           </div>
+
           <div>
             <label
               htmlFor="BMR"
