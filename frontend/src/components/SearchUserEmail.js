@@ -75,7 +75,9 @@ const SearchDietitionEmail = (props) => {
         {Userfound ? (
           <div>
             {" "}
-            <h1 className="text-black text-2xl font-semibold ml-4 mb-2">The requested user is : </h1>
+            <h1 className="text-black text-2xl font-semibold ml-4 mb-2">
+              The requested user is :{" "}
+            </h1>
             <UserCard user={menu}></UserCard>{" "}
           </div>
         ) : (
